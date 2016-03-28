@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:minHeight="60dp"
+    android:background="@color/background"
+    android:clickable="true"
+    >
+
+    <TextView
+        android:id="@+id/smallname"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
+        android:text="51A"
+        android:textColor="@android:color/tab_indicator_text"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:textSize="15sp"
+        android:focusable="false"
+        />
+
+    <TextView android:id="@+id/longname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:layout_centerVertical="true"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:focusable="false"/>
+
+</RelativeLayout>

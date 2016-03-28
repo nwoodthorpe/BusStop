@@ -1,0 +1,858 @@
+{"data":[
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"1",
+            "Description":"Queen-River",
+            "Direction":"West",
+            "DirectionName":"to Downtown",
+            
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"1~~West",
+        "Text":"1 - Queen-River (to Downtown)",
+        "Stops":["2232 - FAIRVIEW PARK TERMINAL","1559 - KINGSWAY / WILSON","1047 - FAIRWAY / WALMART","1048 - FAIRWAY / KING","1049 - FAIRWAY / MORGAN","1050 - FAIRWAY / THALER","1866 - THALER / FAIRWAY","3478 - KINZIE / THALER","3479 - RIVER / KINZIE","1664 - RIVER / OLD CHICOPEE","1665 - RIVER / RENNIE","1068 - RIVER / BRADLEY","1069 - RIVER / CONWAY","1070 - RIVER / STANLEY PARK MALL","1071 - RIVER / OTTAWA","1072 - RIVER / PATH TO SECORD","3574 - RIVER / GIBSON","1073 - RIVER / HALLIWELL","1074 - RIVER / MANCHESTER","2395 - KRUG / RIVER","2396 - KRUG / SHERWOOD","2369 - KRUG / CAMBRIDGE","2400 - KRUG / BECKER","2402 - KRUG / MELROSE","2403 - KRUG / EAST","2404 - KRUG / LYDIA","2405 - KRUG / SAMUEL","2407 - KRUG / LANCASTER","2408 - WEBER / SCOTT","1088 - FREDERICK / KING","1889 - KING / QUEEN","1890 - KING / ONTARIO","2710 - CHARLES STREET TERMINAL","2754 - QUEEN / COURTLAND","3069 - QUEEN / SCHNEIDER","2755 - QUEEN / HOMEWOOD","3293 - QUEENS / HIGHLAND","3294 - QUEENS / SPADINA","3295 - QUEENS / ST","3296 - QUEENS / BELMONT","3297 - QUEENS / COMMUNITY TRAIL","3298 - QUEENS / HAHN","3299 - QUEENS / WESTMOUNT","3300 - QUEENS / CECILE","3303 - QUEENS / SILVERSPRING","3304 - QUEENS / EAGEN","3306 - QUEENS / FISCHER","3307 - QUEENS / HIGHLAND HILLS MALL","3308 - ELM RIDGE / QUEENS","3310 - ELM RIDGE / SILVER ASPEN","3311 - ELM RIDGE / RAMBLEWOOD","3461 - MCGARRY / FORESTWOOD","3472 - MCGARRY / MEADOWBROOK","3317 - MCGARRY / ROYAL ORCHARD","3471 - WESTHEIGHTS / DRIFTWOOD","3469 - DRIFTWOOD / WESTHEIGHTS","3368 - DRIFTWOOD / HIGHVIEW","3468 - HIGHVIEW / HIGHVIEW","3384 - HIGHVIEW / SUGAR MAPLE","3467 - HIGHVIEW / GOLDEN MEADOW","3476 - IRA NEEDLES / PENELOPE","1203 - Ira Needles / Highland","3487 - IRA NEEDLES / PATH TO WESTMEADOW","1101 - IRA NEEDLES / VICTORIA","3908 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"1",
+            "Description":"Queen-River",
+            "Direction":"East",
+            "DirectionName":"to Stanley Park",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"1~~East",
+        "Text":"1 - Queen-River (to Stanley Park)",
+        "Stops":["3908 - THE BOARDWALK TERMINAL","1095 - Ira Needles / Victoria","3485 - IRA NEEDLES / HIGHLAND MARKETPLACE","1180 - Ira Needles / Highland","3473 - IRA NEEDLES / PENELOPE","3466 - HIGHVIEW / GOLDEN MEADOW","3329 - HIGHVIEW / SUGAR MAPLE","3330 - HIGHVIEW / HIGHVIEW PL","3331 - DRIFTWOOD / ROLLING MEADOWS","3332 - DRIFTWOOD / WESTHEIGHTS","3333 - WESTHEIGHTS / DRIFTWOOD CTR","3335 - MCGARRY / ROYAL ORCHARD","3337 - MCGARRY / MEADOWBROOK","3338 - MCGARRY / PINEHURST","3340 - ELM RIDGE / HICKORY HEIGHTS","3341 - ELM RIDGE / HICKORY HEIGHTS","3342 - ELM RIDGE / HILLBROOK","3637 - ELM RIDGE / QUEENS","3343 - QUEENS / HIGHLAND HILLS MALL","3482 - QUEENS / FISCHER","3344 - QUEENS / BONFAIR","3345 - QUEENS / SILVERSPRING","3346 - QUEENS / WARREN","3347 - QUEENS / CECILE","3348 - QUEENS / WESTMOUNT","3349 - QUEENS / BLUERIDGE","3350 - QUEENS / COMMUNITY TRAIL","3351 - QUEENS / BELMONT","3353 - QUEENS / ST","3354 - QUEENS / SPADINA","3355 - QUEENS / HIGHLAND","1982 - QUEEN / WOODSIDE","2705 - QUEEN / SCHNEIDER","2706 - QUEEN / COURTLAND","2707 - QUEEN / COURTLAND","2557 - CHARLES STREET TERMINAL","1000 - FREDERICK / KING","3575 - FREDERICK / WEBER","2359 - WEBER / SCOTT","3578 - Krug / Lancaster","2361 - KRUG / SAMUEL","2362 - KRUG / LYDIA","2363 - KRUG / EAST","2364 - KRUG / MELROSE","2366 - KRUG / BECKER","2370 - KRUG / ETON","2371 - KRUG / SHERWOOD","2372 - KRUG / RIVER","1012 - RIVER / MANCHESTER","1013 - RIVER / HALLIWELL","1014 - RIVER / HICKSON","1015 - RIVER / PATH TO SECORD","1016 - RIVER / OTTAWA","1017 - RIVER / STANLEY PARK MALL","1018 - RIVER / CONWAY","1019 - RIVER / BRADLEY","1693 - RIVER / RENNIE","1694 - RIVER / OLD CHICOPEE","3480 - KINZIE / RIVER","3477 - THALER / KINZIE","2619 - THALER / KINZIE","3481 - FAIRWAY / THALER","1041 - FAIRWAY / MORGAN","1042 - FAIRWAY / KING","1043 - FAIRWAY / KING","1044 - FAIRWAY / WABANAKI","1045 - FAIRWAY / FAIRVIEW PARK","2232 - FAIRVIEW PARK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"3",
+            "Description":"Ottawa South",
+            "Direction":"Direction2",
+            "DirectionName":"to Downtown",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"3~~Direction2",
+        "Text":"3 - Ottawa South (to Downtown)",
+        "Stops":["1768 - FOREST GLEN TERMINAL","2885 - BLOCK LINE / STRASBURG","2886 - BLOCK LINE / RITTENHOUSE","2887 - BLOCK LINE / MCLENNAN PARK","2888 - BLOCK LINE / LAURENTIAN","2889 - LAURENTIAN / BRIAR KNOLL","2890 - DUNSMERE / LAURENTIAN","2891 - DUNSMERE / COLEBROOK","2892 - DUNSMERE / RADCLIFFE","2893 - DUNSMERE / WESTMOUNT","2894 - WILLIAMSBURG / DINISON","2895 - WILLIAMSBURG / LITTLEFIELD","2896 - WILLIAMSBURG / PINEDALE","2897 - Williamsburg / Ottawa","2898 - OTTAWA / PINEDALE","2899 - OTTAWA / WESTMOUNT","2900 - PATH TO CHANDLER","2901 - OTTAWA / HOWLAND","2902 - ELMSDALE / OTTAWA","2903 - ELMSDALE / CHANDLER","2904 - CHANDLER / BONFIELD","2905 - G","2906 - OTTAWA / STRASBURG","2907 - OTTAWA / ALPINE","2908 - OTTAWA / IMPERIAL","2910 - OTTAWA / HOFFMAN","2911 - MILL / OTTAWA","2912 - MILL / BORDEN","2913 - MILL / HEIMAN","2914 - MILL / STIRLING","2751 - COURTLAND / MADISON","2752 - COURTLAND / PETER","2753 - COURTLAND / BENTON","2707 - QUEEN / COURTLAND","2559 - CHARLES STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"3",
+            "Description":"Ottawa South",
+            "Direction":"Direction1",
+            "DirectionName":"to Forest Glen",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"3~~Direction1",
+        "Text":"3 - Ottawa South (to Forest Glen)",
+        "Stops":["2559 - CHARLES STREET TERMINAL","3068 - QUEEN / ST","2715 - COURTLAND / PETER","2716 - COURTLAND / MADISON","3618 - COURTLAND / STIRLING","2929 - STIRLING / MILL","2930 - MILL / HEIMAN","2931 - MILL / BORDEN","2933 - MILL / OTTAWA","2934 - OTTAWA / HOFFMAN","2935 - OTTAWA / KEHL","2936 - OTTAWA / HOMER WATSON","2937 - OTTAWA / ALPINE","3229 - OTTAWA / STRASBURG","2863 - G","2864 - CHANDLER / BONFIELD","2865 - ELMSDALE / CHANDLER","2866 - ELMSDALE / OTTAWA","2867 - OTTAWA / HOWLAND","2868 - PATH TO CHANDLER","2869 - OTTAWA / WESTMOUNT","2870 - OTTAWA / HOWE","2871 - WILLIAMSBURG / OTTAWA","2872 - WILLIAMSBURG / PINEDALE","2873 - WILLIAMSBURG / DINISON","2874 - WILLIAMSBURG / DINISON","2875 - DUNSMERE / BOSWORTH","2876 - DUNSMERE / RADCLIFFE","2877 - DUNSMERE / COLEBROOK","2878 - DUNSMERE / LAURENTIAN","2879 - LAURENTIAN / BRIAR KNOLL","2880 - LAURENTIAN / BLOCK LINE","2882 - BLOCK LINE / MCLENNAN PARK","2883 - BLOCK LINE / RITTENHOUSE","2884 - STRASBURG / BLOCK LINE","1768 - FOREST GLEN TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"5",
+            "Description":"Erb",
+            "Direction":"Direction1",
+            "DirectionName":"to Bridgeport",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"5~~Direction1",
+        "Text":"5 - Erb (to Bridgeport)",
+        "Stops":["4003 - THE BOARDWALK TERMINAL","3883 - IRA NEEDLES / UNIVERSITY","3663 - UNIVERSITY / COUNTRYSTONE","3664 - UNIVERSITY / COUNTRYSTONE","4064 - PORTSMOUTH / WESTVALE","4066 - WESTVALE / BRIDGEWATER","4068 - WESTVALE / THORNDALE","4069 - WESTVALE / EDENVALLEY","4070 - WESTVALE / HEATHER HILL","1984 - ERB / GATEVIEW","1994 - ERB / FISCHER","1995 - ERB / ROOSEVELT","1996 - ERB / CULPEPPER","1997 - ERB / AMOS","1998 - ERB / MCDOUGALL","1999 - ERB / WESTMOUNT","2000 - ERB / DIETZ","2001 - ERB / ROSLIN","2002 - ERB / AVONDALE","2003 - ERB / EUCLID","2004 - ERB / CAROLINE","1907 - UPTOWN WATERLOO","2006 - ERB / KING","2007 - ERB / WILLOW","2009 - ERB / DEVITT","2010 - ERB / WEBER","2011 - ERB / ELLIS","2012 - ERB / CARDINAL","2013 - ERB / TERRYSTONE","2014 - BRIDGEPORT / LEANDER","2015 - BRIDGEPORT / MACKIE","2016 - BRIDGEPORT / LANCASTER","2020 - LANCASTER / LANG","2021 - LANCASTER / GENERAL","2424 - LANCASTER / BRIDGE","2425 - BRIDGE / TYSON","2426 - BRIDGE / BLOOMINGDALE","2427 - BRIDGE / SCHWEITZER","2428 - BRIDGE / TAGGE","2429 - STANLEY / SCHUELLER","2430 - STANLEY / TAGGE","2431 - STANLEY / SCHWEITZER","2432 - SCHWEITZER / NELSON","2433 - SCHWEITZER / DANIEL","2434 - DANIEL / BLOOMINGDALE"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"5",
+            "Description":"Erb",
+            "Direction":"Direction2",
+            "DirectionName":"to The Boardwalk",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"5~~Direction2",
+        "Text":"5 - Erb (to The Boardwalk)",
+        "Stops":["1907 - UPTOWN WATERLOO","2434 - DANIEL / BLOOMINGDALE","2435 - BLOOMINGDALE / NELSON","2436 - BLOOMINGDALE / STANLEY","2437 - BLOOMINGDALE / PRINCE","2438 - BLOOMINGDALE / HORNING","2439 - BRIDGE / TYSON","1943 - LANCASTER / JONES","1944 - LANCASTER / GENERAL","1945 - LANCASTER / LANG","1946 - BRIDGEPORT / LANCASTER","1947 - BRIDGEPORT / MACKIE","1948 - BRIDGEPORT / LANG","1949 - BRIDGEPORT / GOLDBECK","1950 - BRIDGEPORT / BLUEVALE","1951 - BRIDGEPORT / MARGARET","1952 - BRIDGEPORT / ELLIS","1954 - BRIDGEPORT / WEBER","1955 - BRIDGEPORT / DEVITT","1956 - BRIDGEPORT / PEPPLER","1957 - KING / BRIDGEPORT","4015 - UPTOWN WATERLOO","5007 - Bridgeport / Albert","1961 - ERB / FATHER DAVID BAUER","1962 - ERB / WELLS","1963 - ERB / AVONDALE","1964 - ERB / BEVERLEY","1965 - ERB / DIETZ","1966 - ERB / WESTMOUNT","1967 - ERB / MCDOUGALL","1968 - ERB / MULBERRY","1969 - ERB / AMOS","1970 - ERB / CULPEPPER","1971 - ERB / CHURCHILL","4056 - ERB / FISCHER","4071 - ERB / BEECHWOOD","1985 - GATEVIEW / WESTVALE","1986 - WESTVALE / HEATHER HILL","1988 - WESTVALE / EDENVALLEY","4067 - WESTVALE / THORNDALE","4065 - WESTVALE / CARDIFF","4063 - PORTSMOUTH / SPRINGFIELD","3880 - UNIVERSITY / PORTSMOUTH","3662 - UNIVERSITY / BAKER","4003 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"6",
+            "Description":"Bridge",
+            "Direction":"Direction1",
+            "DirectionName":"to Conestoga Mall",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"6~~Direction1",
+        "Text":"6 - Bridge (to Conestoga Mall)",
+        "Stops":["2555 - CHARLES STREET TERMINAL","1891 - KING / COLLEGE","1892 - KING / FRANCIS","1893 - KING / VICTORIA","5038 - VICTORIA / WEBER","5017 - WELLINGTON / WEBER","2413 - WELLINGTON / AHRENS","2414 - WELLINGTON / MARGARET","2415 - WELLINGTON / ST","2416 - WELLINGTON / MAJOR","2417 - LANCASTER / LOUISA","2418 - LANCASTER / HILL","2419 - LANCASTER / GUELPH","2420 - LANCASTER / ARNOLD","2421 - LANCASTER / ASH","2422 - LANCASTER / UNION","3657 - LANCASTER / HWY ","2423 - LANCASTER / HAMEL","2020 - LANCASTER / LANG","2021 - LANCASTER / GENERAL","2424 - LANCASTER / BRIDGE","2022 - BRIDGE / WOOLWICH","2023 - BRIDGE / BRIDLE TRAIL","4031 - BRIDGE / PATH TO AUBURN","4033 - BRIDGE / UNIVERSITY","3673 - BRIDGE / CRIMSON","4034 - BRIDGE / DANSBURY","3789 - BRIDGE / LEXINGTON","3790 - BRIDGE / WHITMORE","1925 - BRIDGE / EASTBRIDGE","4037 - BRIDGE / CHESAPEAKE","4028 - BRIDGE / PATH TO BRIGANTINE","4016 - BRIDGE / CHESAPEAKE","2044 - BRIDGE / LABRADOR","4050 - BRIDGE / NORTHFIELD","2088 - NORTHFIELD / WISSLER","4043 - NORTHFIELD / DAVENPORT","1212 - KRAUS / NORTHFIELD","1126 - CONESTOGA MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"6",
+            "Description":"Bridge",
+            "Direction":"Direction2",
+            "DirectionName":"to Downtown",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"6~~Direction2",
+        "Text":"6 - Bridge (to Downtown)",
+        "Stops":["1126 - CONESTOGA MALL TERMINAL","2809 - KRAUS / CONESTOGO","2810 - KRAUS / NORTHFIELD","4042 - NORTHFIELD / DAVENPORT","1920 - NORTHFIELD / WISSLER","4051 - BRIDGE / NORTHFIELD","1922 - BRIDGE / LABRADOR","4038 - BRIDGE / CHESAPEAKE","4029 - BRIDGE / PATH TO WISSLER","4036 - BRIDGE / CHESAPEAKE","4035 - BRIDGE / EASTBRIDGE","3783 - BRIDGE / WHITMORE","3784 - BRIDGE / LEXINGTON","3679 - BRIDGE / DANSBURY","3680 - BRIDGE / CRIMSON","4032 - BRIDGE / UNIVERSITY","4030 - BRIDGE / BECHTEL PARK","1941 - BRIDGE / BRIDLE","1942 - BRIDGE / WOOLWICH","1943 - LANCASTER / JONES","1944 - LANCASTER / GENERAL","1945 - LANCASTER / LANG","2440 - LANCASTER / HAMEL","2441 - LANCASTER / UNION","2442 - LANCASTER / ASH","2443 - LANCASTER / ARNOLD","2444 - LANCASTER / GUELPH","2445 - LANCASTER / HILL","2446 - LANCASTER / LOUISA","2447 - WELLINGTON / MAJOR","2448 - WELLINGTON / ST","2449 - WELLINGTON / MARGARET","2450 - WELLINGTON / AHRENS","3744 - WELLINGTON / WEBER","2461 - VICTORIA / WEBER","1901 - KING / VICTORIA","2457 - KING / WATER","2458 - KING / GAUKEL","2555 - CHARLES STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"7",
+            "Description":"Mainline",
+            "Direction":"Downward",
+            "DirectionName":"to Kitchener",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"7~~Downward",
+        "Text":"7 - Mainline (to Kitchener)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"7",
+            "Description":"Mainline",
+            "Direction":"Upward",
+            "DirectionName":"to Waterloo",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"7~~Upward",
+        "Text":"7 - Mainline (to Waterloo)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"8",
+            "Description":"University/Fairview Park",
+            "Direction":"South",
+            "DirectionName":"to Kitchener",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"8~~South",
+        "Text":"8 - University/Fairview Park (to Kitchener)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"8",
+            "Description":"University/Fairview Park",
+            "Direction":"North",
+            "DirectionName":"to Waterloo",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"8~~North",
+        "Text":"8 - University/Fairview Park (to Waterloo)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"9",
+            "Description":"Lakeshore",
+            "Direction":"Upward",
+            "DirectionName":"to Conestoga Mall",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"9~~Upward",
+        "Text":"9 - Lakeshore (to Conestoga Mall)",
+        "Stops":["1166 - UNIVERSITY / KING","1123 - U","1124 - U","1090 - UNIVERSITY / SEAGRAM","3943 - UNIVERSITY / PHILLIP","3945 - UNIVERSITY / SUNVIEW","2783 - UNIVERSITY / HEMLOCK","1167 - LAURIER","1168 - HAZEL / HICKORY","1171 - WATERLOO C","1172 - HAZEL / AUSTIN","1173 - HAZEL / SMALLWOOD","1174 - HAZEL / BLYTHWOOD","1175 - HAZEL / ALBERT","1176 - ALBERT / GREENBRIER","1177 - ALBERT / LONGWOOD","1178 - WEBER / ALBERT","1179 - PARKSIDE / WEBER","1181 - CEDARBRAE / MOUNT ANNE","1182 - CEDARBRAE / SPRUCEHILL","1183 - CEDARBRAE / HEASLEY PK TRAIL","1184 - CEDARBRAE / GLEN FORREST","1185 - GLEN FORREST / BROOKHAVEN","1186 - TOLL GATE / GLEN FORREST","1187 - TOLL GATE / DOGWOOD","1188 - TOLL GATE / HIGHPOINT","1189 - HIGHPOINT / DOGWOOD","1190 - HIGHPOINT / ROLLING HILLS","1191 - HIGHPOINT / NORTHFIELD","1193 - NORTHLAKE / HIGHPOINT","1194 - NORTHLAKE / GREEN MEADOW","1195 - NORTHLAKE / SKYLARK","1196 - NORTHFIELD / SKYLARK","1197 - NORTHFIELD / NORTHGATE","1198 - NORTHFIELD / WEBER","1199 - NORTHFIELD / WEBER","1200 - NORTHFIELD / PARKSIDE","1201 - NORTHFIELD / CONESTOGO","1202 - NORTHFIELD / KING","4042 - NORTHFIELD / DAVENPORT","1204 - DAVENPORT / NORTHFIELD","3393 - DAVENPORT / OLD ABBEY","1125 - CONESTOGA MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"9",
+            "Description":"Lakeshore",
+            "Direction":"Downward",
+            "DirectionName":"to UW",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"9~~Downward",
+        "Text":"9 - Lakeshore (to UW)",
+        "Stops":["1125 - CONESTOGA MALL TERMINAL","2809 - KRAUS / CONESTOGO","2810 - KRAUS / NORTHFIELD","1131 - NORTHFIELD / KING","1132 - NORTHFIELD / COLBY","1134 - NORTHFIELD / PARKSIDE","1135 - NORTHFIELD / WEBER","1136 - NORTHFIELD / WEBER","1137 - NORTHFIELD / NORTHGATE","1138 - NORTHFIELD / SKYLARK","1139 - NORTHLAKE / BLACK OAK","1140 - NORTHLAKE / GREEN MEADOW","1141 - NORTHLAKE / PINE ISLAND","1142 - HIGHPOINT / CORNERBROOK","1143 - HIGHPOINT / WINTERGREEN","1144 - HIGHPOINT / ROLLING HILLS","1145 - HIGHPOINT / DOGWOOD","1146 - HIGHPOINT / TOLL GATE","1147 - TOLL GATE / GLEN FORREST","1148 - GLEN FORREST / TEAKWOOD","1149 - CEDARBRAE / GLEN FORREST","1150 - CEDARBRAE / HEASLEY PARK","1152 - CEDARBRAE / SPRUCEHILL","1153 - PARKSIDE / GLENELM","1154 - PARKSIDE / WEBER","1155 - ALBERT / WEBER","1156 - ALBERT / LONGWOOD","1157 - ALBERT / QUIET","1158 - HAZEL / WILDWOOD","1159 - HAZEL / TAMARACK","1160 - HAZEL / SMALLWOOD","1161 - HAZEL / AUSTIN","3623 - HAZEL / COLUMBIA","1162 - WATERLOO C","1163 - HAZEL / HICKORY","3682 - HAZEL / UNIVERSITY","2673 - UNIVERSITY / HEMLOCK","2674 - UNIVERSITY / SUNVIEW","2675 - UNIVERSITY / PHILLIP","3683 - UNIVERSITY / SEAGRAM","2516 - U","2517 - U","1164 - HICKORY / KING","1166 - UNIVERSITY / KING"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"10",
+            "Description":"Conestoga College",
+            "Direction":"Outbound",
+            "DirectionName":"to Conestoga College",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"10~~Outbound",
+        "Text":"10 - Conestoga College (to Conestoga College)",
+        "Stops":["1553 - FAIRVIEW PARK TERMINAL","1559 - KINGSWAY / WILSON","1697 - WILSON / FAIRWAY","1698 - WILSON / WEBSTER","1700 - WILSON / WABANAKI","1701 - WABANAKI / KEVCO","1702 - WABANAKI / MANITOU","1703 - MANITOU / SASAGA","1705 - MANITOU / CAYUGA","1706 - DOON VILLAGE / MILLWOOD","1707 - Doon Village / Wheatfield Park","1708 - DOON VILLAGE / BECHTEL","1709 - BECHTEL / PATHFINDER","1710 - BECHTEL / ANVIL","1711 - BECHTEL / WHEATFIELD","1712 - PIONEER / BLACK WALNUT","1713 - PIONEER / VINTAGE","1714 - PIONEER / DOON VILLAGE","1715 - PIONEER / UPPER CANADA","1745 - PIONEER / BECHTEL","1717 - PIONEER / OLD CARRIAGE","1718 - PIONEER / HOMER WATSON","1719 - GREEN VALLEY / PIONEER","1720 - GREEN VALLEY / ARROWHEAD","1721 - GREEN VALLEY / MILL PARK","1722 - OLD MILL / ROOS","1723 - Old Mill / Pinnacle","1724 - PINNACLE / AMHERST","1725 - PINNACLE / DOON VALLEY","1727 - DOON VALLEY / CONESTOGA","1731 - CONESTOGA COLLEGE REC CENTRE","1732 - CONESTOGA COLLEGE DOOR ","1733 - CONESTOGA COLLEGE DAYCARE","1734 - DOON VALLEY / ORCHARD MILL","1728 - CONESTOGA COLLEGE ENTRANCE","1729 - CONESTOGA COLLEGE RESIDENCE"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"10",
+            "Description":"Conestoga College",
+            "Direction":"Inbound",
+            "DirectionName":"to Fairview Park",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"10~~Inbound",
+        "Text":"10 - Conestoga College (to Fairview Park)",
+        "Stops":["1729 - CONESTOGA COLLEGE RESIDENCE","3641 - CONESTOGA COLLEGE ENTRANCE","1735 - DOON VALLEY / PINNACLE","1736 - PINNACLE / DOON VALLEY","1737 - PINNACLE / AMHERST","1738 - PINNACLE / OLD MILL","1739 - OLD MILL / ROOS","1740 - GREEN VALLEY / MILL PARK","1741 - GREEN VALLEY / ARROWHEAD","1742 - GREEN VALLEY / PIONEER","1743 - PIONEER / HOMER WATSON","1744 - PIONEER / OLD CARRIAGE","1746 - PIONEER / BECHTEL","1747 - PIONEER / UPPER CANADA","1748 - PIONEER / DOON VILLAGE","1749 - PIONEER / PERIN","1750 - PIONEER / BLACK WALNUT","1751 - BECHTEL / SABRINA","1752 - BECHTEL / ANVIL","1753 - DOON VILLAGE / BECHTEL","1754 - Doon Village / Wheatfield Park","1755 - DOON VILLAGE / FARRIER","1756 - MANITOU / CAYUGA","1758 - MANITOU / WABANAKI","1759 - WABANAKI / KEVCO","1760 - WABANAKI / WILSON","1761 - WILSON / WABANAKI","1763 - WILSON / GOODRICH","1764 - WILSON / FAIRWAY","1553 - FAIRVIEW PARK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"11",
+            "Description":"Country Hills",
+            "Direction":"Direction2",
+            "DirectionName":"to Downtown",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"11~~Direction2",
+        "Text":"11 - Country Hills (to Downtown)",
+        "Stops":["1766 - FOREST GLEN TERMINAL","3037 - OLD COUNTRY / STRASBURG","3038 - OLD COUNTRY / CENTURY HILL","3039 - PATH TO SANDSPRINGS","3040 - COUNTRY HILL / MARTINGLEN","3041 - COUNTRY HILL / FOUR SEASONS","3042 - COUNTRY HILL / COACH HILL","3043 - COUNTRY HILL / CEDARHILL","3044 - COUNTRY HILL / BLOCK LINE","3045 - KINGSWOOD / BLOCK LINE","3046 - KINGSWOOD / SELKIRK","3047 - KINGSWOOD / GRACEFIELD","3048 - KINGSWOOD / ALPINE","3049 - KINGSWOOD / FLINT","3053 - ALPINE / OTTAWA","2908 - OTTAWA / IMPERIAL","3054 - HOFFMAN / OTTAWA","3055 - HOFFMAN / MEINZINGER","3056 - HOFFMAN / KEHL","3057 - HOFFMAN / HIGHLAND","3058 - HIGHLAND / HEIMAN","3059 - HEIMAN / KEHL","2913 - MILL / HEIMAN","2914 - MILL / STIRLING","2750 - COURTLAND / STIRLING","2751 - COURTLAND / MADISON","2752 - COURTLAND / PETER","2753 - COURTLAND / BENTON","2707 - QUEEN / COURTLAND","2556 - CHARLES STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"11",
+            "Description":"Country Hills",
+            "Direction":"Direction1",
+            "DirectionName":"to Forest Glen",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"11~~Direction1",
+        "Text":"11 - Country Hills (to Forest Glen)",
+        "Stops":["2560 - CHARLES STREET TERMINAL","3068 - QUEEN / ST","2715 - COURTLAND / PETER","2716 - COURTLAND / MADISON","3618 - COURTLAND / STIRLING","2929 - STIRLING / MILL","2930 - MILL / HEIMAN","3060 - HEIMAN / MILL","3061 - HEIMAN / KEHL","3062 - HEIMAN / HIGHLAND","3063 - HOFFMAN / HIGHLAND","3064 - HOFFMAN / KEHL","3065 - HOFFMAN / MEINZINGER","3066 - HOFFMAN / DONLEY","3067 - HOFFMAN / OTTAWA","2935 - OTTAWA / KEHL","2936 - OTTAWA / HOMER WATSON","3052 - ALPINE / OTTAWA","2937 - OTTAWA / ALPINE","2938 - STRASBURG / OTTAWA","3021 - KINGSWOOD / LUCERNE","3022 - KINGSWOOD / FLINT","3023 - KINGSWOOD / APPALACHIAN","3024 - KINGSWOOD / ALPINE","3025 - KINGSWOOD / GRACEFIELD","3026 - KINGSWOOD / SELKIRK","3027 - KINGSWOOD / BLOCK LINE","3028 - COUNTRY HILL / BLOCK LINE","3029 - COUNTRY HILL / CHERRY HILL","3030 - COUNTRY HILL / OLD COUNTRY","3031 - COUNTRY HILL / COACH HILL","3032 - COUNTRY HILL / FOUR SEASONS","3033 - COUNTRY HILL / MARTINGLEN","3034 - CENTURY HILL / DEVONGLEN","3035 - OLD COUNTRY / CENTURY HILL","3036 - OLD COUNTRY / STRASBURG","1766 - FOREST GLEN TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"12",
+            "Description":"Fairview Park/Conestoga Mall",
+            "Direction":"Downward",
+            "DirectionName":"to Kitchener",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"12~~Downward",
+        "Text":"12 - Fairview Park/Conestoga Mall (to Kitchener)",
+        "Stops":["1129 - CONESTOGA MALL TERMINAL","2811 - DAVENPORT / CONESTOGA MALL","2812 - DAVENPORT / KINGSCOURT","2813 - DAVENPORT / KINGSCOURT","2814 - DAVENPORT / KIDSABILITY CENTRE","2815 - PATH TO REDFOX","2817 - LEXINGTON / DAVENPORT","3677 - LEXINGTON / DUNVEGAN","3678 - DUNVEGAN / BAIRSTOW","2800 - LEE / DUNVEGAN","2801 - LEE / DANSBURY","3679 - BRIDGE / DANSBURY","3680 - BRIDGE / CRIMSON","4054 - UNIVERSITY / BRIDGE","2826 - LINCOLN / BLUEVALE","2827 - LINCOLN / MAYFIELD","4062 - LINCOLN / MARSHALL","4060 - LINCOLN / ELLIS","4057 - LINCOLN / WEBER","2666 - WEBER / MACKAY","2668 - WEBER / NOECKER","2667 - WEBER / MARSHALL","2670 - UNIVERSITY / WEBER","2671 - UNIVERSITY / REGINA","3621 - UNIVERSITY / KING","3619 - LAURIER","2673 - UNIVERSITY / HEMLOCK","2674 - UNIVERSITY / SUNVIEW","2675 - UNIVERSITY / PHILLIP","2676 - UNIVERSITY / SEAGRAM","2677 - UNIVERSITY / RING ROAD EXIT","2678 - WESTMOUNT / UNIVERSITY","2679 - WESTMOUNT / WESTCOURT","2680 - WESTMOUNT / ERB","2681 - WESTMOUNT / LOURDES","2682 - WESTMOUNT / DIETZ","2683 - WESTMOUNT / WILLIAM","2685 - WESTMOUNT / JOHN","3920 - WESTMOUNT / UNION","3919 - WESTMOUNT / GLASGOW","3918 - WESTMOUNT / WESTWOOD","3917 - WESTMOUNT / CHOPIN","3916 - WESTMOUNT / VICTORIA","3915 - WESTMOUNT / HIGHLAND","3178 - WESTMOUNT / OVERLEA","3179 - WESTMOUNT / QUEENS","3180 - WESTMOUNT / FOREST HILL","3086 - WESTMOUNT / VILLAGE","3181 - WESTMOUNT / STONYBROOK","3182 - WESTMOUNT / OTTAWA","3183 - WESTMOUNT / OTTAWA","3184 - WESTMOUNT / LAURENTIAN","3185 - WESTMOUNT / WILLIAMSBURG","3004 - BLOCK LINE / WESTMOUNT","3186 - PATH TO KILLARNEY","2881 - BLOCK LINE / LAURENTIAN","2882 - BLOCK LINE / MCLENNAN PARK","2883 - BLOCK LINE / RITTENHOUSE","2884 - STRASBURG / BLOCK LINE","1771 - FOREST GLEN TERMINAL","1773 - STRASBURG / OLD COUNTRY","1774 - STRASBURG / BLEAMS","1846 - BLEAMS / CENTURY HILL","1847 - BLEAMS / HOMER WATSON","3607 - BLEAMS / FALLOWFIELD","1848 - BLEAMS / OTONABEE","1850 - MANITOU / WEBSTER","1851 - FAIRWAY / FOOD BASICS","1853 - FAIRWAY / WILSON","1661 - KINGSWAY / WILSON","1046 - FAIRVIEW PARK TERMINAL","1558 - FAIRVIEW PARK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"12",
+            "Description":"Fairview Park/Conestoga Mall",
+            "Direction":"Upward",
+            "DirectionName":"to Waterloo",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"12~~Upward",
+        "Text":"12 - Fairview Park/Conestoga Mall (to Waterloo)",
+        "Stops":["1558 - FAIRVIEW PARK TERMINAL","1559 - KINGSWAY / WILSON","1854 - FAIRWAY / WILSON","1856 - FAIRWAY / FOOD BASICS","1857 - MANITOU / FAIRWAY","1858 - MANITOU / WEBSTER","1859 - MANITOU / CRESS","1861 - BLEAMS / OTONABEE","3608 - BLEAMS / FALLOWFIELD","1862 - BLEAMS / HOMER WATSON","1863 - BLEAMS / CENTURY HILL","1864 - STRASBURG / BLEAMS","1865 - STRASBURG / OLD COUNTRY","1772 - FOREST GLEN TERMINAL","2885 - BLOCK LINE / STRASBURG","2886 - BLOCK LINE / RITTENHOUSE","2887 - BLOCK LINE / MCLENNAN PARK","2888 - BLOCK LINE / LAURENTIAN","3188 - PATH TO KILLARNEY","3189 - BLOCK LINE / WESTMOUNT","3190 - WESTMOUNT / WILLIAMSBURG","3191 - WESTMOUNT / LAURENTIAN","3192 - WESTMOUNT / OTTAWA","3193 - WESTMOUNT / STONYBROOK","3194 - WESTMOUNT / VILLAGE","3195 - WESTMOUNT / FOREST HILL","3196 - WESTMOUNT / QUEENS","3197 - WESTMOUNT / OVERLEA","3909 - WESTMOUNT / HIGHLAND","3910 - WESTMOUNT / VICTORIA","3911 - WESTMOUNT / BRYBECK","3912 - WESTMOUNT / WESTWOOD","3913 - WESTMOUNT / GLASGOW","3914 - WESTMOUNT / UNION","2772 - WESTMOUNT / JOHN","2773 - WESTMOUNT / WILLIAM","2774 - WESTMOUNT / ALEXANDRA","2775 - WESTMOUNT / LOURDES","4053 - WESTMOUNT / ERB","2777 - WESTMOUNT / WESTMOUNT PL","2778 - FATHER DAVID BAUER","2779 - WESTMOUNT / UNIVERSITY","2780 - UNIVERSITY / RING ROAD","2781 - UNIVERSITY / SEAGRAM","3943 - UNIVERSITY / PHILLIP","3945 - UNIVERSITY / SUNVIEW","2783 - UNIVERSITY / HEMLOCK","1167 - LAURIER","1164 - HICKORY / KING","3621 - UNIVERSITY / KING","3620 - LAURIER","2785 - UNIVERSITY / KING","2786 - UNIVERSITY / REGINA","2787 - UNIVERSITY / WEBER","2833 - WEBER / MARSHALL","2834 - WEBER / NOECKER","4058 - LINCOLN / WEBER","4059 - LINCOLN / ELLIS","4061 - LINCOLN / MARSHALL","2793 - LINCOLN / MAYFIELD","2794 - LINCOLN / BLUEVALE","2795 - LINCOLN / UNIVERSITY","3672 - BRIDGE / UNIVERSITY","3673 - BRIDGE / CRIMSON","3674 - DANSBURY / EIWO","3675 - DANSBURY / LEE","2821 - LEE / DUNVEGAN","3676 - DUNVEGAN / BAIRSTOW","2804 - LEXINGTON / DAVENPORT","2805 - DAVENPORT / FOXHUNT","2806 - PATH TO ANNDALE","2807 - DAVENPORT / KIDSABILITY CENTRE","2808 - DAVENPORT / KINGSCOURT","3882 - DAVENPORT / CONESTOGA MALL","1129 - CONESTOGA MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"13",
+            "Description":"Laurelwood",
+            "Direction":"Direction1",
+            "DirectionName":"to The Boardwalk",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"13~~Direction1",
+        "Text":"13 - Laurelwood (to The Boardwalk)",
+        "Stops":["2517 - U","2531 - COLUMBIA / HAGEY","1096 - COLUMBIA / VILLAGE ","1097 - COLUMBIA / RON EYDT VILLAGE","1098 - COLUMBIA / OLD POST","1099 - COLUMBIA / BEECHLAWN","4026 - COLUMBIA / FISCHER","4076 - FISCHER","4077 - FISCHER","4078 - FISCHER","4079 - LAURELWOOD / BEAVER CREEK","4080 - LAURELWOOD / BROOKMILL","4081 - LAURELWOOD / HOLLY VIEW","4082 - LAURELWOOD / BIRCHMOUNT","4083 - LAURELWOOD / ERBSVILLE","4014 - LAURELWOOD / BLUE BEECH","4084 - ERBSVILLE / PATH TO BLUE BEECH","4086 - ERBSVILLE / WHITE ELM","3454 - ERBSVILLE / COLUMBIA FOREST","3455 - ERBSVILLE / COLUMBIA","4087 - ERBSVILLE / BRANDENBURG","3456 - ERBSVILLE / LEIGHLAND","3446 - ERBSVILLE / KEATS WAY","1979 - PATH TO LAUSANNE","1980 - ERBSVILLE / BRANDENBURG","1981 - ERBSVILLE / CHABLIS","3685 - ERBSVILLE / ERB","3906 - IRA NEEDLES / ERB","3904 - IRA NEEDLES / THORNDALE","1293 - BOARDWALK MEDICAL CENTRE","3901 - THE BOARDWALK / LIFESTYLE WAY","4002 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"13",
+            "Description":"Laurelwood",
+            "Direction":"Direction2",
+            "DirectionName":"to UW",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"13~~Direction2",
+        "Text":"13 - Laurelwood (to UW)",
+        "Stops":["4002 - THE BOARDWALK TERMINAL","1292 - IRA NEEDLES / UNIVERSITY","3902 - PATH TO CARDIFF","3903 - IRA NEEDLES / THORNDALE","3905 - IRA NEEDLES / ERB","3689 - ERBSVILLE / ERB","3690 - ERBSVILLE / ROYAL BEECH","3691 - PATH TO ERBSVILLE","3451 - ERBSVILLE / KEATS WAY","3452 - ERBSVILLE / LEIGHLAND","4088 - ERBSVILLE / CORNRIDGE","3453 - ERBSVILLE / COLUMBIA","1106 - ERBSVILLE / WILLOW WOOD","3392 - ERBSVILLE / WHITE ELM","4085 - ERBSVILLE / PATH TO BLUE BEECH","4014 - LAURELWOOD / BLUE BEECH","1107 - LAURELWOOD / ERBSVILLE","1108 - LAURELWOOD / BIRCHMOUNT","1109 - LAURELWOOD / BROOKMILL","1110 - LAURELWOOD / BEAVER CRK CR","1111 - LAURELWOOD / BEAVER CRK RD","1112 - LAURELWOOD / LAUREL GATE","3949 - LAURELWOOD / BEARINGER","1113 - PATH TO LAUREL GATE","1114 - FISCHER","1115 - FISCHER","1116 - COLUMBIA / FISCHER","1117 - COLUMBIA / BEECHLAWN","1118 - COLUMBIA / OLD POST","1119 - COLUMBIA / RON EYDT VILLAGE","1120 - COLUMBIA / VILLAGE ","3899 - COLUMBIA / U","1123 - U"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"20",
+            "Description":"Victoria-Frederick",
+            "Direction":"East",
+            "DirectionName":"to Stanley Park",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"20~~East",
+        "Text":"20 - Victoria-Frederick (to Stanley Park)",
+        "Stops":["3881 - THE BOARDWALK TERMINAL","3554 - VICTORIA / PATH TO WINDING MEADOW","3553 - VICTORIA / BRAMBLEWOOD","3555 - VICTORIA / WESTFOREST","3208 - VICTORIA / EASTFOREST","3210 - VICTORIA / OPRINGTON","3142 - VICTORIA / FISCHER","3212 - VICTORIA / MONTE CARLO","3214 - HAZELGLEN / MOOREGATE","3215 - HAZELGLEN / CHOPIN","3216 - CHOPIN / WESTMOUNT","3217 - WESTMOUNT / KARN","3218 - VICTORIA / WESTMOUNT","3219 - VICTORIA / PAULANDER","3220 - VICTORIA / LAWRENCE","3564 - VICTORIA / BELMONT","3221 - VICTORIA / PATRICIA","3222 - VICTORIA / WEST","3565 - VICTORIA / WEST","3224 - VICTORIA / PARK","3225 - VICTORIA / MICHAEL","3227 - VICTORIA / JOSEPH","3226 - VICTORIA / KING","2500 - WEBER / VICTORIA","2501 - WEBER / YOUNG","2502 - WEBER / ONTARIO","2503 - WEBER / QUEEN","1001 - FREDERICK / IRVIN","1002 - FREDERICK / OTTO","1003 - FREDERICK / SAMUEL","1004 - FREDERICK / MERNER","1006 - FREDERICK STREET MALL","1007 - FREDERICK / ANN","1008 - FREDERICK / BRUCE","1009 - FREDERICK / LOIS","1010 - FREDERICK / RIVER","3559 - FREDERICK / TURNER","2333 - VICTORIA / FREDERICK","2335 - VICTORIA / FORFAR","2336 - VICTORIA / NATCHEZ","1680 - NATCHEZ / ROTHSAY","1681 - NATCHEZ / MATTHEW","1682 - HALIFAX / NATCHEZ","1683 - HALIFAX / CONFEDERATION","1684 - CONFEDERATION / LORRAINE","2394 - LORRAINE / BIRKSHIRE","1014 - RIVER / HICKSON","1015 - RIVER / PATH TO SECORD","1016 - RIVER / OTTAWA","1017 - RIVER / STANLEY PARK MALL","1667 - STANLEY PARK MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"20",
+            "Description":"Victoria-Frederick",
+            "Direction":"West",
+            "DirectionName":"to The Boardwalk",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"20~~West",
+        "Text":"20 - Victoria-Frederick (to The Boardwalk)",
+        "Stops":["1667 - STANLEY PARK MALL TERMINAL","1071 - RIVER / OTTAWA","1072 - RIVER / PATH TO SECORD","3574 - RIVER / GIBSON","2373 - LORRAINE / BIRKSHIRE","2389 - CONFEDERATION / LORRAINE","3561 - HALIFAX / CONFEDERATION","2344 - NATCHEZ / HALIFAX","2345 - NATCHEZ / MATTHEW","2346 - NATCHEZ / ROTHSAY","2347 - VICTORIA / NATCHEZ","2348 - VICTORIA / FORFAR","3560 - FREDERICK / VICTORIA","2350 - FREDERICK / TURNER","1076 - FREDERICK / RIVER","1077 - FREDERICK / LOIS","1079 - FREDERICK / BRUCE","1081 - FREDERICK / ANN","1080 - FREDERICK / EDNA","1082 - FREDERICK / FILBERT","1084 - FREDERICK / GORDON","1085 - FREDERICK / LANCASTER","1086 - FREDERICK / IRVIN","2319 - WEBER / QUEEN","2459 - WEBER / YOUNG","2461 - VICTORIA / WEBER","3109 - Victoria / King","3110 - Victoria / Joseph","3111 - VICTORIA / BRAMM","3112 - VICTORIA / HENRY","3113 - VICTORIA / PATRICIA","3114 - VICTORIA / BELMONT","3115 - VICTORIA / ALICE","3116 - VICTORIA / PAULANDER","3117 - VICTORIA / WESTMOUNT","3118 - CHOPIN / WESTMOUNT","3119 - CHOPIN / HAZELGLEN","3126 - HAZELGLEN / VICTORIA","3128 - VICTORIA / FENWICK","3129 - VICTORIA / FISCHER","3130 - VICTORIA / STOKE","3132 - VICTORIA / WESTFOREST","3556 - VICTORIA / WESTFOREST","3552 - VICTORIA / BRAMBLEWOOD","1101 - IRA NEEDLES / VICTORIA","3881 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"22",
+            "Description":"Laurentian West",
+            "Direction":"Direction2",
+            "DirectionName":"to Downtown",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"22~~Direction2",
+        "Text":"22 - Laurentian West (to Downtown)",
+        "Stops":["2974 - HIGHLAND HILLS MALL TERMINAL","2981 - FISCHER","2982 - FOREST HEIGHTS C","2983 - FISCHER","2984 - FISCHER","2985 - FISCHER","3894 - FISCHER","2987 - ACTIVA / WILDERNESS","2988 - WILDERNESS / MOUNTAIN MINT","2989 - WILDERNESS / GREY FOX","2990 - OTTAWA / INTERNATIONAL","2991 - PATH TO WAKE ROBIN","2992 - DAVID BERGEY / OTTAWA","2993 - DAVID BERGEY / PEACH BLOSSOM","2994 - DAVID BERGEY / ACTIVA","2995 - ACTIVA / ISAIAH","2996 - ACTIVA / SNOWDROP","2997 - ACTIVA / REISTVIEW","2998 - ACTIVA / PERIWINKLE","2999 - ACTIVA / SWEET WILLIAM","3000 - MAX BECKER / COPPER LEAF","3001 - MAX BECKER / COMMONWEALTH","3002 - MAX BECKER / HELENA FEASBY","3874 - WESTMOUNT / FISCHER","3005 - TILLSLEY / WESTMOUNT","3006 - TILLSLEY / ERINBROOK","3007 - ERINBROOK / RIDGEWAY","3008 - ERINBROOK / ROCKWOOD","3009 - ERINBROOK / TAMVALE","3011 - ERINBROOK / RUSHBROOK","3012 - ERINBROOK / THISTLEDOWN","3013 - ERINBROOK / GOUNDRY","3014 - ERINBROOK / RITTENHOUSE","3015 - RITTENHOUSE / TUERR","3016 - RITTENHOUSE / BLOCK LINE","2884 - STRASBURG / BLOCK LINE","1765 - FOREST GLEN TERMINAL","3017 - STRASBURG / BLOCK LINE","3018 - STRASBURG / BLACKHORNE","3019 - STRASBURG / SELKIRK","3020 - STRASBURG / KINGSWOOD","2906 - OTTAWA / STRASBURG","2907 - OTTAWA / ALPINE","2908 - OTTAWA / IMPERIAL","2910 - OTTAWA / HOFFMAN","2911 - MILL / OTTAWA","2912 - MILL / BORDEN","2913 - MILL / HEIMAN","2914 - MILL / STIRLING","2750 - COURTLAND / STIRLING","2751 - COURTLAND / MADISON","2752 - COURTLAND / PETER","2753 - COURTLAND / BENTON","2707 - QUEEN / COURTLAND","2556 - CHARLES STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"22",
+            "Description":"Laurentian West",
+            "Direction":"Direction1",
+            "DirectionName":"to Laurentian West",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"22~~Direction1",
+        "Text":"22 - Laurentian West (to Laurentian West)",
+        "Stops":["2556 - CHARLES STREET TERMINAL","3068 - QUEEN / ST","2715 - COURTLAND / PETER","2716 - COURTLAND / MADISON","3618 - COURTLAND / STIRLING","2929 - STIRLING / MILL","2930 - MILL / HEIMAN","2931 - MILL / BORDEN","2933 - MILL / OTTAWA","2934 - OTTAWA / HOFFMAN","2935 - OTTAWA / KEHL","2936 - OTTAWA / HOMER WATSON","2937 - OTTAWA / ALPINE","2938 - STRASBURG / OTTAWA","2939 - STRASBURG / BARWOOD","2940 - STRASBURG / SELKIRK","2941 - STRASBURG / BLACKHORNE","2884 - STRASBURG / BLOCK LINE","1769 - FOREST GLEN TERMINAL","2885 - BLOCK LINE / STRASBURG","2942 - RITTENHOUSE / BROOKFIELD","2943 - RITTENHOUSE / TUERR","2944 - RITTENHOUSE / MCCABE","2945 - ERINBROOK / GOUNDRY","2946 - ERINBROOK / PIPERS GREEN","2947 - ERINBROOK / HEDGESTONE","2948 - ERINBROOK / TARA","2949 - ERINBROOK / ROCKWOOD","2950 - ERINBROOK / RIDGEWAY","2951 - TILLSLEY / ERINBROOK","2952 - TILLSLEY / WESTMOUNT","2953 - MAX BECKER / FISCHER","2954 - MAX BECKER / COMMONWEALTH","2955 - MAX BECKER / COPPER LEAF","2956 - ACTIVA / DONNENWERTH","2957 - ACTIVA / PERIWINKLE","2958 - ACTIVA / HENHOEFFER","2959 - ACTIVA / SNOWDROP","2960 - DAVID BERGEY / PEACH BLOSSOM","2961 - DAVID BERGEY / PEACH BLOSSOM","2962 - DAVID BERGEY / OTTAWA","2963 - PATH TO WATERCRESS","2964 - OTTAWA / WILDERNESS","2965 - WILDERNESS / PINE MARTIN","2966 - WILDERNESS / ACTIVA","2967 - ACTIVA / BUSH CLOVER","2968 - ACTIVA / GREY FOX","2969 - FISCHER","2970 - FISCHER","2971 - FISCHER","2972 - FOREST HEIGHTS C","2986 - FISCHER","2974 - HIGHLAND HILLS MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"27",
+            "Description":"Chicopee",
+            "Direction":"Direction1",
+            "DirectionName":"to Chicopee",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"27~~Direction1",
+        "Text":"27 - Chicopee (to Chicopee)",
+        "Stops":["1046 - FAIRVIEW PARK TERMINAL","1047 - FAIRWAY / WALMART","1561 - FAIRWAY / KING","1564 - KING / HOFSTETTER","1565 - KING / RIVER","1647 - FREEPORT HEALTH CENTRE","1648 - MORRISON / GRAND RIVER","1649 - PATH TO MORRISON PARK","1650 - MORRISON / GRAND RIVER","1651 - QUINTE / MORRISON"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"27",
+            "Description":"Chicopee",
+            "Direction":"Direction2",
+            "DirectionName":"to Downtown",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"27~~Direction2",
+        "Text":"27 - Chicopee (to Downtown)",
+        "Stops":["1651 - QUINTE / MORRISON","1652 - MORRISON / QUINTE","1653 - PATH TO MORRISON PARK","1655 - GRAND RIVER / UNDERHILL","1656 - GRAND RIVER / RIVER","1657 - MORGAN / RIVER","1658 - MORGAN / GREENDALE","1659 - MORGAN / SOUTHILL","1660 - MORGAN / FAIRWAY","1042 - FAIRWAY / KING","1043 - FAIRWAY / KING","1044 - FAIRWAY / WABANAKI","1045 - FAIRWAY / FAIRVIEW PARK","1558 - FAIRVIEW PARK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"29",
+            "Description":"Keats Way",
+            "Direction":"West",
+            "DirectionName":"to The Boardwalk",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"29~~West",
+        "Text":"29 - Keats Way (to The Boardwalk)",
+        "Stops":["1166 - UNIVERSITY / KING","3619 - LAURIER","2673 - UNIVERSITY / HEMLOCK","2674 - UNIVERSITY / SUNVIEW","2675 - UNIVERSITY / PHILLIP","2676 - UNIVERSITY / SEAGRAM","2677 - UNIVERSITY / RING ROAD EXIT","3589 - UNIVERSITY / WESTMOUNT","3156 - Keats Way / McDougall","3158 - Keats Way / Amos","3159 - Keats Way / Midwood","3160 - KEATS WAY / CANDLEWOOD","3907 - Keats Way / Fischer","1974 - KEATS WAY / SANDFORD FLEMING","1975 - KEATS WAY / SANDFORD FLEMING","1976 - KEATS WAY / LEIGHLAND","1977 - KEATS WAY / BEECHWOOD","1978 - KEATS WAY / ERBSVILLE","1979 - PATH TO LAUSANNE","1980 - ERBSVILLE / BRANDENBURG","1981 - ERBSVILLE / CHABLIS","3685 - ERBSVILLE / ERB","3906 - IRA NEEDLES / ERB","3904 - IRA NEEDLES / THORNDALE","1293 - BOARDWALK MEDICAL CENTRE","3901 - THE BOARDWALK / LIFESTYLE WAY","4003 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"29",
+            "Description":"Keats Way",
+            "Direction":"East",
+            "DirectionName":"to University/King",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"29~~East",
+        "Text":"29 - Keats Way (to University/King)",
+        "Stops":["4003 - THE BOARDWALK TERMINAL","3883 - IRA NEEDLES / UNIVERSITY","1292 - IRA NEEDLES / UNIVERSITY","3902 - PATH TO CARDIFF","3903 - IRA NEEDLES / THORNDALE","3905 - IRA NEEDLES / ERB","3689 - ERBSVILLE / ERB","3690 - ERBSVILLE / ROYAL BEECH","3691 - PATH TO ERBSVILLE","3692 - KEATS WAY / KEATSWOOD","3693 - KEATS WAY / BEECHWOOD","3694 - KEATS WAY / LEIGHLAND","3695 - KEATS WAY / BRYNHURST","3463 - KEATS WAY / SANDFORD FLEMING","3464 - KEATS WAY / FISCHER","3149 - KEATS WAY / MIDWOOD","3150 - KEATS WAY / MIDWOOD","3151 - KEATS WAY / AMOS","3153 - Keats Way / McDougall","3631 - UNIVERSITY / WESTMOUNT","2780 - UNIVERSITY / RING ROAD","1090 - UNIVERSITY / SEAGRAM","3943 - UNIVERSITY / PHILLIP","3945 - UNIVERSITY / SUNVIEW","2783 - UNIVERSITY / HEMLOCK","1167 - LAURIER","1164 - HICKORY / KING","1166 - UNIVERSITY / KING"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"51",
+            "Description":"Hespeler Road",
+            "Direction":"Inbound",
+            "DirectionName":"to Ainslie Terminal",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"51~~Inbound",
+        "Text":"51 - Hespeler Road (to Ainslie Terminal)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"51",
+            "Description":"Hespeler Road",
+            "Direction":"Outbound",
+            "DirectionName":"to Hespeler",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"51~~Outbound",
+        "Text":"51 - Hespeler Road (to Hespeler)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"52",
+            "Description":"Fairview Park/Ainslie Street",
+            "Direction":"South",
+            "DirectionName":"to Ainslie Terminal",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"52~~South",
+        "Text":"52 - Fairview Park/Ainslie Street (to Ainslie Terminal)",
+        "Stops":["1557 - FAIRVIEW PARK TERMINAL","1559 - KINGSWAY / WILSON","1047 - FAIRWAY / WALMART","1561 - FAIRWAY / KING","1564 - KING / HOFSTETTER","1565 - KING / RIVER","1566 - KING / RIVERBANK","1567 - KING / DEER RIDGE","1568 - HELDMANN / KING","1569 - SPORTSWORLD CROSSING","1573 - GATEWAY PARK / SPORTSWORLD","1574 - TU LANE / GATEWAY PARK","1575 - SHANTZ HILL / PRESTON PKWY","1576 - PRESTON / LINDEN","1577 - PRESTON / KIWANIS VILLAGE","1578 - PRESTON / PARKVIEW","1579 - PRESTON / HILLVIEW","1580 - PRESTON / WOODS","1581 - PRESTON / FOUNTAIN","1582 - FOUNTAIN / BAUMAN","1583 - FOUNTAIN / SHANTZ HILL","1584 - KING / FOUNTAIN","1585 - KING / CHOPIN","1586 - KING / WATERLOO","1587 - KING / WESTMINSTER","1588 - KING / LOWTHER","1589 - KING / DOLPH","1443 - KING / MONTROSE","1591 - KING / BISHOP","1592 - KING / BROWER","1593 - KING / BLUE HERON","1594 - CORONATION / ORIOLE","1595 - CORONATION / BLUE HERON","3609 - CORONATION / HIGHLAND","1596 - GALT COUNTRY CLUB","1597 - CAMBRIDGE MEMORIAL HOSPITAL","1598 - CORONATION / ISLANDVIEW","1599 - CORONATION / WRIGHT","1600 - DUNDAS / WATER","1601 - DUNDAS / HOPETON","1602 - DUNDAS / CAMBRIDGE","1603 - DUNDAS / BEVERLY","1604 - BEVERLY / KERR","3536 - WELLINGTON / DICKSON","1512 - AINSLIE STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"52",
+            "Description":"Fairview Park/Ainslie Street",
+            "Direction":"North",
+            "DirectionName":"to Fairview Park",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"52~~North",
+        "Text":"52 - Fairview Park/Ainslie Street (to Fairview Park)",
+        "Stops":["1512 - AINSLIE STREET TERMINAL","1605 - WELLINGTON / MAIN","1606 - BEVERLY / KERR","1607 - BEVERLY / MILL CREEK TRAIL","1608 - DUNDAS / GRANTHAM","1609 - DUNDAS / CAMBRIDGE","1610 - DUNDAS / ROXBORO","1611 - DUNDAS / JARVIS","1612 - CORONATION / HESPELER","1613 - CORONATION / GOLDIE","1614 - CORONATION / OLIVER","1615 - CAMBRIDGE MEMORIAL HOSPITAL","1617 - CORONATION / HIGHLAND","1618 - CORONATION / BLUE HERON","1619 - CORONATION / ORIOLE","1620 - King / Concession","1621 - KING / BROWER","1622 - KING / BISHOP","1623 - KING / MONTROSE","1624 - KING / DOLPH","1625 - KING / LOWTHER","1455 - KING / WESTMINSTER","1626 - KING / WATERLOO","1627 - KING / CHOPIN","1628 - KING / FOUNTAIN","1629 - FOUNTAIN / BAUMAN","1630 - PRESTON / FOUNTAIN","1631 - PRESTON / WOODS","1632 - PRESTON / HILLVIEW","1633 - PRESTON / PARKVIEW","1634 - PRESTON / LINDEN","1635 - SHANTZ HILL / PRESTON PKWY","1636 - GATEWAY PARK / KING","1637 - GATEWAY PARK / TU LANE","1638 - GATEWAY PARK / SPORTSWORLD","1590 - Sportsworld Crossing","1639 - SPORTSWORLD CROSSING / KING","1640 - KING / DEER RIDGE","1641 - KING / RIVERBANK","1642 - FREEPORT HEALTH CENTRE","1643 - KING / RIVER","1644 - KING / HOFSTETTER","1645 - KING / HEFFNER CRT","1646 - KING / FAIRWAY","1043 - FAIRWAY / KING","1044 - FAIRWAY / WABANAKI","1045 - FAIRWAY / FAIRVIEW PARK","1557 - FAIRVIEW PARK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"54",
+            "Description":"Lisbon Pines",
+            "Direction":"East",
+            "DirectionName":"Lisbon Pines",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"54~~East",
+        "Text":"54 - Lisbon Pines (Lisbon Pines)",
+        "Stops":["1517 - AINSLIE STREET TERMINAL","3535 - MAIN / HARRIS","2213 - MAIN / BRUCE","2214 - MAIN / PECK","2215 - MAIN / LINCOLN","2216 - MAIN / ELGIN","1527 - MAIN / ALEXANDER","1528 - SOUTH CAMBRIDGE SHOPPING CTR","2217 - MAIN / FRANKLIN","2174 - FRANKLIN / GREEN GATE","2175 - FRANKLIN / DUNDAS","2218 - PATH TO ELLIOTT","2219 - FRANKLIN / MORNING CALM","2220 - CHAMPLAIN / FRANKLIN","2221 - CHAMPLAIN / CARLOS","2222 - LISBON PINES / CHAMPLAIN","2223 - LISBON PINES / SANTA MARIA","2224 - LISBON PINES / MYERS","2225 - GATEHOUSE / MCNICHOL","2226 - GATEHOUSE / WHEELER","2227 - GATEHOUSE / FLOCKHART","2228 - GATEHOUSE / MYERS","2229 - MYERS / FRANKLIN","2230 - MYERS / ELGIN","2231 - MYERS / GREENBRIER","2233 - CHRISTOPHER / MYERS","2234 - CHRISTOPHER / TUTTON","2235 - CHAMPLAIN / CHRISTOPHER","2236 - MCDONALD / DORSET","2237 - GLENVIEW / MCDONALD","2238 - GLENVIEW / HENRY","2239 - GLENVIEW / ALBERT","2240 - ALBERT / BALLANTYNE","2241 - BALLANTYNE / MCKAY","2242 - MCKAY / SOUTH","2243 - CENTRE / ELLIOTT","2244 - CENTRE / CONCESSION","2159 - AINSLIE / VETERANS","1516 - AINSLIE STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"55",
+            "Description":"St. Andrews",
+            "Direction":"West",
+            "DirectionName":"St. Andrews",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"55~~West",
+        "Text":"55 - St. Andrews (St. Andrews)",
+        "Stops":["1520 - AINSLIE STREET TERMINAL","1523 - AINSLIE / WALNUT","3863 - CEDAR / GRAND","3864 - CEDAR / GLENMORRIS","2249 - WESTGATE CTR","2250 - SOUTHWOOD / CEDAR","2251 - SOUTHWOOD / WESTWOOD","2252 - SOUTHWOOD / WEDGEWOOD","2253 - WEDGEWOOD / GRAND RIDGE","2254 - GRAND RIDGE / MARK","2255 - GRAND RIDGE / ST","2256 - GRAND RIDGE / STIRLING MACGREGOR","2257 - GRAND RIDGE / OAK HILL","2258 - CULHAM / RIDGEWOOD","2259 - CULHAM / RIDGEWOOD","2260 - CULHAM / TAIT","2261 - TAIT / FOURTH","2262 - FOURTH / VINCENT","2263 - FOURTH / ST","2264 - SOUTHWOOD / ST","2265 - SOUTHWOOD / WESTWOOD","2266 - SOUTHWOOD / CEDAR","2148 - CEDAR / WOODSIDE","2267 - WESTGATE CTR","3861 - CEDAR / ST","3862 - CEDAR / GRAND","2159 - AINSLIE / VETERANS","1522 - AINSLIE STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"56",
+            "Description":"Dunbar",
+            "Direction":"Direction2",
+            "DirectionName":"to Cambridge Centre",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"56~~Direction2",
+        "Text":"56 - Dunbar (to Cambridge Centre)",
+        "Stops":["1410 - ROSE / ARGYLE","1411 - ARGYLE / VINE","1412 - ARGYLE / HAMILTON","1413 - HAMILTON / WESTMINSTER","1414 - WESTMINSTER / KING","1415 - WESTMINSTER / DUKE","1416 - WESTMINSTER / LAWRENCE","3526 - WESTMINSTER / LAUREL","3522 - LAUREL / NORTH","1289 - LAUREL / EAGLE","1290 - EAGLE / ARLINGTON","1417 - EAGLE / SPEEDSVILLE","1418 - CONCESSION / GARDEN","1419 - CONCESSION / DOLPH","1420 - LANGS / CONCESSION","1421 - Langs / Walter","1422 - LANGS / VALENTINE","1423 - LANGS / TRICO","1424 - LANGS / INDUSTRIAL","1425 - LANGS / HESPELER","1426 - HESPELER / LANGS","1428 - HESPELER / BISHOP","1391 - CAMBRIDGE CENTRE TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"56",
+            "Description":"Dunbar",
+            "Direction":"Direction1",
+            "DirectionName":"to Preston via Dunbar",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"56~~Direction1",
+        "Text":"56 - Dunbar (to Preston via Dunbar)",
+        "Stops":["1389 - CAMBRIDGE CENTRE TERMINAL","1392 - DUNBAR / HESPELER","1393 - DUNBAR / BRIARWOOD","1394 - DUNBAR / DALEVIEW","1395 - DUNBAR / BISCAYNE","1396 - DUNBAR / EASTDOWNS","1397 - DUNBAR / PINE","1398 - DUNBAR / ST","1399 - DUNBAR / GRAND VALLEY","1400 - CONCESSION / GRAND VALLEY","1445 - BISHOP / PINEVIEW","1401 - Bishop / Duke","1402 - BISHOP / HAMILTON","1403 - HAMILTON / MONTROSE","1404 - HAMILTON / UNION","1405 - BECK / HOMUTH","1407 - HOMUTH / FREDERICK","1408 - ROSE / LOWTHER","1409 - ROSE / WESTMINSTER","1410 - ROSE / ARGYLE"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"58",
+            "Description":"Elmwood",
+            "Direction":"North",
+            "DirectionName":"Elmwood",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"58~~North",
+        "Text":"58 - Elmwood (Elmwood)",
+        "Stops":["1516 - AINSLIE STREET TERMINAL","1605 - WELLINGTON / MAIN","1606 - BEVERLY / KERR","1607 - BEVERLY / MILL CREEK TRAIL","2097 - BEVERLY / DUNDAS","2098 - BEVERLY / SAMUELSON","2099 - SAMUELSON / BEVERLY","2100 - MOSCRIP / ELMWOOD","2101 - ELMWOOD / BROCK","2102 - ELMWOOD / JARVIS","2103 - ELMWOOD / BROOKLYNE","3871 - BROOKLYNE / GLEN","2104 - Avenue / Gail","3860 - AVENUE / ELGIN","2108 - ELGIN / AVENUE","2109 - ELGIN / WINTER","2110 - ELGIN / GALT","2111 - ELGIN / BRONSON","2112 - CLYDE / MILL CREEK","2113 - CLYDE / FRANKLIN","2116 - HILLTOP / FRANKLIN","2117 - HILLTOP / ALISON","2118 - LAURIS / LINNWOOD","2119 - DUNDAS / DUNDAS LANE","2120 - CHALMERS / DUNDAS","2121 - CHALMERS / MCNAUGHTON","2122 - MCNAUGHTON / LINCOLN","2123 - MCNAUGHTON / OAK","2124 - MCNAUGHTON / SHADE","2125 - MAIN / HARRIS","1518 - AINSLIE STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"59",
+            "Description":"Christopher",
+            "Direction":"East",
+            "DirectionName":"Christopher",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"59~~East",
+        "Text":"59 - Christopher (Christopher)",
+        "Stops":["1522 - AINSLIE STREET TERMINAL","1523 - AINSLIE / WALNUT","1524 - CONCESSION / CAMERON","1525 - CONCESSION / PECK","2269 - CHRISTOPHER / ELLIOTT","2270 - CHRISTOPHER / SOUTH","2271 - BALLANTYNE / EAST","2272 - BALLANTYNE / MCDONALD","2273 - BALLANTYNE / MCKAY","2274 - MCKAY / GLENVIEW","2275 - GLENVIEW / MCDONALD","2276 - MCDONALD / DORSET","2277 - CHAMPLAIN / CHRISTOPHER","2278 - CHRISTOPHER / TUTTON","2279 - CHRISTOPHER / MYERS","2280 - MYERS / WOODLAND","2281 - EDGEMERE / SANDALWOOD","2282 - EDGEMERE / PLOUGHMANS","2283 - EDGEMERE / LANGLAW","2284 - LANGLAW / ENFIELD","3612 - LANGLAW / SCHROEDER","2285 - CHRISTOPHER / WHEATLAND","2286 - CHRISTOPHER / MYERS","2287 - MYERS / LORRAINE","2288 - MYERS / GREENBRIER","2289 - MYERS / ELGIN","2291 - FRANKLIN / MYERS","2292 - FRANKLIN / COPPERFIELD","2293 - CHAMPLAIN / BAKERSFIELD","2294 - CHAMPLAIN / ELGIN","2295 - ELGIN / WOOLLEY","2299 - SOUTH / CHALMERS","2300 - CHALMERS / MAIN","2297 - ELGIN / ELLIOTT","2298 - ELGIN / MAIN","1527 - MAIN / ALEXANDER","1528 - SOUTH CAMBRIDGE SHOPPING CTR","2217 - MAIN / FRANKLIN","2174 - FRANKLIN / GREEN GATE","2175 - FRANKLIN / DUNDAS","2176 - DUNDAS / FRANKLIN","1506 - MAIN / ALEXANDER","1507 - MAIN / ELGIN","2301 - MAIN / LOWREY","2302 - MAIN / CATHAY","2303 - MAIN / ARTHUR WHITE","2304 - MAIN / SPRUCE","2125 - MAIN / HARRIS","1512 - AINSLIE STREET TERMINAL","1519 - AINSLIE STREET TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"60",
+            "Description":"Northview Acres",
+            "Direction":"East",
+            "DirectionName":"Northview Acres",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"60~~East",
+        "Text":"60 - Northview Acres (Northview Acres)",
+        "Stops":["1391 - CAMBRIDGE CENTRE TERMINAL","6021 - ION CanAmera Southbound","1359 - Munch / Sekura","1360 - Munch / Elgin","1361 - Elgin / Regal","1362 - Elgin / Glamis","1363 - Glamis / Carter","1364 - Glamis / The Greenway","1365 - GLAMIS / FRANKLIN","1366 - Robson / Burnett","1367 - Cowan / Robson","1368 - COWAN / WALLACE","1369 - Burnett / Buchanan","1355 - BURNETT / BENN","1370 - BURNETT / DRUMLIN","1371 - Saginaw / Burnett","1372 - SAGINAW / FAIRGREEN","1373 - Saginaw / Stonecairn","1374 - Saginaw / Cowan","1356 - ST","1378 - ELGIN / FRANKLIN","1379 - Elgin / Bushnell","1380 - Elgin / Glenbrook","1381 - Elgin / Sekura","1382 - Munch / Kovac","1383 - Munch / Sekura","1384 - HESPELER / MUNCH","6103 - ION CanAmera Northbound","1389 - CAMBRIDGE CENTRE TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"200",
+            "Description":"iXpress",
+            "Direction":"Downward",
+            "DirectionName":"to Cambridge",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"200~~Downward",
+        "Text":"200 - iXpress (to Cambridge)",
+        "Stops":["1128 - CONESTOGA MALL TERMINAL","2574 - PARKSIDE / NORTHFIELD","3627 - McCORMICK","3629 - R ","4075 - U","1123 - U","3620 - LAURIER","1957 - KING / BRIDGEPORT","2006 - ERB / KING","5055 - WEBER / UNION","2496 - WEBER / GUELPH","1901 - KING / VICTORIA","2548 - CHARLES STREET TERMINAL","5009 - Weber / Ottawa","1551 - FAIRVIEW PARK TERMINAL","1571 - SPORTSWORLD CROSSING","6019 - ION Pinebush Southbound","3517 - CAMBRIDGE CTR TERMINAL","6021 - ION CanAmera Southbound","6022 - ION Delta Southbound","6101 - ION Ainslie Street Terminal"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"200",
+            "Description":"iXpress",
+            "Direction":"Upward",
+            "DirectionName":"to Waterloo",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"200~~Upward",
+        "Text":"200 - iXpress (to Waterloo)",
+        "Stops":["6101 - ION Ainslie Street Terminal","6102 - ION Delta Northbound","6103 - ION CanAmera Northbound","1385 - CAMBRIDGE CENTRE TERMINAL","6105 - ION Pinebush Northbound","1570 - SPORTSWORLD CROSSING","1556 - FAIRVIEW PARK TERMINAL","5008 - WEBER / EAST","2549 - CHARLES STREET TERMINAL","1893 - KING / VICTORIA","2464 - WEBER / GUELPH","5054 - WEBER / UNION","5014 - BRIDGEPORT / KING","3619 - LAURIER","2530 - U","4074 - U","3630 - R ","3628 - McCORMICK","3777 - PARKSIDE / NORTHFIELD","1128 - CONESTOGA MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"201",
+            "Description":"iXpress F-H",
+            "Direction":"Direction2",
+            "DirectionName":"to Conestoga Mall",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"201~~Direction2",
+        "Text":"201 - iXpress F-H (to Conestoga Mall)",
+        "Stops":["1770 - FOREST GLEN TERMINAL","2888 - BLOCK LINE / LAURENTIAN","3189 - BLOCK LINE / WESTMOUNT","3895 - FISCHER","3893 - FISCHER","2969 - FISCHER","2971 - FISCHER","2986 - FISCHER","3891 - FISCHER","3143 - FISCHER","3144 - FISCHER","3146 - FISCHER","1992 - FISCHER","1972 - FISCHER","3465 - FISCHER","3890 - FISCHER","1117 - COLUMBIA / BEECHLAWN","3899 - COLUMBIA / U","2521 - COLUMBIA / PHILLIP","2524 - COLUMBIA / HAZEL","4073 - KING / COLUMBIA","1916 - KING / WEBER","1918 - MANULIFE","1127 - CONESTOGA MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"201",
+            "Description":"iXpress F-H",
+            "Direction":"Direction1",
+            "DirectionName":"to Forest Glen",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"201~~Direction1",
+        "Text":"201 - iXpress F-H (to Forest Glen)",
+        "Stops":["3799 - CONESTOGA MALL TERMINAL","2505 - MANULIFE","2508 - KING / WEBER","4072 - COLUMBIA / KING","2512 - COLUMBIA / HAZEL","1093 - COLUMBIA / PHILLIP","3898 - COLUMBIA / U","1099 - COLUMBIA / BEECHLAWN","3445 - FISCHER","3162 - Fischer","3590 - FISCHER","3165 - FISCHER","3167 - FISCHER","3169 - FISCHER","3170 - FISCHER","3892 - FISCHER","2981 - FISCHER","2983 - FISCHER","2985 - FISCHER","3894 - FISCHER","3896 - FISCHER","3004 - BLOCK LINE / WESTMOUNT","2881 - BLOCK LINE / LAURENTIAN","1770 - FOREST GLEN TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"202",
+            "Description":"iXpress University",
+            "Direction":"Direction2",
+            "DirectionName":"to Conestoga Mall",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"202~~Direction2",
+        "Text":"202 - iXpress University (to Conestoga Mall)",
+        "Stops":["4001 - THE BOARDWALK TERMINAL","3903 - IRA NEEDLES / THORNDALE","3905 - IRA NEEDLES / ERB","1983 - ERB / ERBSVILLE CRT","1994 - ERB / FISCHER","1997 - ERB / AMOS","4053 - WESTMOUNT / ERB","2781 - UNIVERSITY / SEAGRAM","3943 - UNIVERSITY / PHILLIP","3620 - LAURIER","2787 - UNIVERSITY / WEBER","2788 - CONESTOGA COLLEGE","4052 - UNIVERSITY / LINCOLN","4055 - UNIVERSITY / BRIDGE","3665 - UNIVERSITY / PASTERN","4047 - UNIVERSITY / AUBURN","2035 - UNIVERSITY / LEXINGTON","3750 - UNIVERSITY / NEW BEDFORD","3752 - R","4045 - BLACKBERRY NORTHFIELD","4050 - BRIDGE / NORTHFIELD","4043 - NORTHFIELD / DAVENPORT","3799 - CONESTOGA MALL TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"202",
+            "Description":"iXpress University",
+            "Direction":"Direction1",
+            "DirectionName":"to The Boardwalk",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"202~~Direction1",
+        "Text":"202 - iXpress University (to The Boardwalk)",
+        "Stops":["1127 - CONESTOGA MALL TERMINAL","4042 - NORTHFIELD / DAVENPORT","4051 - BRIDGE / NORTHFIELD","4044 - BLACKBERRY NORTHFIELD","3765 - R","3766 - UNIVERSITY / NEW BEDFORD","1931 - UNIVERSITY / LEXINGTON","4046 - UNIVERSITY / AUBURN","3671 - UNIVERSITY / PASTERN","4054 - UNIVERSITY / BRIDGE","4049 - UNIVERSITY / LINCOLN","2832 - CONESTOGA COLLEGE","2670 - UNIVERSITY / WEBER","3619 - LAURIER","2675 - UNIVERSITY / PHILLIP","2676 - UNIVERSITY / SEAGRAM","1966 - ERB / WESTMOUNT","1969 - ERB / AMOS","4056 - ERB / FISCHER","3687 - ERB / ERBSVILLE","3906 - IRA NEEDLES / ERB","3904 - IRA NEEDLES / THORNDALE","4001 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"203",
+            "Description":"iXpress Mid-Region",
+            "Direction":"Direction2",
+            "DirectionName":"to Cambridge Centre",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"203~~Direction2",
+        "Text":"203 - iXpress Mid-Region (to Cambridge Centre)",
+        "Stops":["1572 - SPORTSWORLD CROSSING","1288 - MAPLE GROVE / CHERRY BLOSSOM","1287 - MAPLE GROVE / SALTSMAN","3849 - MAPLE GROVE / VONDRAU","1296 - FISHER MILLS / SCOTT","1308 - GUELPH / SHEFFIELD","1309 - ADAM / TANNERY","1310 - FRANKLIN / SHAMROCK","3857 - FRANKLIN / EDWARD","1312 - FRANKLIN / THOMAS","2106 - FRANKLIN / WINSTON","1484 - FRANKLIN / HOLIDAY INN","1485 - FRANKLIN / PINEBUSH","1486 - FRANKLIN / STAFFORD","1487 - FRANKLIN / SHELDON","1488 - FRANKLIN / TURNBULL","1489 - FRANKLIN / RAGLIN","1490 - FRANKLIN / BISHOP","1357 - Can","1279 - Can","1358 - Dunbar / Conestoga","1386 - CAMBRIDGE CENTRE TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"203",
+            "Description":"iXpress Mid-Region",
+            "Direction":"Direction1",
+            "DirectionName":"to Conestoga College",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"203~~Direction1",
+        "Text":"203 - iXpress Mid-Region (to Conestoga College)",
+        "Stops":["1386 - CAMBRIDGE CENTRE TERMINAL","1342 - Dunbar / Conestoga","1280 - Can","3660 - FRANKLIN / CAN","1547 - FRANKLIN / SHELDON","1548 - FRANKLIN / STAFFORD","1549 - FRANKLIN / PINEBUSH","1550 - FRANKLIN / HOLIDAY INN","2107 - FRANKLIN / WINSTON","1258 - Franklin / Thomas","1259 - Franklin / Edward","1281 - FRANKLIN / ADAM","1299 - TANNERY / QUEEN","1300 - GUELPH / SHEFFIELD","1291 - FISHER MILLS / SCOTT","3649 - MAPLE GROVE / VONDREAU","2317 - MAPLE GROVE / FOUNTAIN","3531 - MAPLE GROVE / SALTSMAN","2318 - MAPLE GROVE / CHERRY BLOSSOM","1569 - SPORTSWORLD CROSSING"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"204",
+            "Description":"Highland Victoria iXpress",
+            "Direction":"East",
+            "DirectionName":"to Lackner",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"204~~East",
+        "Text":"204 - Highland Victoria iXpress (to Lackner)",
+        "Stops":["4000 - THE BOARDWALK TERMINAL","1095 - Ira Needles / Victoria","1180 - Ira Needles / Highland","1211 - HIGHLAND / WESTFOREST","1406 - HIGHLAND / WESTHEIGHTS","3173 - HIGHLAND / FISCHER","3175 - HIGHLAND / FIELDGATE","3389 - HIGHLAND / WESTMOUNT","3390 - HIGHLAND / LAWRENCE","3391 - HIGHLAND / BELMONT","1982 - QUEEN / WOODSIDE","2706 - QUEEN / COURTLAND","2709 - CHARLES STREET TERMINAL","1893 - KING / VICTORIA","1930 - VICTORIA / WEBER","1903 - VICTORIA / MARGARET","1923 - VICTORIA / LANCASTER","1987 - VICTORIA / EDNA","1936 - VICTORIA / RIVER","2333 - VICTORIA / FREDERICK","2339 - LACKNER / VICTORIA","1932 - LACKNER / KEEWATIN","1057 - Ottawa / Lackner"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"204",
+            "Description":"Highland Victoria iXpress",
+            "Direction":"West",
+            "DirectionName":"to The Boardwalk",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"204~~West",
+        "Text":"204 - Highland Victoria iXpress (to The Boardwalk)",
+        "Stops":["1057 - Ottawa / Lackner","1030 - OTTAWA / OLDFIELD","2385 - LACKNER / OTTAWA","1933 - LACKNER / KEEWATIN","1678 - LACKNER / VICTORIA","1989 - VICTORIA / NATCHEZ","1935 - VICTORIA / FREDERICK","1937 - VICTORIA / RIVER","2352 - VICTORIA / INDIANA","1924 - VICTORIA / LANCASTER","1912 - VICTORIA / MARGARET","1921 - VICTORIA / WEBER","1901 - KING / VICTORIA","2558 - CHARLES STREET TERMINAL","2754 - QUEEN / COURTLAND","2755 - QUEEN / HOMEWOOD","3356 - HIGHLAND / BELMONT","3357 - HIGHLAND / LAWRENCE","3198 - HIGHLAND / WESTMOUNT","3199 - HIGHLAND / FIELDGATE","1716 - HIGHLAND / FISCHER","1654 - HIGHLAND / EASTFOREST","1314 - HIGHLAND / WESTFOREST","1203 - Ira Needles / Highland","1101 - IRA NEEDLES / VICTORIA","4000 - THE BOARDWALK TERMINAL"]
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"888",
+            "Description":"Test Route - Places",
+            "Direction":"Clockwise",
+            "DirectionName":"Clockwise",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"888~~Clockwise",
+        "Text":"888 - Test Route - Places (Clockwise)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"999",
+            "Description":"INIT Test Route KWSA",
+            "Direction":"Inbound",
+            "DirectionName":"Inbound",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"999~~Inbound",
+        "Text":"999 - INIT Test Route KWSA (Inbound)"
+    },
+    {
+        "RouteDirection":{
+            "PublicIdentifier":"999",
+            "Description":"INIT Test Route KWSA",
+            "Direction":"Outbound",
+            "DirectionName":"Outbound",
+            "ServiceMode":"Bus",
+            "Site":{
+                "Identifier":"*",
+                "Name":""
+            }
+        },
+        "RouteDirectionKey":"999~~Outbound",
+        "Text":"999 - INIT Test Route KWSA (Outbound)"
+    }
+]}

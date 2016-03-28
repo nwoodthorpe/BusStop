@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+
+
+    <padding android:left="8dp" android:top="8dp"
+        android:right="8dp" android:bottom="8dp" />
+    <corners android:radius="200dp" />
+    <size android:height="25dp"
+        android:width="25dp"/>
+    <stroke
+        android:width="2dp"
+        android:color="@android:color/tab_indicator_text" />
+
+</shape>
