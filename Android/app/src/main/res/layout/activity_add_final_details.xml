@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.nwoodthorpe.busstop.AddFinalDetailsActivity">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AddFinalDetailsHeader"
+        android:textColor="#ffffff"
+        android:id="@+id/header"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:minHeight="60dp"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        android:layout_centerHorizontal="true"
+        android:typeface="normal"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="28dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back"
+        android:id="@+id/back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:clickable="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="28dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/check"
+        android:id="@+id/done"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="false"
+        android:clickable="true"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Route ID"
+        android:textSize="16sp"
+        android:id="@+id/routeLabel"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/routeLabel"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/routeText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/routeLabel"
+        android:editable="false"
+        android:maxLines="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/routeLabel"
+        android:layout_below="@+id/routeText"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:id="@+id/stopLabel"
+        android:text="Stop ID"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignLeft="@id/stopLabel"
+        android:id="@+id/stopText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/stopLabel"
+        android:editable="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/routeLabel"
+        android:layout_below="@+id/stopText"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:id="@+id/nameLabel"
+        android:text="Name"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignLeft="@id/stopLabel"
+        android:id="@+id/nameText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/nameLabel"
+        android:hint="Bus home from school..."
+        android:maxLength="20"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/routeLabel"
+        android:layout_below="@+id/nameText"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:id="@+id/distanceLabel"
+        android:text="Notifcation Distance (metres)"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignLeft="@id/stopLabel"
+        android:id="@+id/distanceText"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/distanceLabel"
+        android:inputType="number"
+        android:hint="500"
+        android:maxLength="5"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

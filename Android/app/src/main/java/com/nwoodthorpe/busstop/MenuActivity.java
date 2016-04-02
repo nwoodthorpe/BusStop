@@ -25,8 +25,8 @@ public class MenuActivity extends AppCompatActivity {
         MenuActivity.this.startActivity(newIntent);
     }
 
-    public void setButtonListeners(){
-        ImageView addButton = (ImageView)findViewById(R.id.plus);
+    public void setButtonListeners() {
+        ImageView addButton = (ImageView) findViewById(R.id.plus);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,44 +35,10 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
-    public String loadStopData() {
-        String json = null;
-        try {
-            InputStream is = getAssets().open("stops.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-        ArrayList<BusRoute> stops = new ArrayList<>();
-
-        try {
-            JSONObject obj = new JSONObject(loadStopData());
-            JSONArray array = obj.getJSONArray("data");
-            //Iterate over JSON array
-            for(int i = 0; i<array.length(); i++){
-                JSONObject localobj = (JSONObject)array.get(i);
-                if(localobj.has("Stops"))
-                    stops.add(new BusRoute((JSONObject)array.get(i)));
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        UserValues.getInstance().stops = stops;
 
         ArrayList<BusRow> rowArray = new ArrayList<>();
 

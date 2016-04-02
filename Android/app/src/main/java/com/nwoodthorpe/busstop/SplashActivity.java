@@ -6,13 +6,71 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Pair;
+
+import com.google.android.gms.maps.model.LatLng;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SplashActivity extends Activity {
+
+    public String loadJSON(String file) {
+        String json = null;
+        try {
+            InputStream is = getAssets().open(file);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        ArrayList<BusRoute> stops = new ArrayList<>();
+        HashMap<Integer, LatLng> map = new HashMap<Integer, LatLng>();
+
+        try {
+            JSONObject stopObject = new JSONObject(loadJSON("stops.json"));
+            JSONArray stopArray = stopObject.getJSONArray("data");
+            //Iterate over JSON array
+            for(int i = 0; i<stopArray.length(); i++){
+                JSONObject localobj = (JSONObject)stopArray.get(i);
+                if(localobj.has("Stops"))
+                    stops.add(new BusRoute(localobj));
+            }
+
+            JSONObject geoObject = new JSONObject(loadJSON("latlong.json"));
+            JSONArray geoArray = geoObject.getJSONArray("data");
+
+            for(int i = 0; i<geoArray.length(); i++){
+                JSONObject localobj = (JSONObject)geoArray.get(i);
+                map.put((Integer)localobj.get("stop"), new LatLng((Double)localobj.get("lat"), (Double)localobj.get("long")));
+                System.out.println("PUTTING COORD " + i);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        UserValues.getInstance().stops = stops;
+        UserValues.getInstance().geo = map;
+
+
 
         //Check if app has been run before
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);

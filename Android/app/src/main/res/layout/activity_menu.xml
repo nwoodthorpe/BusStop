@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.nwoodthorpe.busstop.MenuActivity"
-    android:background="@color/background">
+    tools:context="com.nwoodthorpe.busstop.MenuActivity">
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Active Routes"
+        android:text="@string/MenuHeader"
         android:textColor="#ffffff"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
@@ -99,6 +98,5 @@
         android:layout_below="@+id/div"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:clickable="true"/>
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

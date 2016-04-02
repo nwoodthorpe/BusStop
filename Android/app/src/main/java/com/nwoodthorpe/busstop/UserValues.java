@@ -1,7 +1,10 @@
 package com.nwoodthorpe.busstop;
 
+import android.util.Pair;
+
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 
 /**
@@ -15,6 +18,7 @@ public class UserValues {
     protected UserValues(){}
 
     ArrayList<BusRoute> stops;
+    HashMap<Integer, LatLng> geo;
 
     public static synchronized UserValues getInstance(){
         if(null == mInstance){
