@@ -12,6 +12,8 @@ public class FavRoute {
     String longStop;
     String shortStop;
     int notifRadius;
+    int seconds;
+    //Stores when next bus comes in seconds since midnight.
 
     public FavRoute(double lat, double lng, String name, String longRoute,
                     String shortRoute, String longStop, String shortStop, int notifRadius){
@@ -23,5 +25,6 @@ public class FavRoute {
         this.longStop = longStop;
         this.shortStop = shortStop;
         this.notifRadius = notifRadius;
+        this.seconds = -1;
     }
 }

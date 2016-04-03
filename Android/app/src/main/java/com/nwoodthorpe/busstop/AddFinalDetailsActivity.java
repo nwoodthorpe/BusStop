@@ -32,6 +32,9 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             if(notifRadius.length() == 0)
                 return 18;
 
+            if(name.contains("|") || name.contains("+")){
+                return 20;
+            }
 
             int stopnum = Integer.parseInt(stop.substring(0, 4));
             LatLng stopPos = UserValues.getInstance().geo.get(stopnum);
@@ -51,6 +54,9 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
 
             if (num < 0)
                 return 6;
+
+            if(num == 0)
+                return 7;
 
 
             return 0;
@@ -107,13 +113,25 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             case 6:
                 //Negative number
 
-                notif.setError("Negative distance makes no sense!");
+                notif.setError("A negative distance makes no sense!");
+                break;
+
+            case 7:
+                //0
+
+                notif.setError("Notification distance cannot be 0. Set 0 for always active.");
+                break;
+
+            case 20:
+                //+ in name
+
+                name.setError("Your name cannot have a '+' or '|' in it!");
                 break;
 
             case 99:
                 //An error ocurred while fetching geo data
 
-                notif.setError("An internal error has occured fetching geographical data for this stop. Please notify Nathaniel Woodthorpe.");
+                notif.setError("An internal error has occured fetching geographical data for this stop.");
                 break;
 
             case 100:
@@ -131,7 +149,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
         if(error != 0){
             handleError(error);
         }else{
-            //Everythings good, we can add to active
+            //Everything's good, we can add to active
         }
     }
 

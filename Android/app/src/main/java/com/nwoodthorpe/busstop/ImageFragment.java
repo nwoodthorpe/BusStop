@@ -33,19 +33,10 @@ public class ImageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View layoutView = inflater.inflate(R.layout.activity_menu, container,
                 false);
-        ArrayList<BusRow> rowArray = new ArrayList<>();
 
-        String favData = "60 Near Home-3-60%200 Conestoga-7-7A%7 Outside DC-4-7C";
+        String favData = "Bus to School|1368|1368-COWAN / WALACE|60|60 - NORTHVIEW ACRES|43.3841743|-80.29449|1000+Bus Home|1123|1123-U|200|200 - iXpress (To Ainslie)|43.47273|-80.54123|1000";
 
-        String[] favorites = favData.split("%");
-        System.out.println(favorites.length);
-        for(int i = 0; i<favorites.length; i++){
-            System.out.println("ONE ITERATION");
-
-            String[] splitFavorites = favorites[i].split("-");
-            System.out.println(splitFavorites[0] + " " + splitFavorites[1]);
-            rowArray.add(new BusRow(splitFavorites[0], splitFavorites[1], splitFavorites[2]));
-        }
+        ArrayList<FavRoute> rowArray = Serialization.deserialize(favData);
 
         ArrayAdapter adapter = new MenuListAdapter(getActivity(), 0, rowArray);
 

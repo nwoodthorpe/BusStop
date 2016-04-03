@@ -2,6 +2,8 @@ package com.nwoodthorpe.busstop;
 
 import android.text.TextUtils;
 
+import java.util.ArrayList;
+
 /**
  * Created by Nathaniel on 4/1/2016.
  */
@@ -17,18 +19,20 @@ public class Serialization {
      */
 
     //Returns null on error.
-    public static FavRoute[] deserialize(String input){
+    public static ArrayList<FavRoute> deserialize(String input){
         if(input == null || input.length() == 0)
             return null;
         String[] splitEntries = input.split("\\+");
 
         int len = splitEntries.length;
-        FavRoute[] routes = new FavRoute[len];
+        ArrayList<FavRoute> routes = new ArrayList<>();
 
         for(int i = 0; i<len; i++){
-            String[] splitRoute = splitEntries[i].split("|");
-            if(splitRoute.length != 8)
+            String[] splitRoute = splitEntries[i].split("\\|");
+            if(splitRoute.length != 8) {
+                System.out.println("THE GOD DAMN LENGTH IS: " + splitRoute.length);
                 return null;
+            }
 
             String name = splitRoute[0];
             String shortStop = splitRoute[1];
@@ -46,20 +50,20 @@ public class Serialization {
                 return null;
             }
 
-            routes[i] = new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, distance);
+            routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, distance));
         }
         return routes;
     }
 
-    public static String serialize(FavRoute[] routes){
-        if(routes == null && routes.length == 0)
+    public static String serialize(ArrayList<FavRoute> routes){
+        if(routes == null && routes.size() == 0)
             return null;
 
-        int len = routes.length;
+        int len = routes.size();
         String[] routesStrings = new String[len];
 
         for(int i = 0; i<len; i++){
-            FavRoute route = routes[i];
+            FavRoute route = routes.get(i);
             routesStrings[i] = "" + route.lat + "|" + route.lng + "|" + route.name + "|"
                     + route.longRoute + "|" + route.shortRoute + "|" + route.longStop +
                     "|" + route.shortStop + "|" + route.notifRadius;

@@ -48,18 +48,12 @@ public class MenuActivity extends AppCompatActivity {
         if(favData != null){
             System.out.println("NOT NULL");
             System.out.println(favData);
-            String[] favorites = favData.split("%");
-            System.out.println(favorites.length);
-            for(int i = 0; i<favorites.length; i++){
-                System.out.println("ONE ITERATION");
-
-                String[] splitFavorites = favorites[i].split("-");
-                System.out.println(splitFavorites[0] + " " + splitFavorites[1]);
-                rowArray.add(new BusRow(splitFavorites[0], splitFavorites[1], splitFavorites[2]));
-            }
+            UserValues.getInstance().favorites = Serialization.deserialize(favData);
         }
 
-        ArrayAdapter adapter = new MenuListAdapter(this, 0, rowArray);
+        System.out.println("LENGTH: " + UserValues.getInstance().favorites.size());
+
+        ArrayAdapter adapter = new MenuListAdapter(this, 0, UserValues.getInstance().favorites);
 
         // Link the data and our listview using the adapter.
         ListView listView = (ListView) findViewById(R.id.list);

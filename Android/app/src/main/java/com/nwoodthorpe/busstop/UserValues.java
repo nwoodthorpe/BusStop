@@ -13,10 +13,9 @@ import java.util.HashMap;
 public class UserValues {
     private static UserValues mInstance= null;
 
-
-
     protected UserValues(){}
 
+    ArrayList<FavRoute> favorites;
     ArrayList<BusRoute> stops;
     HashMap<Integer, LatLng> geo;
 
