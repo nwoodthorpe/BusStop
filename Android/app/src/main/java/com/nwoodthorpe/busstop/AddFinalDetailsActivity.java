@@ -1,6 +1,8 @@
 package com.nwoodthorpe.busstop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -139,17 +141,51 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
 
                 notif.setError("An unexpected error occured. :(");
                 break;
+
+            case 101:
+                //An unexpected error ocurred while adding.
+
+                notif.setError("An unexpected error occured. :/");
         }
     }
 
-    public void onDoneClick(View v){
-        String name = ((EditText)findViewById(R.id.nameText)).getText().toString();
-        String notifRadius = ((EditText)findViewById(R.id.distanceText)).getText().toString();
+    public void onDoneClick(View v) {
+        String name = ((EditText) findViewById(R.id.nameText)).getText().toString();
+        String notifRadius = ((EditText) findViewById(R.id.distanceText)).getText().toString();
         int error = validateForm(name, notifRadius);
-        if(error != 0){
+        if (error != 0) {
             handleError(error);
-        }else{
-            //Everything's good, we can add to active
+        } else {
+            try {
+                UserValues prefs = UserValues.getInstance();
+
+                //Everything's good, we can add to active
+                //Create new FavRoute and add it to sharedpreferences
+                //Also push update to main menu custom listview adapter
+                // public FavRoute(double lat, double lng, String name, String longRoute,
+                //String shortRoute, String longStop, String shortStop, int notifRadius){
+                String shortStop = stop.substring(0, 4);
+                String shortRoute = route.replaceAll("\\D+", ""); //Replace non numerics with numbers
+
+                int stopnum = Integer.parseInt(shortStop);
+                LatLng coords = prefs.geo.get(stopnum);
+
+                int distance = Integer.parseInt(notifRadius);
+                FavRoute newRoute = new FavRoute(coords.latitude, coords.longitude, name, route, shortRoute, stop, shortStop, distance);
+
+                prefs.favorites.add(newRoute);
+
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("FAV_DATA", Serialization.serialize(prefs.favorites));
+                System.out.println("PUTTING NEW DATA: ");
+                System.out.println(Serialization.serialize(prefs.favorites));
+                editor.apply();
+
+                finish();
+            } catch (Exception e) {
+                handleError(101);
+            }
         }
     }
 

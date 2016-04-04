@@ -25,12 +25,12 @@ public class Serialization {
         String[] splitEntries = input.split("\\+");
 
         int len = splitEntries.length;
+        System.out.println("NUMBER OF ENTRIES: " + len);
         ArrayList<FavRoute> routes = new ArrayList<>();
 
         for(int i = 0; i<len; i++){
             String[] splitRoute = splitEntries[i].split("\\|");
             if(splitRoute.length != 8) {
-                System.out.println("THE GOD DAMN LENGTH IS: " + splitRoute.length);
                 return null;
             }
 
@@ -47,6 +47,8 @@ public class Serialization {
                 lng = Double.parseDouble(splitRoute[6]);
                 distance = Integer.parseInt(splitRoute[7]);
             }catch(Exception e){
+                System.out.println("EXCEPTION TRYING TO PARSE!");
+                e.printStackTrace();
                 return null;
             }
 
@@ -64,10 +66,13 @@ public class Serialization {
 
         for(int i = 0; i<len; i++){
             FavRoute route = routes.get(i);
-            routesStrings[i] = "" + route.lat + "|" + route.lng + "|" + route.name + "|"
-                    + route.longRoute + "|" + route.shortRoute + "|" + route.longStop +
-                    "|" + route.shortStop + "|" + route.notifRadius;
+            routesStrings[i] = "" + route.name + "|" + route.shortStop + "|" + route.longStop + "|"
+                    + route.shortRoute + "|" + route.longRoute + "|" + route.lat +
+                    "|" + route.lng + "|" + route.notifRadius;
         }
         return TextUtils.join("+", routesStrings);
     }
+
+    //editor.putString("FAV_DATA","Bus to School|1368|1368-COWAN / WALACE|60|60 - NORTHVIEW ACRES|43.3841743|-80.29449|1000+Bus Home|1123|1123-U|200|200 - iXpress (To Ainslie)|43.47273|-80.54123|1000");
+
 }

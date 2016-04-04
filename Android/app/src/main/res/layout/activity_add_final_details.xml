@@ -133,6 +133,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/nameLabel"
         android:hint="Bus home from school..."
+        android:singleLine="true"
         android:maxLength="20"/>
 
     <TextView
@@ -155,6 +156,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/distanceLabel"
         android:inputType="number"
+        android:singleLine="true"
         android:hint="500"
         android:maxLength="5"/>
         </RelativeLayout>
