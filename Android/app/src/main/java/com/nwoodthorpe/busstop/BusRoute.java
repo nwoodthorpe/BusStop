@@ -24,7 +24,7 @@ public class BusRoute {
         JSONArray stopsArray = json.getJSONArray("Stops");
         for(int i = 0; i<stopsArray.length(); i++){
             String stopString = (String)stopsArray.get(i);
-            System.out.println(stopString);
+            //System.out.println(stopString);
             stops.add(stopString);
             stopIDs.add(Integer.parseInt(stopString.substring(0, 4))); //Take 4 number stop ID
         }

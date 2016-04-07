@@ -9,4 +9,5 @@
     <string name="AddHeader">Select a Route</string>
     <string name="MenuHeader">Active Routes</string>
     <string name="AddFinalDetailsHeader">Final Details</string>
+    <string name="ViewRouteHeader">View Route</string>
 </resources>

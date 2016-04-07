@@ -19,6 +19,9 @@ public class UserValues {
     ArrayList<BusRoute> stops;
     HashMap<Integer, LatLng> geo;
 
+    //CONSTANTS
+    final int ADD_RESULT_KEY = 2;
+
     public static synchronized UserValues getInstance(){
         if(null == mInstance){
             mInstance = new UserValues();

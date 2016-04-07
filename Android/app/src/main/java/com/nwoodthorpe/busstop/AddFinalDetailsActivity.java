@@ -182,7 +182,9 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 System.out.println(Serialization.serialize(prefs.favorites));
                 editor.apply();
 
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             } catch (Exception e) {
                 handleError(101);
             }
