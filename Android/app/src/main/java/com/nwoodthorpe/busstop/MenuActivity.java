@@ -1,7 +1,11 @@
 package com.nwoodthorpe.busstop;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,6 +67,31 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            }
+        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                System.out.println("LONG TOUGH ON POS: " + position);
+                UserValues prefs = UserValues.getInstance();
+                System.out.println(prefs.favorites.get(position).name);
+                Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(25);
+
+                new AlertDialog.Builder(MenuActivity.this)
+                        .setTitle("Delete Favorite")
+                        .setMessage("Do you want to delete '" + prefs.favorites.get(position).name + "'")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                System.out.println("REMOVING ENTRANCE: " + position);
+                            }})
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {}
+                        }).show();
+
+                return false;
             }
         });
         listView.setAdapter(adapter);
