@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.internal.zzf;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -119,6 +121,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         HashMap<Integer, LatLng> mappedGeoCoords = UserValues.getInstance().geo;
         LatLng anchor = null;
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for(int i = 0; i<stops.size(); i++){
 
             int stopNum = stops.get(i);
@@ -134,11 +137,18 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 coordMarker.anchor(0.5f, 1f);
                 coordMarker.draggable(false);
                 mMap.addMarker(coordMarker);
+                builder.include(coord);
             }
         }
-        if(anchor != null)
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(anchor));
 
+        if(anchor!=null) {
 
+            LatLngBounds bounds = builder.build();
+
+            int offset = 100;
+            CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, offset);
+
+            mMap.moveCamera(cu);
+        }
     }
 }

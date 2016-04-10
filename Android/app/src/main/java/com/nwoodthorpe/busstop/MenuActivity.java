@@ -42,6 +42,15 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onContentChanged() {
+        super.onContentChanged();
+
+        View empty = findViewById(R.id.empty);
+        ListView list = (ListView) findViewById(R.id.list);
+        list.setEmptyView(empty);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
@@ -53,27 +62,29 @@ public class MenuActivity extends AppCompatActivity {
 
         if(favData != null){
             System.out.println("NOT NULL");
+            System.out.println("TESTING");
             System.out.println(favData);
             UserValues.getInstance().favorites = Serialization.deserialize(favData);
         }
 
         System.out.println("LENGTH: " + UserValues.getInstance().favorites.size());
 
-        ArrayAdapter adapter = new MenuListAdapter(this, 0, UserValues.getInstance().favorites);
+        final ArrayAdapter adapter = new MenuListAdapter(this, 0, UserValues.getInstance().favorites);
 
         // Link the data and our listview using the adapter.
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                //REFRESH ETA
             }
         });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 System.out.println("LONG TOUGH ON POS: " + position);
-                UserValues prefs = UserValues.getInstance();
+                final UserValues prefs = UserValues.getInstance();
                 System.out.println(prefs.favorites.get(position).name);
                 Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(25);
@@ -85,6 +96,18 @@ public class MenuActivity extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 System.out.println("REMOVING ENTRANCE: " + position);
+                                ArrayList<FavRoute> favs = prefs.favorites;
+                                favs.remove(position);
+                                prefs.favorites = favs;
+
+                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("FAV_DATA", Serialization.serialize(prefs.favorites));
+                                System.out.println("PUTTING NEW DATA: ");
+                                System.out.println(Serialization.serialize(prefs.favorites));
+                                editor.apply();
+
+                                adapter.notifyDataSetChanged();
                             }})
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener(){
                             @Override

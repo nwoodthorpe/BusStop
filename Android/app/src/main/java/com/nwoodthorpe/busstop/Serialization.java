@@ -20,8 +20,10 @@ public class Serialization {
 
     //Returns null on error.
     public static ArrayList<FavRoute> deserialize(String input){
-        if(input == null || input.length() == 0)
-            return null;
+        if(input == null || input.length() == 0) {
+            ArrayList<FavRoute> x = new ArrayList<>();
+            return x;
+        }
         String[] splitEntries = input.split("\\+");
 
         int len = splitEntries.length;
@@ -54,6 +56,7 @@ public class Serialization {
 
             routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, distance));
         }
+        System.out.println("RETURNING NEW ROUTE SIZE: " + routes.size());
         return routes;
     }
 

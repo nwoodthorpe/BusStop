@@ -99,4 +99,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/empty"
+        android:text="You have no favorite routes."
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        />
 </RelativeLayout>
