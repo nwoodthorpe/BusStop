@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nwoodthorpe.busstop.SettingsActivity">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textColor="#ffffff"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:minHeight="60dp"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="false"
+        android:layout_centerHorizontal="true"
+        android:typeface="normal"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="28dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="35dp"
+        android:maxHeight="35dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/back"
+        android:src="@drawable/back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentLeft="true"
+        android:clickable="true"
+        />
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginTop="65dp">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOTIFICATIONS"
+                android:id="@+id/accountStatic"
+                android:textColor="@android:color/tab_indicator_text"
+                android:layout_marginLeft="31dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:height="1dp"
+                android:background="@color/dim_foreground_material_dark"
+                android:text=""
+                android:id="@+id/accountStaticUnderline"
+                android:layout_below="@+id/accountStatic"/>
+
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/autoLoginLayout"
+                android:layout_below="@+id/accountStaticUnderline"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="Show ETA in Notification Bar"
+                    android:id="@+id/showETA" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/showETAToggle"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/showETA"
+                    android:height="1dp"
+                    android:background="@color/dim_foreground_material_dark"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:text=""
+                    android:id="@+id/autoLoginHoriz" />
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/logoutLayout"
+                android:layout_below="@+id/autoLoginLayout"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="ETA Update Frequency"
+                    android:id="@+id/updatefrequencytext" />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/arrow"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="23dp"
+                    android:layout_centerVertical="true"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/updatefrequencytext"
+                    android:height="1dp"
+                    android:background="@color/dim_foreground_material_dark"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:text=""
+                    android:id="@+id/logoutHoriz" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GENERAL"
+                android:id="@+id/generalStatic"
+                android:textColor="@color/dim_foreground_disabled_material_light"
+                android:layout_marginLeft="31dp"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/logoutLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:height="1dp"
+                android:background="@color/dim_foreground_material_dark"
+                android:text=""
+                android:id="@+id/generalStaticUnderline"
+                android:layout_below="@+id/generalStatic"/>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/commonQuestionsLayout"
+                android:layout_below="@+id/generalStaticUnderline"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="Common Questions"
+                    android:id="@+id/commonQuestionsText" />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/arrow"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="23dp"
+                    android:layout_centerVertical="true"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/commonQuestionsText"
+                    android:height="1dp"
+                    android:background="@color/dim_foreground_material_dark"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:text=""
+                    android:id="@+id/commonQuestionsHoriz" />
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/addFundsLayout"
+                android:layout_below="@+id/commonQuestionsLayout"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="Add Funds"
+                    android:id="@+id/addFundsText" />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/arrow"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="23dp"
+                    android:layout_centerVertical="true"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/addFundsText"
+                    android:height="1dp"
+                    android:background="@color/dim_foreground_material_dark"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:text=""
+                    android:id="@+id/addFundsHoriz" />
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contactLayout"
+                android:layout_below="@+id/addFundsLayout"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="Contact"
+                    android:id="@+id/contactText" />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/arrow"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="23dp"
+                    android:layout_centerVertical="true"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contactText"
+                    android:height="1dp"
+                    android:background="@color/dim_foreground_material_dark"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:text=""
+                    android:id="@+id/contactHoriz" />
+            </RelativeLayout>
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/privacyLayout"
+                android:layout_below="@+id/contactLayout"
+                android:clickable="true">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="16dp"
+                    android:text="Privacy"
+                    android:id="@+id/privacyText" />
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/arrow"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginRight="23dp"
+                    android:layout_centerVertical="true"
+                    android:focusable="false"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/privacyText"
+                    android:height="1dp"
+                    android:background="@color/dim_foreground_material_dark"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:text=""
+                    android:id="@+id/privacyHoriz" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+

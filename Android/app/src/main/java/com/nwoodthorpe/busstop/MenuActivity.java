@@ -1,10 +1,13 @@
 package com.nwoodthorpe.busstop;
 
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.IBinder;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,9 +28,16 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
+    ServerSyncService mService;
+    boolean mBound = false;
 
     public void onPlusClick(View v){
         Intent newIntent = new Intent(MenuActivity.this, AddActivity.class);
+        MenuActivity.this.startActivity(newIntent);
+    }
+
+    public void onSettingsClicked(View v){
+        Intent newIntent = new Intent(MenuActivity.this, SettingsActivity.class);
         MenuActivity.this.startActivity(newIntent);
     }
 
@@ -39,6 +49,16 @@ public class MenuActivity extends AppCompatActivity {
                 onPlusClick(v);
             }
         });
+
+        ImageView settingsButton = (ImageView) findViewById(R.id.settings);
+        settingsButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onSettingsClicked(v);
+                    }
+                }
+        );
     }
 
     @Override
@@ -51,8 +71,19 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        System.out.println("STARTING SERVICE:");
+        Intent intent = new Intent(this, ServerSyncService.class);
+        startService(intent);
+        //bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+
         setContentView(R.layout.activity_menu);
 
         ArrayList<BusRow> rowArray = new ArrayList<>();
@@ -76,7 +107,9 @@ public class MenuActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //REFRESH ETA
+                //System.out.println("SENDING SERVICE REQUEST");
+                Intent intent = new Intent(MenuActivity.this, ServerSyncService.class);
+                bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
             }
         });
 
@@ -121,4 +154,24 @@ public class MenuActivity extends AppCompatActivity {
 
         setButtonListeners();
     }
+
+    /** Defines callbacks for service binding, passed to bindService() */
+    private ServiceConnection mConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            ServerSyncService.LocalBinder binder = (ServerSyncService.LocalBinder) service;
+            mService = binder.getService();
+            mService.switchBounds();
+            System.out.println("ITERATIONS: " + mService.getIterations());
+            unbindService(this);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
 }
