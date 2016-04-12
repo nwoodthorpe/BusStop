@@ -80,8 +80,8 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         System.out.println("STARTING SERVICE:");
-        Intent intent = new Intent(this, ServerSyncService.class);
-        startService(intent);
+        //Intent intent = new Intent(this, ServerSyncService.class);
+        //startService(intent);
         //bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
         setContentView(R.layout.activity_menu);

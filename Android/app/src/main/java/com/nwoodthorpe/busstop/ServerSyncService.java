@@ -22,11 +22,6 @@ public class ServerSyncService extends Service {
     // Random number generator
     private final Random mGenerator = new Random();
 
-    /**
-     * Class used for the client Binder.  Because we know this service always
-     * runs in the same process as its clients, we don't need to deal with IPC.
-     */
-
     public class LocalBinder extends Binder {
         ServerSyncService getService() {
             // Return this instance of LocalService so clients can call public methods
@@ -64,6 +59,7 @@ public class ServerSyncService extends Service {
     @Override
     public void onDestroy() {
         System.out.println("AGH WE'VE BEEN DESTROYED NOOOOOOOOOO");
+        isRunning = false;
         super.onDestroy();
     }
 
@@ -83,14 +79,17 @@ public class ServerSyncService extends Service {
         System.out.println("BEGINNING GENERATION CYCLE");
         final Handler h = new Handler();
         final int delay = 1000; //milliseconds
-
         h.postDelayed(new Runnable(){
             public void run(){
-                //do something
+                //Kill if we aren't supposed to run anymore
+                if(!isRunning)
+                    return;
+
                 int r = mGenerator.nextInt(bound);
                 System.out.println(r);
                 iterations++;
 
+                //Update notification
                 NotificationManager mNotificationManager =
                         (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -106,7 +105,6 @@ public class ServerSyncService extends Service {
                 mNotificationManager.notify(2234, notification);
 
                 h.postDelayed(this, delay);
-
             }
         }, delay);
     }
