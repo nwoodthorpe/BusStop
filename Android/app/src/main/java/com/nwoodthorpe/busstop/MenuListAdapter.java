@@ -10,7 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Nathaniel on 12/13/2015.
@@ -43,7 +46,27 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
                 name.setText(user.name);
             }
             if (time != null) {
-                time.setText(user.seconds + " minutes");
+                if(user.seconds == -1){
+                    time.setText("Retrieving...");
+                }else {
+                    //time.seconds is seconds since midnight
+                    Calendar c = Calendar.getInstance();
+                    int hours = c.get(Calendar.HOUR_OF_DAY);
+                    int minutes = c.get(Calendar.MINUTE);
+                    int seconds = c.get(Calendar.SECOND);
+                    int mili = c.get(Calendar.MILLISECOND);
+
+                    long curSecondsFromMidnight = seconds + (minutes * 60) + (hours * 3600 );
+
+                    long secondsETA = user.seconds - curSecondsFromMidnight;
+                    if(secondsETA < 10){
+                        time.setText("Due!");
+                    }else if(secondsETA < 60){
+                        time.setText(secondsETA + "seconds");
+                    }else {
+                        time.setText((secondsETA / 60) + " minutes");
+                    }
+                }
             }
             if(smallName!=null){
                 smallName.setText(user.shortRoute);

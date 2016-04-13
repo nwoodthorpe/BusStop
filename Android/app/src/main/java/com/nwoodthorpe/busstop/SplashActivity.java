@@ -54,8 +54,6 @@ public class SplashActivity extends Activity {
     }
 
     private class AsyncInitalize extends AsyncTask<String, String, String> {
-        private String resp;
-
 
         @Override
         protected String doInBackground(String... params) {

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -108,8 +109,8 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //System.out.println("SENDING SERVICE REQUEST");
-                Intent intent = new Intent(MenuActivity.this, ServerSyncService.class);
-                bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+                //Intent intent = new Intent(MenuActivity.this, ServerSyncService.class);
+                //bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
             }
         });
 
@@ -153,6 +154,16 @@ public class MenuActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         setButtonListeners();
+
+        final Handler h = new Handler();
+        final int delay = 1000;
+        h.postDelayed(new Runnable(){
+            public void run(){
+                adapter.notifyDataSetChanged();
+                System.out.println("NOTIFIED");
+                h.postDelayed(this, delay);
+            }
+        }, delay);
     }
 
     /** Defines callbacks for service binding, passed to bindService() */

@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
@@ -29,12 +31,24 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    public void onBackClicked(){
+        finish();
+    }
+
     public void setButtonListeners(){
         Switch showETA = (Switch) findViewById(R.id.showETAToggle);
         showETA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 showETAListener(buttonView, isChecked);
+            }
+        });
+
+        ImageView back = (ImageView) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackClicked();
             }
         });
     }
