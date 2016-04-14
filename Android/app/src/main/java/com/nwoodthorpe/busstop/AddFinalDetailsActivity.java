@@ -19,6 +19,21 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
     String route;
     String stop;
 
+    //CONSTANTS
+    static final int ADD_ALL_GOOD = 0;
+    static final int ADD_NO_NAME_OR_RAD = 1;
+    static final int ADD_NAME_TOO_LONG = 2;
+    static final int ADD_NO_NAME = 3;
+    static final int ADD_NO_RAD = 4;
+    static final int ADD_INVALID_DISTANCE = 5;
+    static final int ADD_NUM_TOO_LARGE = 6;
+    static final int ADD_NUM_NEGATIVE = 7;
+    static final int ADD_iNVALID_CHAR_IN_NAME = 8;
+    static final int ADD_NAME_EXISTS = 9;
+    static final int ADD_GEO_ERROR = 10;
+    static final int ADD_UNEXPECTED_ERROR = 11;
+    static final int ADD_UNEXPECTED_ERROR2 = 12;
+
     public void onBackClick(View v){
         finish();
     }
@@ -26,54 +41,51 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
     public int validateForm(String name, String notifRadius){
         try {
             if (name == null || notifRadius == null)
-                return 1;
+                return ADD_NO_NAME_OR_RAD;
             if (name.length() > 20)
-                return 2;
+                return ADD_NAME_TOO_LONG;
 
             if (name.length() == 0)
-                return 3;
+                return ADD_NO_NAME;
 
             if(notifRadius.length() == 0)
-                return 18;
+                return ADD_NO_RAD;
 
             if(name.contains("|") || name.contains("+")){
-                return 20;
+                return ADD_iNVALID_CHAR_IN_NAME;
             }
 
             int stopnum = Integer.parseInt(stop.substring(0, 4));
             LatLng stopPos = UserValues.getInstance().geo.get(stopnum);
             if(stopPos == null)
-                return 99;
+                return ADD_GEO_ERROR;
 
             int num;
 
             try {
                 num = Integer.parseInt(notifRadius);
             } catch (Exception e) {
-                return 4;
+                return ADD_INVALID_DISTANCE;
             }
 
             if (num > 99999)
-                return 5;
+                return ADD_NUM_TOO_LARGE;
 
             if (num < 0)
-                return 6;
-
-            if(num == 0)
-                return 7;
+                return ADD_NUM_NEGATIVE;
 
             UserValues prefs = UserValues.getInstance();
             ArrayList<FavRoute> favs = prefs.favorites;
 
             for(int i = 0; i<favs.size(); i++){
                 if(name.hashCode() == favs.get(i).name.hashCode()){
-                    return 37;
+                    return ADD_NAME_EXISTS;
                 }
             }
 
-            return 0;
+            return ADD_ALL_GOOD;
         }catch(Exception e){
-            return 100;
+            return ADD_UNEXPECTED_ERROR;
         }
     }
 
@@ -88,77 +100,71 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
         assert route != null;
 
         switch (error) {
-            case 1:
+            case ADD_NO_NAME_OR_RAD:
                 //No name or radius was entered
 
                 name.setError("Enter a name!");
                 break;
 
-            case 2:
+            case ADD_NAME_TOO_LONG:
                 //Name too long
 
                 name.setError("Name must be shorter than 20 characters.");
                 break;
-            case 3:
+            case ADD_NO_NAME:
                  //Name wasn't entered
                 name.setError("Please enter a name!");
                 break;
 
-            case 18:
+            case ADD_NO_RAD:
                 //notif distance wasn't entered
 
                 notif.setError("Please enter a distance!");
                 break;
 
-            case 4:
+            case ADD_INVALID_DISTANCE:
                 //Invalid number
 
                 notif.setError("Please enter a valid distance!");
                 break;
 
-            case 5:
+            case ADD_NUM_TOO_LARGE:
                  //Num too large
 
                  notif.setError("Notification distance must be < 99999m. Set 0 for always active.");
                  break;
 
-            case 6:
+            case ADD_NUM_NEGATIVE:
                 //Negative number
 
                 notif.setError("A negative distance makes no sense!");
                 break;
 
-            case 7:
-                //0
-
-                notif.setError("Notification distance cannot be 0. Set 0 for always active.");
-                break;
-
-            case 20:
+            case ADD_iNVALID_CHAR_IN_NAME:
                 //+ in name
 
                 name.setError("Your name cannot have a '+' or '|' in it!");
                 break;
 
-            case 37:
+            case ADD_NAME_EXISTS:
                 //Name exists
 
                 name.setError("Please choose a unique favorite name!");
                 break;
 
-            case 99:
+            case ADD_GEO_ERROR:
                 //An error ocurred while fetching geo data
 
                 notif.setError("An internal error has occured fetching geographical data for this stop.");
                 break;
 
-            case 100:
+            case ADD_UNEXPECTED_ERROR:
                 //An unexpected error ocurred.
 
                 notif.setError("An unexpected error occured. :(");
                 break;
 
-            case 101:
+            case ADD_UNEXPECTED_ERROR2:
                 //An unexpected error ocurred while adding.
 
                 notif.setError("An unexpected error occured. :/");
@@ -169,7 +175,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
         String name = ((EditText) findViewById(R.id.nameText)).getText().toString();
         String notifRadius = ((EditText) findViewById(R.id.distanceText)).getText().toString();
         int error = validateForm(name, notifRadius);
-        if (error != 0) {
+        if (error != ADD_ALL_GOOD) {
             handleError(error);
         } else {
             try {
@@ -202,7 +208,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             } catch (Exception e) {
-                handleError(101);
+                handleError(ADD_UNEXPECTED_ERROR2);
             }
         }
     }
