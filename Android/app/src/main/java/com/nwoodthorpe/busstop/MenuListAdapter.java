@@ -48,7 +48,11 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
             if (time != null) {
                 if(user.seconds == -1){
                     time.setText("Retrieving...");
-                }else {
+                }else if(user.seconds == -2) {
+                    time.setText("Network error retrieving times...");
+                }else if(user.seconds == -3) {
+                    time.setText("No bus data found!");
+                }else{
                     //time.seconds is seconds since midnight
                     Calendar c = Calendar.getInstance();
                     int hours = c.get(Calendar.HOUR_OF_DAY);
@@ -68,6 +72,7 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
                     }
                 }
             }
+
             if(smallName!=null){
                 smallName.setText(user.shortRoute);
             }

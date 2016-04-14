@@ -1,6 +1,7 @@
 package com.nwoodthorpe.busstop;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -62,6 +63,8 @@ public class MenuActivity extends AppCompatActivity {
         );
     }
 
+
+
     @Override
     public void onContentChanged() {
         super.onContentChanged();
@@ -88,18 +91,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         ArrayList<BusRow> rowArray = new ArrayList<>();
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String favData = preferences.getString("FAV_DATA", null);
-
-        if(favData != null){
-            System.out.println("NOT NULL");
-            System.out.println("TESTING");
-            System.out.println(favData);
-            UserValues.getInstance().favorites = Serialization.deserialize(favData);
-        }
-
-        System.out.println("LENGTH: " + UserValues.getInstance().favorites.size());
 
         final ArrayAdapter adapter = new MenuListAdapter(this, 0, UserValues.getInstance().favorites);
 
@@ -156,11 +147,11 @@ public class MenuActivity extends AppCompatActivity {
         setButtonListeners();
 
         final Handler h = new Handler();
-        final int delay = 1000;
+        final int delay = 1000; //Every second
         h.postDelayed(new Runnable(){
             public void run(){
                 adapter.notifyDataSetChanged();
-                System.out.println("NOTIFIED");
+
                 h.postDelayed(this, delay);
             }
         }, delay);
@@ -176,7 +167,6 @@ public class MenuActivity extends AppCompatActivity {
             ServerSyncService.LocalBinder binder = (ServerSyncService.LocalBinder) service;
             mService = binder.getService();
             mService.switchBounds();
-            System.out.println("ITERATIONS: " + mService.getIterations());
             unbindService(this);
         }
 

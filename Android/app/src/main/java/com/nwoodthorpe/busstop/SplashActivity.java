@@ -86,6 +86,18 @@ public class SplashActivity extends Activity {
             UserValues.getInstance().stops = stops;
             UserValues.getInstance().geo = map;
 
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
+            String favData = preferences.getString("FAV_DATA", null);
+
+            if(favData != null){
+                System.out.println("NOT NULL");
+                System.out.println("TESTING");
+                System.out.println(favData);
+                UserValues.getInstance().favorites = Serialization.deserialize(favData);
+            }
+
+            System.out.println("LENGTH: " + UserValues.getInstance().favorites.size());
+
             return "Success";
         }
 
@@ -124,11 +136,9 @@ public class SplashActivity extends Activity {
                     //editor.putString("FAV_DATA","Bus to School|1368|1368-COWAN / WALACE|60|60 - NORTHVIEW ACRES|43.3841743|-80.29449|1000+Bus Home|1123|1123-U|200|200 - iXpress (To Ainslie)|43.47273|-80.54123|1000");
                     editor.apply();
 
-                    boolean showETA = preferences.getBoolean("showETA", false);
-                    if(showETA){
-                        Intent serviceIntent = new Intent(SplashActivity.this, ServerSyncService.class);
-                        startService(serviceIntent);
-                    }
+                    Intent serviceIntent = new Intent(SplashActivity.this, ServerSyncService.class);
+                    startService(serviceIntent);
+
 
                     Intent newIntent = new Intent(SplashActivity.this, MenuActivity.class);
                     SplashActivity.this.startActivity(newIntent);

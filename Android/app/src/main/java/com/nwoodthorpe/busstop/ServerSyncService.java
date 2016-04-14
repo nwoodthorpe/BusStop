@@ -34,6 +34,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -66,21 +67,26 @@ public class ServerSyncService extends Service {
         super.onStartCommand(intent, flags, startId);
         System.out.println("STARTED");
 
-        if(!isRunning){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
+        boolean show = preferences.getBoolean("showETA", false);
+
+        if(!isRunning) {
             System.out.println("CHECK");
             isRunning = true;
-            Intent notificationIntent = new Intent(this, SplashActivity.class);
-            PendingIntent pendingIntent=PendingIntent.getActivity(this, 0,
-                    notificationIntent,PendingIntent.FLAG_CANCEL_CURRENT);
 
-            Notification notification=new NotificationCompat.Builder(this)
-                    .setSmallIcon(R.drawable.cog)
-                    .setContentText("TESTING")
-                    .setContentIntent(pendingIntent).build();
-
-            startForeground(2234, notification);
             getNewTimes();
+
+            final Handler h = new Handler();
+            final int delay = 1000; //milliseconds
+            h.postDelayed(new Runnable() {
+                public void run() {
+                    updateNotifications();
+                    if(isRunning)
+                        h.postDelayed(this, delay);
+                }
+            }, 0);
         }
+
         return START_STICKY;
     }
 
@@ -98,15 +104,69 @@ public class ServerSyncService extends Service {
             bound=50;
     }
 
-    public int getIterations(){
-        return iterations;
+    public void updateNotifications(){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
+        if(prefs.getBoolean("showETA", false)){
+            System.out.println("UPDATING NOTIFICATIONS");
+
+            ArrayList<FavRoute> favs = UserValues.getInstance().favorites;
+
+            for(int i = 0; i<favs.size(); i++){
+                String time = "";
+
+                FavRoute user = favs.get(i);
+
+                if(user.seconds == -1){
+                    time = "Retrieving...";
+                }else if(user.seconds == -2) {
+                    time = "Network error retrieving times...";
+                }else if(user.seconds == -3) {
+                    time = "No bus data found!";
+                }else{
+                    //time.seconds is seconds since midnight
+                    Calendar c = Calendar.getInstance();
+                    int hours = c.get(Calendar.HOUR_OF_DAY);
+                    int minutes = c.get(Calendar.MINUTE);
+                    int seconds = c.get(Calendar.SECOND);
+                    int mili = c.get(Calendar.MILLISECOND);
+
+                    long curSecondsFromMidnight = seconds + (minutes * 60) + (hours * 3600 );
+
+                    long secondsETA = user.seconds - curSecondsFromMidnight;
+                    if(secondsETA < 10){
+                        time = "Due!";
+                    }else if(secondsETA < 60){
+                        time = secondsETA + "seconds";
+                    }else {
+                        time = (secondsETA / 60) + " minutes";
+                    }
+                }
+
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                                .setSmallIcon(R.drawable.cog)
+                                .setContentTitle(favs.get(i).name)
+                                .setContentText(time);
+
+                Intent notificationIntent = new Intent(ServerSyncService.this, SplashActivity.class);
+                PendingIntent pendingIntent=PendingIntent.getActivity(ServerSyncService.this, 0,
+                        notificationIntent,PendingIntent.FLAG_CANCEL_CURRENT);
+
+                mBuilder.setContentIntent(pendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+// mId allows you to update the notification later on.
+                mNotificationManager.notify(favs.get(i).name.hashCode(), mBuilder.build());
+            }
+            //Hash names to int, use int for notification
+            //Also remove any notifications that aren't nearby.
+        }
     }
 
     /** method for clients */
     public void getNewTimes() {
         System.out.println("BEGINNING GENERATION CYCLE");
         final Handler h = new Handler();
-        final int delay = 1000; //milliseconds
+        final int delay = 10000; //milliseconds
         h.postDelayed(new Runnable(){
             public void run(){
                 //Kill if we aren't supposed to run anymore
@@ -151,7 +211,7 @@ public class ServerSyncService extends Service {
                 mNotificationManager.notify(2234, notification);
 */
             }
-        }, delay);
+        }, 0);
     }
 
     private class AsyncServerCalls extends AsyncTask<String, String, String> {
@@ -186,7 +246,7 @@ public class ServerSyncService extends Service {
                 conn.connect();
                 int response = conn.getResponseCode();
                 System.out.println("The response is: " + response);
-                if(response != 200) return "";
+                if(response != 200) return ""; //SET TO HANDLE API RESPONSE CODES
                 is = conn.getInputStream();
 
                 // Convert the InputStream into a string
@@ -201,7 +261,6 @@ public class ServerSyncService extends Service {
                 }
             }
         }
-
 
         @Override
         protected String doInBackground(String... params) {
@@ -226,11 +285,11 @@ public class ServerSyncService extends Service {
                     }
                 }catch(IOException e){
                     //Network error
-                    System.out.println("IO EXCEPTION");
+                    favorites.get(i).seconds = -2;
                 } catch (JSONException e) {
                     //JSON parsing error, bus is likely not currently running
                     e.printStackTrace();
-                    System.out.println("JSON EXCEPTION");
+                    favorites.get(i).seconds = -3;
                 }
             }
 

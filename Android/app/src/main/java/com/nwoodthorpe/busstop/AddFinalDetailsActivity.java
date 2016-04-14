@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+
 public class AddFinalDetailsActivity extends AppCompatActivity {
 
     String route;
@@ -60,6 +62,14 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             if(num == 0)
                 return 7;
 
+            UserValues prefs = UserValues.getInstance();
+            ArrayList<FavRoute> favs = prefs.favorites;
+
+            for(int i = 0; i<favs.size(); i++){
+                if(name.hashCode() == favs.get(i).name.hashCode()){
+                    return 37;
+                }
+            }
 
             return 0;
         }catch(Exception e){
@@ -128,6 +138,12 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 //+ in name
 
                 name.setError("Your name cannot have a '+' or '|' in it!");
+                break;
+
+            case 37:
+                //Name exists
+
+                name.setError("Please choose a unique favorite name!");
                 break;
 
             case 99:
