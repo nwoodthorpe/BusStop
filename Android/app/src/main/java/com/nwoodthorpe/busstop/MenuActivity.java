@@ -75,8 +75,31 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
+        if(!preferences.getBoolean("showETA", false)) {
+            Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
+            stopService(service);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
+        startService(service);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
+        if(!preferences.getBoolean("showETA", false)) {
+            Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
+            stopService(service);
+        }
     }
 
     @Override

@@ -19,7 +19,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
     String route;
     String stop;
 
-    //CONSTANTS
+    //ERROR CONSTANTS
     static final int ADD_ALL_GOOD = 0;
     static final int ADD_NO_NAME_OR_RAD = 1;
     static final int ADD_NAME_TOO_LONG = 2;
@@ -78,6 +78,9 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             ArrayList<FavRoute> favs = prefs.favorites;
 
             for(int i = 0; i<favs.size(); i++){
+                //We use hashcode to check equality because the name hashcode will be the notification
+                //id. If two hashcodes are equal, we'll have notification issues.
+                //Checking hashcodes instead of string equality safeguards us from rare hash collisions
                 if(name.hashCode() == favs.get(i).name.hashCode()){
                     return ADD_NAME_EXISTS;
                 }

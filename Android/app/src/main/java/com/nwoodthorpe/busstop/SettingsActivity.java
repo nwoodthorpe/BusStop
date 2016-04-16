@@ -1,5 +1,7 @@
 package com.nwoodthorpe.busstop;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -10,6 +12,8 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.ToggleButton;
+
+import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -28,6 +32,14 @@ public class SettingsActivity extends AppCompatActivity {
             startService(intent);
         }else{
             stopService(intent);
+
+            //Also need to delete the notifications.
+            ArrayList<FavRoute> favs = UserValues.getInstance().favorites;
+            NotificationManager mNotificationManager =
+                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            for(int i = 0; i<favs.size(); i++){
+                mNotificationManager.cancel(favs.get(i).name.hashCode());
+            }
         }
     }
 

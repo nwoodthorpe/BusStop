@@ -18,6 +18,8 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -40,6 +42,9 @@ import java.util.Random;
 
 public class ServerSyncService extends Service {
     final UserValues prefs = UserValues.getInstance();
+
+    SparseArray<NotificationCompat.Builder> notificationBuilders = new SparseArray<>();
+
 
     int bound = 50;
     int iterations = 0;
@@ -142,10 +147,20 @@ public class ServerSyncService extends Service {
                     }
                 }
 
-                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                                .setSmallIcon(R.drawable.cog)
-                                .setContentTitle(favs.get(i).name)
-                                .setContentText(time);
+                NotificationCompat.Builder mBuilder;
+
+                if(notificationBuilders.indexOfKey(user.name.hashCode()) < 0){
+                    mBuilder = new NotificationCompat.Builder(this)
+                            .setSmallIcon(R.drawable.cog)
+                            .setContentTitle(favs.get(i).name)
+                            .setContentText(time)
+                            .setOnlyAlertOnce(true)
+                            .setOngoing(true);
+                    notificationBuilders.append(user.name.hashCode(), mBuilder);
+                }else{
+                    mBuilder = notificationBuilders.get(user.name.hashCode());
+                    mBuilder.setContentText(time);
+                }
 
                 Intent notificationIntent = new Intent(ServerSyncService.this, SplashActivity.class);
                 PendingIntent pendingIntent=PendingIntent.getActivity(ServerSyncService.this, 0,
