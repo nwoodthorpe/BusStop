@@ -45,12 +45,10 @@ public class ServerSyncService extends Service {
     SparseArray<NotificationCompat.Builder> notificationBuilders = new SparseArray<>();
 
     int bound = 50;
-    int iterations = 0;
     private boolean isRunning = false;
     // Binder given to clients
     private final IBinder mBinder = new LocalBinder();
-    // Random number generator
-    private final Random mGenerator = new Random();
+    final Handler networkHandler = new Handler();
 
     public class LocalBinder extends Binder {
 
@@ -71,9 +69,10 @@ public class ServerSyncService extends Service {
         System.out.println("STARTED");
 
         preferences = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
-        boolean show = preferences.getBoolean("showETA", false);
 
         updateNotifications();
+
+        getNewTimes();
 
         if(!isRunning) {
             System.out.println("CHECK");
@@ -82,14 +81,14 @@ public class ServerSyncService extends Service {
             getNewTimes();
 
             final Handler h = new Handler();
-            final int delay = 30000; //milliseconds, 30 seconds
+            final int delay = 15000; //milliseconds, 30 seconds
             h.postDelayed(new Runnable() {
                 public void run() {
                     updateNotifications();
                     if(isRunning)
                         h.postDelayed(this, delay);
                 }
-            }, 4000);
+            }, 3000);
         }
 
         return START_STICKY;
@@ -110,23 +109,29 @@ public class ServerSyncService extends Service {
     }
 
     public void updateNotifications(){
-        if(preferences.getBoolean("showETA", false)){
-            System.out.println("UPDATING NOTIFICATIONS");
+        System.out.println("UPDATING NOTIFICATIONS");
 
-            ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-            for(int i = 0; i<favs.size(); i++){
-                String time = "";
+        ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
-                FavRoute user = favs.get(i);
+        for(int i = 0; i<favs.size(); i++){
 
-                if(user.seconds == -1){
+            String time = "";
+
+            FavRoute user = favs.get(i);
+            if(user.enabled == 0)
+                mNotificationManager.cancel(user.name.hashCode());
+            else {
+
+                if (user.seconds == -1) {
                     time = "Retrieving...";
-                }else if(user.seconds == -2) {
+                } else if (user.seconds == -2) {
                     time = "Network error retrieving times...";
-                }else if(user.seconds == -3) {
+                } else if (user.seconds == -3) {
                     time = "No bus data found!";
-                }else{
+                } else {
                     //time.seconds is seconds since midnight
                     Calendar c = Calendar.getInstance();
                     int hours = c.get(Calendar.HOUR_OF_DAY);
@@ -134,21 +139,21 @@ public class ServerSyncService extends Service {
                     int seconds = c.get(Calendar.SECOND);
                     int mili = c.get(Calendar.MILLISECOND);
 
-                    long curSecondsFromMidnight = seconds + (minutes * 60) + (hours * 3600 );
+                    long curSecondsFromMidnight = seconds + (minutes * 60) + (hours * 3600);
 
                     long secondsETA = user.seconds - curSecondsFromMidnight;
-                    if(secondsETA < 10){
+                    if (secondsETA < 10) {
                         time = "Due!";
-                    }else if(secondsETA < 60){
+                    } else if (secondsETA < 60) {
                         time = "Less than a minute!";
-                    }else {
+                    } else {
                         time = (secondsETA / 60) + " minutes";
                     }
                 }
 
                 NotificationCompat.Builder mBuilder;
 
-                if(notificationBuilders.indexOfKey(user.name.hashCode()) < 0){
+                if (notificationBuilders.indexOfKey(user.name.hashCode()) < 0) {
                     mBuilder = new NotificationCompat.Builder(this)
                             .setSmallIcon(R.drawable.bus)
                             .setContentTitle(favs.get(i).shortRoute + " - " + favs.get(i).name)
@@ -156,32 +161,32 @@ public class ServerSyncService extends Service {
                             .setOnlyAlertOnce(true)
                             .setOngoing(true);
                     notificationBuilders.append(user.name.hashCode(), mBuilder);
-                }else{
+                } else {
                     mBuilder = notificationBuilders.get(user.name.hashCode());
                     mBuilder.setContentText(time);
                 }
 
+
                 Intent notificationIntent = new Intent(ServerSyncService.this, SplashActivity.class);
-                PendingIntent pendingIntent=PendingIntent.getActivity(ServerSyncService.this, 0,
-                        notificationIntent,PendingIntent.FLAG_CANCEL_CURRENT);
+                PendingIntent pendingIntent = PendingIntent.getActivity(ServerSyncService.this, 0,
+                        notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
                 mBuilder.setContentIntent(pendingIntent);
-                NotificationManager mNotificationManager =
-                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
 // mId allows you to update the notification later on.
                 mNotificationManager.notify(favs.get(i).name.hashCode(), mBuilder.build());
             }
-            //Hash names to int, use int for notification
-            //Also remove any notifications that aren't nearby.
         }
+        //Hash names to int, use int for notification
+        //Also remove any notifications that aren't nearby.
+
     }
 
     /** method for clients */
     public void getNewTimes() {
         System.out.println("BEGINNING GENERATION CYCLE");
-        final Handler h = new Handler();
         final int delay = preferences.getInt("UPDATE_FREQ", 15000); //milliseconds
-        h.postDelayed(new Runnable(){
+        Runnable r = new Runnable(){
             public void run(){
                 //Kill if we aren't supposed to run anymore
                 if(!isRunning)
@@ -193,7 +198,8 @@ public class ServerSyncService extends Service {
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
                 if(networkInfo == null || !networkInfo.isConnected()) {
-                    h.postDelayed(this, delay);
+                    updateNotifications();
+                    networkHandler.postDelayed(this, delay);
                     return;
                 }
 
@@ -202,30 +208,16 @@ public class ServerSyncService extends Service {
                 AsyncServerCalls async = new AsyncServerCalls();
 
                 async.favorites = favorites;
-                async.handler = h;
+                async.handler = networkHandler;
                 async.self = this;
                 async.delay = delay;
 
                 async.execute();
-
-    /*
-                //Update notification
-                NotificationManager mNotificationManager =
-                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-                Intent notificationIntent = new Intent(ServerSyncService.this, SplashActivity.class);
-                PendingIntent pendingIntent=PendingIntent.getActivity(ServerSyncService.this, 0,
-                        notificationIntent,PendingIntent.FLAG_CANCEL_CURRENT);
-
-                Notification notification=new NotificationCompat.Builder(ServerSyncService.this)
-                        .setSmallIcon(R.drawable.cog)
-                        .setContentText(Integer.toString(r))
-                        .setContentIntent(pendingIntent).build();
-
-                mNotificationManager.notify(2234, notification);
-*/
             }
-        }, 0);
+        };
+        networkHandler.removeCallbacks(r);
+
+        networkHandler.postDelayed(r, 0);
     }
 
     private class AsyncServerCalls extends AsyncTask<String, String, String> {
@@ -317,6 +309,8 @@ public class ServerSyncService extends Service {
             SharedPreferences.Editor prefEdit = preferences.edit();
             prefEdit.putString("FAV_DATA", favdata);
             prefEdit.commit();
+
+            updateNotifications();
 
             handler.postDelayed(self, preferences.getInt("UPDATE_FREQ", 15000));
         }

@@ -4,12 +4,15 @@ package com.nwoodthorpe.busstop;
  * Created by Nathaniel on 3/23/2016.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.sql.Time;
@@ -37,8 +40,8 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         list = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
         FavRoute user = list.get(position);
         View v = null;
@@ -51,6 +54,7 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
         if (user != null) {
             TextView name = (TextView) v.findViewById(R.id.name);
             TextView time = (TextView) v.findViewById(R.id.time);
+            Switch enabled = (Switch) v.findViewById(R.id.enabled);
             TextView smallName = (TextView)v.findViewById(R.id.smallName);
 
             if (name != null) {
@@ -82,6 +86,24 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
                         time.setText((secondsETA / 60) + " minutes");
                     }
                 }
+            }
+
+            if(enabled != null){
+                enabled.setChecked(user.enabled==1);
+                enabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+                        favorites.get(position).enabled = (favorites.get(position).enabled==1)?0:1;
+                        String newString = Serialization.serialize(favorites);
+                        SharedPreferences.Editor edit = preferences.edit();
+                        edit.putString("FAV_DATA", newString);
+                        edit.apply();
+
+                        Intent service = new Intent(getContext(), ServerSyncService.class);
+                        getContext().startService(service);
+                    }
+                });
             }
 
             if(smallName!=null){

@@ -39,18 +39,15 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
         finish();
     }
 
-    public int validateForm(String name, String notifRadius){
+    public int validateForm(String name){
         try {
-            if (name == null || notifRadius == null)
+            if (name == null)
                 return ADD_NO_NAME_OR_RAD;
             if (name.length() > 20)
                 return ADD_NAME_TOO_LONG;
 
             if (name.length() == 0)
                 return ADD_NO_NAME;
-
-            if(notifRadius.length() == 0)
-                return ADD_NO_RAD;
 
             if(name.contains("|") || name.contains("+")){
                 return ADD_iNVALID_CHAR_IN_NAME;
@@ -60,21 +57,6 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             LatLng stopPos = UserValues.getInstance().geo.get(stopnum);
             if(stopPos == null)
                 return ADD_GEO_ERROR;
-
-            int num;
-
-            try {
-                num = Integer.parseInt(notifRadius);
-            } catch (Exception e) {
-                return ADD_INVALID_DISTANCE;
-            }
-
-            if (num > 99999)
-                return ADD_NUM_TOO_LARGE;
-
-            if (num < 0)
-                return ADD_NUM_NEGATIVE;
-
 
             ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
@@ -95,11 +77,9 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
 
     public void handleError(int error){
         EditText name = (EditText)findViewById(R.id.nameText);
-        EditText notif = (EditText)findViewById(R.id.distanceText);
         EditText stop = (EditText)findViewById(R.id.stopText);
         EditText route = (EditText)findViewById(R.id.routeText);
         assert name != null;
-        assert notif != null;
         assert stop != null;
         assert route != null;
 
@@ -120,30 +100,6 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 name.setError("Please enter a name!");
                 break;
 
-            case ADD_NO_RAD:
-                //notif distance wasn't entered
-
-                notif.setError("Please enter a distance!");
-                break;
-
-            case ADD_INVALID_DISTANCE:
-                //Invalid number
-
-                notif.setError("Please enter a valid distance!");
-                break;
-
-            case ADD_NUM_TOO_LARGE:
-                 //Num too large
-
-                 notif.setError("Notification distance must be < 99999m. Set 0 for always active.");
-                 break;
-
-            case ADD_NUM_NEGATIVE:
-                //Negative number
-
-                notif.setError("A negative distance makes no sense!");
-                break;
-
             case ADD_iNVALID_CHAR_IN_NAME:
                 //+ in name
 
@@ -159,26 +115,25 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             case ADD_GEO_ERROR:
                 //An error ocurred while fetching geo data
 
-                notif.setError("An internal error has occured fetching geographical data for this stop.");
+                name.setError("An internal error has occured fetching geographical data for this stop.");
                 break;
 
             case ADD_UNEXPECTED_ERROR:
                 //An unexpected error ocurred.
 
-                notif.setError("An unexpected error occured. :(");
+                name.setError("An unexpected error occured. :(");
                 break;
 
             case ADD_UNEXPECTED_ERROR2:
                 //An unexpected error ocurred while adding.
 
-                notif.setError("An unexpected error occured. :/");
+                name.setError("An unexpected error occured. :/");
         }
     }
 
     public void onDoneClick(View v) {
         String name = ((EditText) findViewById(R.id.nameText)).getText().toString();
-        String notifRadius = ((EditText) findViewById(R.id.distanceText)).getText().toString();
-        int error = validateForm(name, notifRadius);
+        int error = validateForm(name);
         if (error != ADD_ALL_GOOD) {
             handleError(error);
         } else {
@@ -196,8 +151,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 int stopnum = Integer.parseInt(shortStop);
                 LatLng coords = prefs.geo.get(stopnum);
 
-                int distance = Integer.parseInt(notifRadius);
-                FavRoute newRoute = new FavRoute(coords.latitude, coords.longitude, name, route, shortRoute, stop, shortStop, distance, -1);
+                FavRoute newRoute = new FavRoute(coords.latitude, coords.longitude, name, route, shortRoute, stop, shortStop, 1, -1);
                 ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
                 favorites.add(newRoute);
 

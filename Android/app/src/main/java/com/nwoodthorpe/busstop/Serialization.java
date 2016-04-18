@@ -43,12 +43,12 @@ public class Serialization {
             String longRoute = splitRoute[4];
             double lat;
             double lng;
-            int distance;
+            int enabled;
             int seconds;
             try {
                 lat = Double.parseDouble(splitRoute[5]);
                 lng = Double.parseDouble(splitRoute[6]);
-                distance = Integer.parseInt(splitRoute[7]);
+                enabled = Integer.parseInt(splitRoute[7]);
                 if(splitRoute.length == 8)
                     seconds = -1;
                 else
@@ -59,7 +59,7 @@ public class Serialization {
                 return null;
             }
 
-            routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, distance, seconds));
+            routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, enabled, seconds));
         }
         System.out.println("RETURNING NEW ROUTE SIZE: " + routes.size());
         return routes;
@@ -76,7 +76,7 @@ public class Serialization {
             FavRoute route = routes.get(i);
             routesStrings[i] = "" + route.name + "|" + route.shortStop + "|" + route.longStop + "|"
                     + route.shortRoute + "|" + route.longRoute + "|" + route.lat +
-                    "|" + route.lng + "|" + route.notifRadius + "|" + route.seconds;
+                    "|" + route.lng + "|" + route.enabled + "|" + route.seconds;
         }
         return TextUtils.join("+", routesStrings);
     }

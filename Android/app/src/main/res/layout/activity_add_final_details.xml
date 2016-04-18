@@ -136,29 +136,6 @@
         android:singleLine="true"
         android:maxLength="20"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/routeLabel"
-        android:layout_below="@+id/nameText"
-        android:layout_marginTop="30dp"
-        android:textSize="16sp"
-        android:id="@+id/distanceLabel"
-        android:text="Notifcation Distance (metres)"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_alignLeft="@id/stopLabel"
-        android:id="@+id/distanceText"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/distanceLabel"
-        android:inputType="number"
-        android:singleLine="true"
-        android:hint="500"
-        android:maxLength="5"/>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

@@ -44,13 +44,14 @@
         android:textSize="15sp"
         android:focusable="false"/>
 
-    <ImageView
+    <Switch
         android:layout_alignParentRight="true"
-        android:src="@drawable/arrow"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         android:layout_marginRight="23dp"
         android:layout_centerVertical="true"
-        android:focusable="false"/>
+        android:focusable="true"
+        android:clickable="true"
+        android:id="@+id/enabled"/>
 
 </RelativeLayout>

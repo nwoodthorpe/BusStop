@@ -78,44 +78,8 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/autoLoginLayout"
-                android:layout_below="@+id/accountStaticUnderline"
-                android:clickable="true">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="15dp"
-                    android:textSize="16dp"
-                    android:text="Show ETA in Notification Bar"
-                    android:id="@+id/showETA" />
-
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="25dp"
-                    android:layout_alignParentRight="true"
-                    android:id="@+id/showETAToggle"/>
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/showETA"
-                    android:height="1dp"
-                    android:background="@color/dim_foreground_material_dark"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="15dp"
-                    android:text=""
-                    android:id="@+id/autoLoginHoriz" />
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="horizontal" android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/etaupdatelayout"
-                android:layout_below="@+id/autoLoginLayout"
+                android:layout_below="@+id/accountStaticUnderline"
                 android:clickable="true">
 
 
@@ -173,7 +137,7 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/commonQuestionsLayout"
+                android:id="@+id/aboutLayout"
                 android:layout_below="@+id/generalStaticUnderline"
                 android:clickable="true">
 
@@ -184,8 +148,8 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="15dp"
                     android:textSize="16dp"
-                    android:text="DOES NOT WORK"
-                    android:id="@+id/commonQuestionsText" />
+                    android:text="About"
+                    android:id="@+id/aboutText" />
 
                 <ImageView
                     android:layout_alignParentRight="true"
@@ -199,19 +163,19 @@
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/commonQuestionsText"
+                    android:layout_below="@+id/aboutText"
                     android:height="1dp"
                     android:background="@color/dim_foreground_material_dark"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="15dp"
                     android:text=""
-                    android:id="@+id/commonQuestionsHoriz" />
+                    android:id="@+id/aboutHoriz" />
             </RelativeLayout>
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/addFundsLayout"
-                android:layout_below="@+id/commonQuestionsLayout"
+                android:id="@+id/tutorialLayout"
+                android:layout_below="@+id/aboutLayout"
                 android:clickable="true">
 
 
@@ -221,8 +185,8 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="15dp"
                     android:textSize="16dp"
-                    android:text="DOES NOT WORK"
-                    android:id="@+id/addFundsText" />
+                    android:text="Replay Tutorial"
+                    android:id="@+id/tutorialText" />
 
                 <ImageView
                     android:layout_alignParentRight="true"
@@ -236,19 +200,19 @@
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/addFundsText"
+                    android:layout_below="@+id/tutorialText"
                     android:height="1dp"
                     android:background="@color/dim_foreground_material_dark"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="15dp"
                     android:text=""
-                    android:id="@+id/addFundsHoriz" />
+                    android:id="@+id/tutorialHoriz" />
             </RelativeLayout>
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/contactLayout"
-                android:layout_below="@+id/addFundsLayout"
+                android:layout_below="@+id/tutorialLayout"
                 android:clickable="true">
 
 
@@ -258,7 +222,7 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="15dp"
                     android:textSize="16dp"
-                    android:text="DOES NOT WORK"
+                    android:text="Contact Developer"
                     android:id="@+id/contactText" />
 
                 <ImageView
@@ -280,43 +244,6 @@
                     android:layout_marginTop="15dp"
                     android:text=""
                     android:id="@+id/contactHoriz" />
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="horizontal" android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/privacyLayout"
-                android:layout_below="@+id/contactLayout"
-                android:clickable="true">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="15dp"
-                    android:textSize="16dp"
-                    android:text="DOES NOT WORK"
-                    android:id="@+id/privacyText" />
-
-                <ImageView
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/arrow"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginRight="23dp"
-                    android:layout_centerVertical="true"
-                    android:focusable="false"/>
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/privacyText"
-                    android:height="1dp"
-                    android:background="@color/dim_foreground_material_dark"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="15dp"
-                    android:text=""
-                    android:id="@+id/privacyHoriz" />
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
