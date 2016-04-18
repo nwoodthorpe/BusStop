@@ -9,12 +9,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.graphics.Rect;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.TouchDelegate;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -136,6 +138,7 @@ public class MenuActivity extends AppCompatActivity {
                 final UserValues prefs = UserValues.getInstance();
                 Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(25);
+
                 final ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
                 new AlertDialog.Builder(MenuActivity.this)

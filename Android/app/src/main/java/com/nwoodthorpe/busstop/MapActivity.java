@@ -146,7 +146,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             LatLngBounds bounds = builder.build();
 
             int offset = 100;
-            CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, offset);
+            int width = getResources().getDisplayMetrics().widthPixels;
+            int height = getResources().getDisplayMetrics().heightPixels - 60; //Header
+            CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, offset);
 
             mMap.moveCamera(cu);
         }
