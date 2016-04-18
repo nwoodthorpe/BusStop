@@ -41,10 +41,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class ServerSyncService extends Service {
-    final UserValues prefs = UserValues.getInstance();
-
+    SharedPreferences preferences;
     SparseArray<NotificationCompat.Builder> notificationBuilders = new SparseArray<>();
-
 
     int bound = 50;
     int iterations = 0;
@@ -72,8 +70,10 @@ public class ServerSyncService extends Service {
         super.onStartCommand(intent, flags, startId);
         System.out.println("STARTED");
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
         boolean show = preferences.getBoolean("showETA", false);
+
+        updateNotifications();
 
         if(!isRunning) {
             System.out.println("CHECK");
@@ -82,14 +82,14 @@ public class ServerSyncService extends Service {
             getNewTimes();
 
             final Handler h = new Handler();
-            final int delay = 1000; //milliseconds
+            final int delay = 30000; //milliseconds, 30 seconds
             h.postDelayed(new Runnable() {
                 public void run() {
                     updateNotifications();
                     if(isRunning)
                         h.postDelayed(this, delay);
                 }
-            }, 0);
+            }, 4000);
         }
 
         return START_STICKY;
@@ -110,11 +110,10 @@ public class ServerSyncService extends Service {
     }
 
     public void updateNotifications(){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
-        if(prefs.getBoolean("showETA", false)){
+        if(preferences.getBoolean("showETA", false)){
             System.out.println("UPDATING NOTIFICATIONS");
 
-            ArrayList<FavRoute> favs = UserValues.getInstance().favorites;
+            ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
             for(int i = 0; i<favs.size(); i++){
                 String time = "";
@@ -141,7 +140,7 @@ public class ServerSyncService extends Service {
                     if(secondsETA < 10){
                         time = "Due!";
                     }else if(secondsETA < 60){
-                        time = secondsETA + "seconds";
+                        time = "Less than a minute!";
                     }else {
                         time = (secondsETA / 60) + " minutes";
                     }
@@ -151,8 +150,8 @@ public class ServerSyncService extends Service {
 
                 if(notificationBuilders.indexOfKey(user.name.hashCode()) < 0){
                     mBuilder = new NotificationCompat.Builder(this)
-                            .setSmallIcon(R.drawable.cog)
-                            .setContentTitle(favs.get(i).name)
+                            .setSmallIcon(R.drawable.bus)
+                            .setContentTitle(favs.get(i).shortRoute + " - " + favs.get(i).name)
                             .setContentText(time)
                             .setOnlyAlertOnce(true)
                             .setOngoing(true);
@@ -181,7 +180,7 @@ public class ServerSyncService extends Service {
     public void getNewTimes() {
         System.out.println("BEGINNING GENERATION CYCLE");
         final Handler h = new Handler();
-        final int delay = 10000; //milliseconds
+        final int delay = preferences.getInt("UPDATE_FREQ", 15000); //milliseconds
         h.postDelayed(new Runnable(){
             public void run(){
                 //Kill if we aren't supposed to run anymore
@@ -198,7 +197,7 @@ public class ServerSyncService extends Service {
                     return;
                 }
 
-                ArrayList<FavRoute> favorites = prefs.favorites;
+                ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
                 AsyncServerCalls async = new AsyncServerCalls();
 
@@ -308,14 +307,18 @@ public class ServerSyncService extends Service {
                 }
             }
 
-            System.out.println("IS THIS WORKING");
+            System.out.println("JUST FINISHED NETWORK CYCLE");
             return "";
         }
 
         @Override
         protected void onPostExecute(String result) {
-            prefs.favorites = favorites;
-            handler.postDelayed(self, delay);
+            String favdata = Serialization.serialize(favorites);
+            SharedPreferences.Editor prefEdit = preferences.edit();
+            prefEdit.putString("FAV_DATA", favdata);
+            prefEdit.commit();
+
+            handler.postDelayed(self, preferences.getInt("UPDATE_FREQ", 15000));
         }
 
         @Override

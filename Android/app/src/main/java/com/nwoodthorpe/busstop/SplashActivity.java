@@ -87,16 +87,9 @@ public class SplashActivity extends Activity {
             UserValues.getInstance().geo = map;
 
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
+            SharedPreferences.Editor editor = preferences.edit();
+
             String favData = preferences.getString("FAV_DATA", null);
-
-            if(favData != null){
-                System.out.println("NOT NULL");
-                System.out.println("TESTING");
-                System.out.println(favData);
-                UserValues.getInstance().favorites = Serialization.deserialize(favData);
-            }
-
-            System.out.println("LENGTH: " + UserValues.getInstance().favorites.size());
 
             return "Success";
         }
@@ -106,7 +99,7 @@ public class SplashActivity extends Activity {
             if(result.equals("Fail")){
                 new AlertDialog.Builder(getApplicationContext())
                         .setTitle("Load Failed!")
-                        .setMessage("Loading initial data failed :( Email the developer at njwoodthorpe@gmail.com and we'll fix your app ASAP!")
+                        .setMessage("Loading initial data failed :( ")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 finish();

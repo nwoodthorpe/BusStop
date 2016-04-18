@@ -32,7 +32,7 @@ public class Serialization {
 
         for(int i = 0; i<len; i++){
             String[] splitRoute = splitEntries[i].split("\\|");
-            if(splitRoute.length != 8) {
+            if(splitRoute.length != 8 && splitRoute.length != 9) {
                 return null;
             }
 
@@ -44,17 +44,22 @@ public class Serialization {
             double lat;
             double lng;
             int distance;
+            int seconds;
             try {
                 lat = Double.parseDouble(splitRoute[5]);
                 lng = Double.parseDouble(splitRoute[6]);
                 distance = Integer.parseInt(splitRoute[7]);
+                if(splitRoute.length == 8)
+                    seconds = -1;
+                else
+                    seconds = Integer.parseInt(splitRoute[8]);
             }catch(Exception e){
                 System.out.println("EXCEPTION TRYING TO PARSE!");
                 e.printStackTrace();
                 return null;
             }
 
-            routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, distance));
+            routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, distance, seconds));
         }
         System.out.println("RETURNING NEW ROUTE SIZE: " + routes.size());
         return routes;
@@ -71,7 +76,7 @@ public class Serialization {
             FavRoute route = routes.get(i);
             routesStrings[i] = "" + route.name + "|" + route.shortStop + "|" + route.longStop + "|"
                     + route.shortRoute + "|" + route.longRoute + "|" + route.lat +
-                    "|" + route.lng + "|" + route.notifRadius;
+                    "|" + route.lng + "|" + route.notifRadius + "|" + route.seconds;
         }
         return TextUtils.join("+", routesStrings);
     }

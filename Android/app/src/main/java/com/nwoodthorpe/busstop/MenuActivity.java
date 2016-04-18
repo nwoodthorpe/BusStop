@@ -2,6 +2,7 @@ package com.nwoodthorpe.busstop;
 
 import android.app.AlertDialog;
 import android.app.Application;
+import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 public class MenuActivity extends AppCompatActivity {
     ServerSyncService mService;
     boolean mBound = false;
+    SharedPreferences preferences;
 
     public void onPlusClick(View v){
         Intent newIntent = new Intent(MenuActivity.this, AddActivity.class);
@@ -90,6 +92,11 @@ public class MenuActivity extends AppCompatActivity {
         super.onResume();
         Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
         startService(service);
+        ListView listView = (ListView) findViewById(R.id.list);
+        ArrayAdapter adapter = (ArrayAdapter)listView.getAdapter();
+        if(adapter != null)
+            adapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -106,16 +113,11 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        System.out.println("STARTING SERVICE:");
-        //Intent intent = new Intent(this, ServerSyncService.class);
-        //startService(intent);
-        //bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+        preferences  = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
 
         setContentView(R.layout.activity_menu);
 
-        ArrayList<BusRow> rowArray = new ArrayList<>();
-
-        final ArrayAdapter adapter = new MenuListAdapter(this, 0, UserValues.getInstance().favorites);
+        final ArrayAdapter adapter = new MenuListAdapter(this, 0, Serialization.deserialize(preferences.getString("FAV_DATA", "")));
 
         // Link the data and our listview using the adapter.
         ListView listView = (ListView) findViewById(R.id.list);
@@ -131,29 +133,28 @@ public class MenuActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                System.out.println("LONG TOUGH ON POS: " + position);
                 final UserValues prefs = UserValues.getInstance();
-                System.out.println(prefs.favorites.get(position).name);
                 Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(25);
+                final ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
                 new AlertDialog.Builder(MenuActivity.this)
                         .setTitle("Delete Favorite")
-                        .setMessage("Do you want to delete '" + prefs.favorites.get(position).name + "'")
+                        .setMessage("Do you want to delete '" + favorites.get(position).name + "'")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 System.out.println("REMOVING ENTRANCE: " + position);
-                                ArrayList<FavRoute> favs = prefs.favorites;
-                                favs.remove(position);
-                                prefs.favorites = favs;
+                                int hash = favorites.get(position).name.hashCode();
+                                favorites.remove(position);
 
-                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
                                 SharedPreferences.Editor editor = preferences.edit();
-                                editor.putString("FAV_DATA", Serialization.serialize(prefs.favorites));
-                                System.out.println("PUTTING NEW DATA: ");
-                                System.out.println(Serialization.serialize(prefs.favorites));
-                                editor.apply();
+                                editor.putString("FAV_DATA", Serialization.serialize(favorites));
+                                editor.commit();
+
+                                NotificationManager mNotificationManager =
+                                        (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                mNotificationManager.cancel(hash);
 
                                 adapter.notifyDataSetChanged();
                             }})
@@ -170,7 +171,7 @@ public class MenuActivity extends AppCompatActivity {
         setButtonListeners();
 
         final Handler h = new Handler();
-        final int delay = 1000; //Every second
+        final int delay = 2000; //Every 2 seconds
         h.postDelayed(new Runnable(){
             public void run(){
                 adapter.notifyDataSetChanged();

@@ -15,7 +15,6 @@ public class UserValues {
 
     protected UserValues(){}
 
-    ArrayList<FavRoute> favorites;
     ArrayList<BusRoute> stops;
     HashMap<Integer, LatLng> geo;
 

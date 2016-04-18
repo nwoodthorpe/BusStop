@@ -4,6 +4,8 @@ package com.nwoodthorpe.busstop;
  * Created by Nathaniel on 3/23/2016.
  */
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,16 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
     }
 
     @Override
+    public int getCount() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        list = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+        return list==null?0:list.size();
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        list = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
         FavRoute user = list.get(position);
         View v = null;
         if (v == null) {
@@ -66,7 +77,7 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
                     if(secondsETA < 10){
                         time.setText("Due!");
                     }else if(secondsETA < 60){
-                        time.setText(secondsETA + "seconds");
+                        time.setText("Less than a minute!");
                     }else {
                         time.setText((secondsETA / 60) + " minutes");
                     }

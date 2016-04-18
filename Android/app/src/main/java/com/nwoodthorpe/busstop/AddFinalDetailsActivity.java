@@ -18,6 +18,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
 
     String route;
     String stop;
+    SharedPreferences preferences;
 
     //ERROR CONSTANTS
     static final int ADD_ALL_GOOD = 0;
@@ -74,8 +75,8 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             if (num < 0)
                 return ADD_NUM_NEGATIVE;
 
-            UserValues prefs = UserValues.getInstance();
-            ArrayList<FavRoute> favs = prefs.favorites;
+
+            ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
 
             for(int i = 0; i<favs.size(); i++){
                 //We use hashcode to check equality because the name hashcode will be the notification
@@ -196,15 +197,12 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 LatLng coords = prefs.geo.get(stopnum);
 
                 int distance = Integer.parseInt(notifRadius);
-                FavRoute newRoute = new FavRoute(coords.latitude, coords.longitude, name, route, shortRoute, stop, shortStop, distance);
+                FavRoute newRoute = new FavRoute(coords.latitude, coords.longitude, name, route, shortRoute, stop, shortStop, distance, -1);
+                ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+                favorites.add(newRoute);
 
-                prefs.favorites.add(newRoute);
-
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("FAV_DATA", Serialization.serialize(prefs.favorites));
-                System.out.println("PUTTING NEW DATA: ");
-                System.out.println(Serialization.serialize(prefs.favorites));
+                editor.putString("FAV_DATA", Serialization.serialize(favorites));
                 editor.apply();
 
                 Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
@@ -250,6 +248,8 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_final_details);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(AddFinalDetailsActivity.this);
 
         Bundle extras = getIntent().getExtras();
         route = (String)extras.get("route");
