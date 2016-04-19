@@ -18,7 +18,6 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
 
     String route;
     String stop;
-    SharedPreferences preferences;
 
     //ERROR CONSTANTS
     static final int ADD_ALL_GOOD = 0;
@@ -58,7 +57,7 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
             if(stopPos == null)
                 return ADD_GEO_ERROR;
 
-            ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+            ArrayList<FavRoute> favs = SharedPrefInterface.getFavList(this);
 
             for(int i = 0; i<favs.size(); i++){
                 //We use hashcode to check equality because the name hashcode will be the notification
@@ -152,12 +151,10 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
                 LatLng coords = prefs.geo.get(stopnum);
 
                 FavRoute newRoute = new FavRoute(coords.latitude, coords.longitude, name, route, shortRoute, stop, shortStop, 1, -1);
-                ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+                ArrayList<FavRoute> favorites = SharedPrefInterface.getFavList(this);
                 favorites.add(newRoute);
 
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("FAV_DATA", Serialization.serialize(favorites));
-                editor.apply();
+                SharedPrefInterface.updateFavList(this, favorites);
 
                 Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -202,8 +199,6 @@ public class AddFinalDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_final_details);
-
-        preferences = PreferenceManager.getDefaultSharedPreferences(AddFinalDetailsActivity.this);
 
         Bundle extras = getIntent().getExtras();
         route = (String)extras.get("route");

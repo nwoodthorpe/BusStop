@@ -35,7 +35,6 @@ import java.util.ArrayList;
 public class MenuActivity extends AppCompatActivity {
     ServerSyncService mService;
     boolean mBound = false;
-    SharedPreferences preferences;
 
     public void onPlusClick(View v){
         Intent newIntent = new Intent(MenuActivity.this, AddActivity.class);
@@ -79,17 +78,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
-        if(!preferences.getBoolean("showETA", false)) {
-            Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
-            stopService(service);
-        }
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
@@ -102,24 +90,12 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
-        if(!preferences.getBoolean("showETA", false)) {
-            Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
-            stopService(service);
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        preferences  = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
-
         setContentView(R.layout.activity_menu);
 
-        final ArrayAdapter adapter = new MenuListAdapter(this, 0, Serialization.deserialize(preferences.getString("FAV_DATA", "")));
+        final ArrayAdapter adapter = new MenuListAdapter(this, 0, SharedPrefInterface.getFavList(this));
 
         // Link the data and our listview using the adapter.
         ListView listView = (ListView) findViewById(R.id.list);
@@ -137,7 +113,7 @@ public class MenuActivity extends AppCompatActivity {
                 Vibrator v = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(25);
 
-                final ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+                final ArrayList<FavRoute> favorites = SharedPrefInterface.getFavList(MenuActivity.this);
 
                 new AlertDialog.Builder(MenuActivity.this)
                         .setTitle("Delete Favorite")
@@ -149,9 +125,7 @@ public class MenuActivity extends AppCompatActivity {
                                 int hash = favorites.get(position).name.hashCode();
                                 favorites.remove(position);
 
-                                SharedPreferences.Editor editor = preferences.edit();
-                                editor.putString("FAV_DATA", Serialization.serialize(favorites));
-                                editor.commit();
+                                SharedPrefInterface.updateFavList(MenuActivity.this, favorites);
 
                                 NotificationManager mNotificationManager =
                                         (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

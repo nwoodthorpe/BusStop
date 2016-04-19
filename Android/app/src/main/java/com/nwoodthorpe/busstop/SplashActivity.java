@@ -86,11 +86,6 @@ public class SplashActivity extends Activity {
             UserValues.getInstance().stops = stops;
             UserValues.getInstance().geo = map;
 
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
-            SharedPreferences.Editor editor = preferences.edit();
-
-            String favData = preferences.getString("FAV_DATA", null);
-
             return "Success";
         }
 
@@ -109,25 +104,22 @@ public class SplashActivity extends Activity {
                         .show();
             }else {
                 //Check if app has been run before
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SplashActivity.this);
-                Boolean first = preferences.getBoolean("FIRSTRUN", true);
+                Boolean first = SharedPrefInterface.isFirst(SplashActivity.this);
 
                 if (first) {
                     System.out.println("FIRST");
                     //It's our first time running
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("FIRSTRUN", false);
-                    editor.apply();
+                    SharedPrefInterface.setIsFirst(SplashActivity.this, false);
 
                     Intent newIntent = new Intent(SplashActivity.this, IntroActivity.class);
                     SplashActivity.this.startActivity(newIntent);
                     System.out.println("OPENED INTRO");
                 } else {
                     System.out.println("NOT FIRST");
-                    SharedPreferences.Editor editor = preferences.edit();
+                    //SharedPreferences.Editor editor = preferences.edit();
                     //Bus Home|1368|1368 - COWAN / WALACE|60|60 - NORTHVIEW ACRES|52.1222222|14.2221
                     //editor.putString("FAV_DATA","Bus to School|1368|1368-COWAN / WALACE|60|60 - NORTHVIEW ACRES|43.3841743|-80.29449|1000+Bus Home|1123|1123-U|200|200 - iXpress (To Ainslie)|43.47273|-80.54123|1000");
-                    editor.apply();
+                    //editor.apply();
 
                     Intent serviceIntent = new Intent(SplashActivity.this, ServerSyncService.class);
                     startService(serviceIntent);

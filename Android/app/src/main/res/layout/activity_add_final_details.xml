@@ -134,6 +134,7 @@
         android:layout_below="@id/nameLabel"
         android:hint="Bus home from school..."
         android:singleLine="true"
+        android:inputType="textCapSentences"
         android:maxLength="20"/>
 
         </RelativeLayout>

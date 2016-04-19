@@ -41,7 +41,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class ServerSyncService extends Service {
-    SharedPreferences preferences;
     SparseArray<NotificationCompat.Builder> notificationBuilders = new SparseArray<>();
 
     int bound = 50;
@@ -67,8 +66,6 @@ public class ServerSyncService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
         System.out.println("STARTED");
-
-        preferences = PreferenceManager.getDefaultSharedPreferences(ServerSyncService.this);
 
         updateNotifications();
 
@@ -114,7 +111,7 @@ public class ServerSyncService extends Service {
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        ArrayList<FavRoute> favs = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
+        ArrayList<FavRoute> favs = SharedPrefInterface.getFavList(this);
 
         for(int i = 0; i<favs.size(); i++){
 
@@ -169,7 +166,7 @@ public class ServerSyncService extends Service {
 
                 Intent notificationIntent = new Intent(ServerSyncService.this, SplashActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(ServerSyncService.this, 0,
-                        notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                        notificationIntent, 0);
 
                 mBuilder.setContentIntent(pendingIntent);
 
@@ -185,7 +182,7 @@ public class ServerSyncService extends Service {
     /** method for clients */
     public void getNewTimes() {
         System.out.println("BEGINNING GENERATION CYCLE");
-        final int delay = preferences.getInt("UPDATE_FREQ", 15000); //milliseconds
+        final int delay = SharedPrefInterface.getUpdateFrequency(this);
         Runnable r = new Runnable(){
             public void run(){
                 //Kill if we aren't supposed to run anymore
@@ -203,11 +200,7 @@ public class ServerSyncService extends Service {
                     return;
                 }
 
-                ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
-
                 AsyncServerCalls async = new AsyncServerCalls();
-
-                async.favorites = favorites;
                 async.handler = networkHandler;
                 async.self = this;
                 async.delay = delay;
@@ -270,6 +263,7 @@ public class ServerSyncService extends Service {
 
         @Override
         protected String doInBackground(String... params) {
+            favorites = SharedPrefInterface.getFavList(ServerSyncService.this);
             for(int i = 0; i<favorites.size(); i++){
                 try{
                     FavRoute favorite = favorites.get(i);
@@ -305,14 +299,11 @@ public class ServerSyncService extends Service {
 
         @Override
         protected void onPostExecute(String result) {
-            String favdata = Serialization.serialize(favorites);
-            SharedPreferences.Editor prefEdit = preferences.edit();
-            prefEdit.putString("FAV_DATA", favdata);
-            prefEdit.commit();
+            SharedPrefInterface.updateFavTimes(ServerSyncService.this, favorites);
 
             updateNotifications();
 
-            handler.postDelayed(self, preferences.getInt("UPDATE_FREQ", 15000));
+            handler.postDelayed(self, SharedPrefInterface.getUpdateFrequency(ServerSyncService.this));
         }
 
         @Override

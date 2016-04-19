@@ -41,9 +41,7 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        list = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
-        FavRoute user = list.get(position);
+        final FavRoute user = SharedPrefInterface.getFavList(getContext()).get(position);
         View v = null;
         if (v == null) {
             LayoutInflater vi = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -93,12 +91,7 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
                 enabled.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        ArrayList<FavRoute> favorites = Serialization.deserialize(preferences.getString("FAV_DATA", ""));
-                        favorites.get(position).enabled = (favorites.get(position).enabled==1)?0:1;
-                        String newString = Serialization.serialize(favorites);
-                        SharedPreferences.Editor edit = preferences.edit();
-                        edit.putString("FAV_DATA", newString);
-                        edit.apply();
+                        SharedPrefInterface.toggleEnabled(getContext(), user.name, isChecked);
 
                         Intent service = new Intent(getContext(), ServerSyncService.class);
                         getContext().startService(service);

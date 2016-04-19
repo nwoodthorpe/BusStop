@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.media.audiofx.BassBoost;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,14 +28,12 @@ public class SettingsActivity extends AppCompatActivity {
     SharedPreferences preferences;
 
     public void etaUpdateListener(){
-
-
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("How often should we ping the server for an ETA? (seconds)");
         final EditText input = new EditText(this);
         input.setPadding(60, 0, 0, 30);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        input.setHint(Integer.toString(preferences.getInt("UPDATE_FREQ", 15)));
+        input.setHint(Integer.toString(preferences.getInt("UPDATE_FREQ", 15000)/1000));
         alert.setView(input);
 
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -43,9 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
                 try{
                     int num = Integer.parseInt(input.getText().toString());
                     if(num > 5 && num<120){
-                        SharedPreferences.Editor prefEdit = preferences.edit();
-                        prefEdit.putInt("UPDATE_FREQ", num*1000); //convert to ms
-                        prefEdit.commit();
+                        SharedPrefInterface.setUpdateFrequency(SettingsActivity.this, num*1000);
 
                         Toast.makeText(SettingsActivity.this, "Frequency successfully updated!",
                                 Toast.LENGTH_SHORT).show();
