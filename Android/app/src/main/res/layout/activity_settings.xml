@@ -137,45 +137,8 @@
             <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal" android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/aboutLayout"
-                android:layout_below="@+id/generalStaticUnderline"
-                android:clickable="true">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="15dp"
-                    android:textSize="16dp"
-                    android:text="About"
-                    android:id="@+id/aboutText" />
-
-                <ImageView
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/arrow"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginRight="23dp"
-                    android:layout_centerVertical="true"
-                    android:focusable="false"/>
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/aboutText"
-                    android:height="1dp"
-                    android:background="@color/dim_foreground_material_dark"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="15dp"
-                    android:text=""
-                    android:id="@+id/aboutHoriz" />
-            </RelativeLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="horizontal" android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/tutorialLayout"
-                android:layout_below="@+id/aboutLayout"
+                android:layout_below="@+id/generalStaticUnderline"
                 android:clickable="true">
 
 

@@ -65,17 +65,17 @@ public class ServerSyncService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        System.out.println("STARTED");
+        //System.out.println("STARTED");
 
         updateNotifications();
 
-        getNewTimes();
+        getNewTimes(true);
 
         if(!isRunning) {
-            System.out.println("CHECK");
+            //System.out.println("CHECK");
             isRunning = true;
 
-            getNewTimes();
+            getNewTimes(false);
 
             final Handler h = new Handler();
             final int delay = 15000; //milliseconds, 30 seconds
@@ -93,7 +93,7 @@ public class ServerSyncService extends Service {
 
     @Override
     public void onDestroy() {
-        System.out.println("AGH WE'VE BEEN DESTROYED NOOOOOOOOOO");
+        //System.out.println("AGH WE'VE BEEN DESTROYED NOOOOOOOOOO");
         isRunning = false;
         super.onDestroy();
     }
@@ -106,7 +106,7 @@ public class ServerSyncService extends Service {
     }
 
     public void updateNotifications(){
-        System.out.println("UPDATING NOTIFICATIONS");
+        //System.out.println("UPDATING NOTIFICATIONS");
 
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -180,8 +180,8 @@ public class ServerSyncService extends Service {
     }
 
     /** method for clients */
-    public void getNewTimes() {
-        System.out.println("BEGINNING GENERATION CYCLE");
+    public void getNewTimes(final boolean justOnce) {
+        //System.out.println("BEGINNING GENERATION CYCLE");
         final int delay = SharedPrefInterface.getUpdateFrequency(this);
         Runnable r = new Runnable(){
             public void run(){
@@ -204,11 +204,11 @@ public class ServerSyncService extends Service {
                 async.handler = networkHandler;
                 async.self = this;
                 async.delay = delay;
+                async.justOnce = justOnce;
 
                 async.execute();
             }
         };
-        networkHandler.removeCallbacks(r);
 
         networkHandler.postDelayed(r, 0);
     }
@@ -217,6 +217,7 @@ public class ServerSyncService extends Service {
         ArrayList<FavRoute> favorites;
         Handler handler;
         Runnable self;
+        boolean justOnce;
         int delay;
 
         public String readIt(InputStream stream) throws IOException, UnsupportedEncodingException {
@@ -244,7 +245,7 @@ public class ServerSyncService extends Service {
                 // Starts the query
                 conn.connect();
                 int response = conn.getResponseCode();
-                System.out.println("The response is: " + response);
+                //System.out.println("The response is: " + response);
                 if(response != 200) return ""; //SET TO HANDLE API RESPONSE CODES
                 is = conn.getInputStream();
 
@@ -268,7 +269,7 @@ public class ServerSyncService extends Service {
                 try{
                     FavRoute favorite = favorites.get(i);
                     String URL = "http://nwoodthorpe.com/grt/V2/livetime.php?stop=" + favorite.shortStop;
-                    System.out.println("URL: " + URL);
+                    //System.out.println("URL: " + URL);
                     String response = downloadUrl(URL);
                     JSONObject json = new JSONObject(response);
                     JSONArray dataArray = json.getJSONArray("data");
@@ -285,7 +286,7 @@ public class ServerSyncService extends Service {
                     }
                 }catch(IOException e){
                     //Network error
-                    favorites.get(i).seconds = -2;
+                    //favorites.get(i).seconds = -2;
                 } catch (JSONException e) {
                     //JSON parsing error, bus is likely not currently running
                     e.printStackTrace();
@@ -293,7 +294,7 @@ public class ServerSyncService extends Service {
                 }
             }
 
-            System.out.println("JUST FINISHED NETWORK CYCLE");
+            //System.out.println("JUST FINISHED NETWORK CYCLE");
             return "";
         }
 
@@ -302,8 +303,8 @@ public class ServerSyncService extends Service {
             SharedPrefInterface.updateFavTimes(ServerSyncService.this, favorites);
 
             updateNotifications();
-
-            handler.postDelayed(self, SharedPrefInterface.getUpdateFrequency(ServerSyncService.this));
+            if(!justOnce)
+                handler.postDelayed(self, SharedPrefInterface.getUpdateFrequency(ServerSyncService.this));
         }
 
         @Override

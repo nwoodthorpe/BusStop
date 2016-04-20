@@ -77,10 +77,20 @@ public class SharedPrefInterface {
         SharedPreferences preferences = getPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(firstKey, first);
+        editor.apply();
     }
 
     public static boolean isFirst(Context context){
         SharedPreferences preferences = getPreferences(context);
         return preferences.getBoolean(firstKey, true);
+    }
+
+    public static boolean isAllDisabled(Context context){
+        ArrayList<FavRoute> favs = getFavList(context);
+        for(int i = 0; i<favs.size(); i++){
+            if(favs.get(i).enabled==1)
+                return false;
+        }
+        return true;
     }
 }

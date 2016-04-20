@@ -43,11 +43,11 @@ public class MenuListAdapter extends ArrayAdapter<FavRoute> {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final FavRoute user = SharedPrefInterface.getFavList(getContext()).get(position);
         View v = null;
-        if (v == null) {
-            LayoutInflater vi = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            int layout = listLayoutXML;
-            v = vi.inflate(layout, parent, false);
-        }
+
+        LayoutInflater vi = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        int layout = listLayoutXML;
+        v = vi.inflate(layout, parent, false);
+
 
         if (user != null) {
             TextView name = (TextView) v.findViewById(R.id.name);

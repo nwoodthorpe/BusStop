@@ -27,7 +27,6 @@ public class Serialization {
         String[] splitEntries = input.split("\\+");
 
         int len = splitEntries.length;
-        System.out.println("NUMBER OF ENTRIES: " + len);
         ArrayList<FavRoute> routes = new ArrayList<>();
 
         for(int i = 0; i<len; i++){
@@ -61,7 +60,6 @@ public class Serialization {
 
             routes.add(new FavRoute(lat, lng, name, longRoute, shortRoute, longStop, shortStop, enabled, seconds));
         }
-        System.out.println("RETURNING NEW ROUTE SIZE: " + routes.size());
         return routes;
     }
 

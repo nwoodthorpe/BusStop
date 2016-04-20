@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.audiofx.BassBoost;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,12 +69,43 @@ public class SettingsActivity extends AppCompatActivity {
         finish();
     }
 
+    public void onContactClicked(){
+        final String[] devEmails = {"njwoodthorpe@gmail.com"};
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType("*/*");
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, devEmails);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "");
+        intent.putExtra(Intent.EXTRA_TEXT, "\n\n---------\nNote: If sending a bug report, include your device and Android version! :)");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
     public void setButtonListeners(){
         RelativeLayout etaUpdateLayout = (RelativeLayout) findViewById(R.id.etaupdatelayout);
         etaUpdateLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 etaUpdateListener();
+            }
+        });
+
+        RelativeLayout contactLayout = (RelativeLayout) findViewById(R.id.contactLayout);
+        contactLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onContactClicked();
+            }
+        });
+
+        RelativeLayout tutorialLayout = (RelativeLayout) findViewById(R.id.tutorialLayout);
+        tutorialLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingsActivity.this, IntroActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

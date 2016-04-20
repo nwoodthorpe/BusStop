@@ -90,6 +90,15 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        if(SharedPrefInterface.isAllDisabled(this)){
+            Intent service = new Intent(MenuActivity.this, ServerSyncService.class);
+            stopService(service);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -102,7 +111,7 @@ public class MenuActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                System.out.println("WTF");
             }
         });
 
