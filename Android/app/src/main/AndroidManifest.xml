@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nwoodthorpe.busstop">
+    package="com.nwoodthorpe.busstop"
+    android:versionCode="2"
+    android:versionName="BETA VERSION 0.01">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -53,6 +55,9 @@
             android:exported="false" />
 
         <activity android:name=".SettingsActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f2373b607e26df726520f242489071b3b14805ba" />
     </application>
 
 </manifest>
