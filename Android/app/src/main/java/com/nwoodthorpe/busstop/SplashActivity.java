@@ -95,7 +95,7 @@ public class SplashActivity extends Activity {
         @Override
         protected void onPostExecute(String result) {
             if(result.equals("Fail")){
-                new AlertDialog.Builder(getApplicationContext())
+                new AlertDialog.Builder(SplashActivity.this)
                         .setTitle("Load Failed!")
                         .setMessage("Loading initial data failed :( ")
                         .setPositiveButton("Ok", new DialogInterface.OnClickListener() {

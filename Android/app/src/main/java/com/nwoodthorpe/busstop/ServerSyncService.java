@@ -266,7 +266,9 @@ public class ServerSyncService extends Service {
         protected String doInBackground(String... params) {
             favorites = SharedPrefInterface.getFavList(ServerSyncService.this);
             for(int i = 0; i<favorites.size(); i++){
+                boolean set = false;
                 try{
+
                     FavRoute favorite = favorites.get(i);
                     String URL = "http://nwoodthorpe.com/grt/V2/livetime.php?stop=" + favorite.shortStop;
                     //System.out.println("URL: " + URL);
@@ -277,10 +279,43 @@ public class ServerSyncService extends Service {
                     for(int j = 0; j<dataArray.length(); j++){
                         JSONObject inner = (JSONObject) dataArray.get(j);
                         if(inner.getString("routeId").equals(favorite.shortRoute)){
+                            if(favorite.shortRoute.equals("7")){
+                                //Gotta do an extra check because of crazy 7 stuff
+                                //Eugghhhh this is ugly, its nicer than having it all cramped into one if statemnent
+                                //But I need to refactor this soon.
+                                if(favorite.longRoute.contains("owntown") && !inner.getString("name").contains("7 Downtown")){
+                                    continue;
+                                }
+
+                                if(favorite.longRoute.contains("7A") && !inner.getString("name").contains("7A")){
+                                    continue;
+                                }
+
+                                if(favorite.longRoute.contains("7B") && !inner.getString("name").contains("7B")){
+                                    continue;
+                                }
+
+                                if(favorite.longRoute.contains("7C") && !inner.getString("name").contains("7C")){
+                                    continue;
+                                }
+
+                                if(favorite.longRoute.contains("7D") && !inner.getString("name").contains("7D")){
+                                    continue;
+                                }
+
+                                if(favorite.longRoute.contains("7E") && !inner.getString("name").contains("7E")){
+                                    continue;
+                                }
+
+                                if(favorite.longRoute.contains("7F") && !inner.getString("name").contains("7F")){
+                                    continue;
+                                }
+                            }
                             //Found the one we're looking for!
                             int time = Integer.parseInt(inner.getString("departure"));
 
                             //NOTE: 'time' is in seconds since midnight
+                            set = true;
                             favorites.get(i).seconds = time;
                         }
                     }
@@ -292,6 +327,8 @@ public class ServerSyncService extends Service {
                     e.printStackTrace();
                     favorites.get(i).seconds = -3;
                 }
+                if(!set)
+                    favorites.get(i).seconds = -3;
             }
 
             //System.out.println("JUST FINISHED NETWORK CYCLE");

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nwoodthorpe.busstop"
-    android:versionCode="2"
-    android:versionName="BETA VERSION 0.01">
+    android:versionCode="5"
+    android:versionName="0.05">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -38,7 +38,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyBPdcbIPOii_JEJLWBarVrIlDZSSNwRhFg" />
 
         <activity
             android:name=".MapActivity"
