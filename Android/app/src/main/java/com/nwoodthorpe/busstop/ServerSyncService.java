@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -65,7 +66,23 @@ public class ServerSyncService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        //System.out.println("STARTED");
+
+        //Handle disabling on notifcation button press
+        Bundle extras = intent.getExtras();
+        String disable = extras==null?null:extras.getString("DISABLE");
+        if(disable != null && !disable.equals("")){
+            ArrayList<FavRoute> favorites = SharedPrefInterface.getFavList(this);
+            for(int i = 0; i<favorites.size(); i++){
+                if(favorites.get(i).name.equals(disable)){
+                    //Disable this notifcation and set it to disabled.
+                    SharedPrefInterface.toggleEnabled(this, disable, false);
+
+                    NotificationManager mNotificationManager =
+                            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    mNotificationManager.cancel(disable.hashCode());
+                }
+            }
+        }
 
         updateNotifications();
 
@@ -150,13 +167,18 @@ public class ServerSyncService extends Service {
 
                 NotificationCompat.Builder mBuilder;
 
+                Intent intent = new Intent(ServerSyncService.this, ServerSyncService.class);
+                intent.putExtra("DISABLE", favs.get(i).name);
+                PendingIntent cancelIntent  = PendingIntent.getService(this, favs.get(i).name.hashCode(), intent, 0);
+
                 if (notificationBuilders.indexOfKey(user.name.hashCode()) < 0) {
                     mBuilder = new NotificationCompat.Builder(this)
                             .setSmallIcon(R.drawable.bus)
                             .setContentTitle(favs.get(i).shortRoute + " - " + favs.get(i).name)
                             .setContentText(time)
-                            .setOnlyAlertOnce(true)
-                            .setOngoing(true);
+                            .setVisibility(Notification.VISIBILITY_PUBLIC)
+                            .setDeleteIntent(cancelIntent)
+                            .setOnlyAlertOnce(true);
                     notificationBuilders.append(user.name.hashCode(), mBuilder);
                 } else {
                     mBuilder = notificationBuilders.get(user.name.hashCode());

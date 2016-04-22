@@ -10,4 +10,6 @@
     <string name="MenuHeader">Active Routes</string>
     <string name="AddFinalDetailsHeader">Final Details</string>
     <string name="ViewRouteHeader">View Route</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

@@ -54,10 +54,21 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="f2373b607e26df726520f242489071b3b14805ba" />
+
+        <receiver android:name=".AppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>
