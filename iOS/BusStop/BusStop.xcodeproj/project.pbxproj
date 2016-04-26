@@ -11,6 +11,8 @@
 		4A2E6B551CCF39FC00F545AF /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */; };
 		4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */; };
 		4A2E6B591CCF3A3900F545AF /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B581CCF3A3900F545AF /* FinishedViewController.swift */; };
+		4A2E6B5B1CCF45EE00F545AF /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B5A1CCF45EE00F545AF /* SavedCell.swift */; };
+		4A2E6B5D1CCF4F3E00F545AF /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B5C1CCF4F3E00F545AF /* Route.swift */; };
 		4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C221CCB05820096A8A7 /* AppDelegate.swift */; };
 		4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C241CCB05820096A8A7 /* ViewController.swift */; };
 		4A425C281CCB05820096A8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C261CCB05820096A8A7 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 		4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4A2E6B581CCF3A3900F545AF /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
+		4A2E6B5A1CCF45EE00F545AF /* SavedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
+		4A2E6B5C1CCF4F3E00F545AF /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A425C1F1CCB05820096A8A7 /* BusStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A425C221CCB05820096A8A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A425C241CCB05820096A8A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */,
 				4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */,
 				4A2E6B581CCF3A3900F545AF /* FinishedViewController.swift */,
+				4A2E6B5A1CCF45EE00F545AF /* SavedCell.swift */,
+				4A2E6B5C1CCF4F3E00F545AF /* Route.swift */,
 			);
 			path = BusStop;
 			sourceTree = "<group>";
@@ -151,7 +157,9 @@
 				4A2E6B591CCF3A3900F545AF /* FinishedViewController.swift in Sources */,
 				4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */,
 				4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */,
+				4A2E6B5B1CCF45EE00F545AF /* SavedCell.swift in Sources */,
 				4A2E6B551CCF39FC00F545AF /* RouteViewController.swift in Sources */,
+				4A2E6B5D1CCF4F3E00F545AF /* Route.swift in Sources */,
 				4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */,
 				4A2E6B531CCF39EF00F545AF /* HomeViewController.swift in Sources */,
 			);

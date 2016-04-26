@@ -1,25 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KKF-Ke-Wav">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Active Routes-->
         <scene sceneID="1Wj-ue-Br0">
             <objects>
-                <tableViewController id="VcU-kc-0Fm" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tgA-ZQ-XvN">
+                <tableViewController id="VcU-kc-0Fm" customClass="HomeViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="tgA-ZQ-XvN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedCell" id="g2b-C3-CVf">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedCell" rowHeight="80" id="g2b-C3-CVf" customClass="SavedCell" customModule="BusStop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g2b-C3-CVf" id="Z4q-Le-9B8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AR-ac-QYb">
+                                            <rect key="frame" x="543" y="24" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="SwitchChanged:" destination="g2b-C3-CVf" eventType="valueChanged" id="mDh-Pf-sJB"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-1g-BjX">
+                                            <rect key="frame" x="107" y="43" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEg-SV-F6i">
+                                            <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-2d-Wbr">
+                                            <rect key="frame" x="107" y="15" width="45" height="20"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5AR-ac-QYb" secondAttribute="trailing" id="1wA-kz-9ql"/>
+                                        <constraint firstItem="IEO-1g-BjX" firstAttribute="leading" secondItem="Z4q-Le-9B8" secondAttribute="leadingMargin" constant="99" id="Eii-UO-WdO"/>
+                                        <constraint firstItem="5AR-ac-QYb" firstAttribute="centerY" secondItem="Z4q-Le-9B8" secondAttribute="centerY" id="FYR-Q2-jOO"/>
+                                        <constraint firstItem="fP4-2d-Wbr" firstAttribute="leading" secondItem="Z4q-Le-9B8" secondAttribute="leadingMargin" constant="99" id="mWm-pP-Azn"/>
+                                        <constraint firstItem="IEO-1g-BjX" firstAttribute="top" secondItem="fP4-2d-Wbr" secondAttribute="bottom" constant="8" id="zZN-CM-zhq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="RouteName" destination="fP4-2d-Wbr" id="Le0-ki-E3e"/>
+                                    <outlet property="RouteNumber" destination="FEg-SV-F6i" id="uOv-cF-BsY"/>
+                                    <outlet property="Switch" destination="5AR-ac-QYb" id="rJY-ah-qFb"/>
+                                    <outlet property="Time" destination="IEO-1g-BjX" id="jBV-fV-wqu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -27,7 +66,7 @@
                             <outlet property="delegate" destination="VcU-kc-0Fm" id="S1P-At-9lj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="WqW-DH-JVT">
+                    <navigationItem key="navigationItem" title="Active Routes" id="WqW-DH-JVT">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="azV-Qp-Pm3"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cZc-zO-YPJ">
                             <connections>
@@ -40,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1917" y="400"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Route View Controller-->
         <scene sceneID="iUz-72-UMi">
             <objects>
-                <tableViewController id="ONj-P4-61H" sceneMemberID="viewController">
+                <tableViewController id="ONj-P4-61H" customClass="RouteViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gtd-kG-LNf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,6 +94,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7RQ-FD-a8x" id="DQV-Ku-K0z">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugw-vQ-MQ1">
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -71,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="2626" y="400"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="Pb5-jx-e1V">
             <objects>
-                <viewController id="kRN-RW-DOE" sceneMemberID="viewController">
+                <viewController id="kRN-RW-DOE" customClass="MapViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cY7-Zc-tcm"/>
                         <viewControllerLayoutGuide type="bottom" id="2RP-Bb-o0X"/>
@@ -97,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="3321" y="400"/>
         </scene>
-        <!--View Controller-->
+        <!--Finished View Controller-->
         <scene sceneID="0aX-ZJ-W95">
             <objects>
-                <viewController id="PVa-sd-oYf" sceneMemberID="viewController">
+                <viewController id="PVa-sd-oYf" customClass="FinishedViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ci3-EH-vDe"/>
                         <viewControllerLayoutGuide type="bottom" id="eRM-9R-ng9"/>
@@ -116,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIh-MG-DQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4702" y="400"/>
+            <point key="canvasLocation" x="4718" y="400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ah7-ch-p7p">
@@ -134,7 +181,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x20-u0-spZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="400"/>
+            <point key="canvasLocation" x="1193" y="400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uUF-LT-sPk">
