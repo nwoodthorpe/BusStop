@@ -9,12 +9,6 @@
 struct Route {
     
     var Number: Int
-    var Name: String
-    var Time: Int
+    var Name: Int
     
-    init(number: Int, name : String, time: Int) {
-        Number = number
-        Name = name
-        Time = time
-    }
 }

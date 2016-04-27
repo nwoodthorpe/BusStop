@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     
-    var routes: [Route] = [Route(number: 99, name: "Test", time: 60)]
+    var routes: [Stop] = [Stop(number: 99, name: "Test", time: 60)]
 
     override func viewDidLoad() {
         super.viewDidLoad()

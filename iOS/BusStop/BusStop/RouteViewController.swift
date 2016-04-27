@@ -12,12 +12,34 @@ class RouteViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initJSON()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func initJSON() {
+        let url = NSBundle.mainBundle().URLForResource("stops", withExtension: "json")
+        let data = NSData(contentsOfURL: url!)
+        
+        do {
+            let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+            if let dictionary = object as? [AnyObject] {
+                readJSONObject(dictionary)
+            } else {
+                print("initJSON failed to parse JSON")
+            }
+        } catch {
+            print("Handle error")
+        }
+    }
+    
+    func readJSONObject(object: [AnyObject]) {
+        print(object[0]["RouteDirection"]!!["PublicIdentifier"]!!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +51,23 @@ class RouteViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell", forIndexPath: indexPath)
 
-        // Configure the cell...
+        
+        
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
