@@ -51,10 +51,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func initAnnotations() {
         let data = initJSON()
         for stop in stops {
-            let stopNumber = stop.Number
+            let stopNumber = stop.stopNumber
             if let stopInfo = findStop(stopNumber, data: data) {
                 let coordinate = CLLocationCoordinate2D(latitude: stopInfo["lat"]!.doubleValue, longitude: stopInfo["long"]!.doubleValue)
-                let lc = Location(title: stop.Name, coordinate: coordinate, info: "", number: stop.Number)
+                let lc = Location(title: stop.stopName, coordinate: coordinate, info: "", number: stop.stopNumber, stop:stop)
                 annotations.append(lc)
             }
         }
@@ -103,7 +103,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        selectedStop = view.annotation as? Stop
+        selectedStop = (view.annotation as! Location).stop
         performSegueWithIdentifier("FinishSegue", sender: self)
     }
     
@@ -128,7 +128,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if selectedStop != nil {
-            
+            let vc = segue.destinationViewController as! FinishViewController
+            vc.stop = selectedStop
         }
     }
     

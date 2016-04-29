@@ -131,7 +131,7 @@ class RouteViewController: UITableViewController {
                 let stoptext = currentRoute!.Stops
                 for text in stoptext {
                     let num = Int(text.characters.split{$0 == " "}.map(String.init)[0])!
-                    let newstop = Stop(number: num, name: text, line: currentRoute!.Number, time: 0)
+                    let newstop = Stop(stopNumber: num, stopName: text, routeNumber: currentRoute!.Number, routeName: currentRoute!.Name, time: 0, nickname: "uninitialized")
                     vc.stops.append(newstop)
                 }
             }

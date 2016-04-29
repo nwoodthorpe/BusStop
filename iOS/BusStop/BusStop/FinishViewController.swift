@@ -1,23 +1,25 @@
 //
-//  HomeViewController.swift
+//  FinishViewController.swift
 //  BusStop
 //
-//  Created by Harry Liu on 2016-04-25.
+//  Created by Harry Liu on 2016-04-29.
 //  Copyright © 2016 HarryLiu. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UITableViewController {
-    
-    var stops: [Stop] = [Stop(stopNumber: 0, stopName : "Test", routeNumber: 0, routeName: "Test", time: 0, nickname: "Test")]
-    
-    @IBAction func undwindToHome(segue: UIStoryboardSegue) {
-    
-    }
+class FinishViewController: UITableViewController {
 
+    @IBOutlet weak var routeLabel: UILabel!
+    @IBOutlet weak var stopLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
+    
+    var stop: Stop?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initLabels()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,29 +32,33 @@ class HomeViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func initLabels() {
+        routeLabel.text = "\(stop!.routeNumber) - \(stop!.routeName)"
+        stopLabel.text = "\(stop!.stopNumber) - \(stop!.stopName)"
+    }
 
     // MARK: - Table view data source
-
+    /*
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 0
     }
-
-    
+    */
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SavedCell", forIndexPath: indexPath) as! SavedCell
-        
-        let stop = stops[indexPath.row]
-        cell.initValues(number: stop.routeNumber, name: stop.nickname, time: stop.time)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.

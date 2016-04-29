@@ -10,7 +10,6 @@
 		4A2E6B531CCF39EF00F545AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */; };
 		4A2E6B551CCF39FC00F545AF /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */; };
 		4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */; };
-		4A2E6B591CCF3A3900F545AF /* FinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B581CCF3A3900F545AF /* FinishedViewController.swift */; };
 		4A2E6B5B1CCF45EE00F545AF /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B5A1CCF45EE00F545AF /* SavedCell.swift */; };
 		4A2E6B5D1CCF4F3E00F545AF /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B5C1CCF4F3E00F545AF /* Stop.swift */; };
 		4A2E6B5F1CCFF28B00F545AF /* RouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B5E1CCFF28B00F545AF /* RouteCell.swift */; };
@@ -24,13 +23,13 @@
 		4A425C281CCB05820096A8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C261CCB05820096A8A7 /* Main.storyboard */; };
 		4A425C2A1CCB05830096A8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C291CCB05830096A8A7 /* Assets.xcassets */; };
 		4A425C2D1CCB05830096A8A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C2B1CCB05830096A8A7 /* LaunchScreen.storyboard */; };
+		4A77BF041CD3FB2F00F073FF /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		4A2E6B581CCF3A3900F545AF /* FinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedViewController.swift; sourceTree = "<group>"; };
 		4A2E6B5A1CCF45EE00F545AF /* SavedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
 		4A2E6B5C1CCF4F3E00F545AF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		4A2E6B5E1CCFF28B00F545AF /* RouteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteCell.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		4A425C291CCB05830096A8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A425C2C1CCB05830096A8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A425C2E1CCB05830096A8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +91,12 @@
 				4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */,
 				4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */,
 				4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */,
-				4A2E6B581CCF3A3900F545AF /* FinishedViewController.swift */,
 				4A2E6B5A1CCF45EE00F545AF /* SavedCell.swift */,
 				4A2E6B5C1CCF4F3E00F545AF /* Stop.swift */,
 				4A2E6B5E1CCFF28B00F545AF /* RouteCell.swift */,
 				4A2E6B601CCFF93900F545AF /* Route.swift */,
 				4A2E6B661CD2EAB200F545AF /* Location.swift */,
+				4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */,
 			);
 			path = BusStop;
 			sourceTree = "<group>";
@@ -180,7 +180,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A2E6B591CCF3A3900F545AF /* FinishedViewController.swift in Sources */,
 				4A2E6B671CD2EAB200F545AF /* Location.swift in Sources */,
 				4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */,
 				4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */,
@@ -191,6 +190,7 @@
 				4A2E6B5D1CCF4F3E00F545AF /* Stop.swift in Sources */,
 				4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */,
 				4A2E6B531CCF39EF00F545AF /* HomeViewController.swift in Sources */,
+				4A77BF041CD3FB2F00F073FF /* FinishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,11 +15,13 @@ class Location: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var info: String
     var number: Int
+    var stop: Stop
     
-    init(title: String, coordinate: CLLocationCoordinate2D, info: String, number: Int) {
+    init(title: String, coordinate: CLLocationCoordinate2D, info: String, number: Int, stop: Stop) {
         self.title = title
         self.coordinate = coordinate
         self.info = info
         self.number = number
+        self.stop = stop
     }
 }

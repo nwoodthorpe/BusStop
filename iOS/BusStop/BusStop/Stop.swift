@@ -8,15 +8,19 @@
 
 struct Stop {
     
-    var Number: Int
-    var Name: String
-    var Line: Int
-    var Time: Int
+    var stopNumber: Int
+    var stopName: String
+    var routeNumber: Int
+    var routeName: String
+    var time: Int
+    var nickname: String
     
-    init(number: Int, name : String, line: Int, time: Int) {
-        Number = number
-        Name = name
-        Line = line
-        Time = time
+    init(stopNumber: Int, stopName : String, routeNumber: Int, routeName: String, time: Int, nickname: String) {
+        self.stopNumber = stopNumber
+        self.stopName = stopName
+        self.routeNumber = routeNumber
+        self.routeName = routeName
+        self.time = time
+        self.nickname = nickname
     }
 }
