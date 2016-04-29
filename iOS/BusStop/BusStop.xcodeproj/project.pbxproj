@@ -17,6 +17,8 @@
 		4A2E6B611CCFF93900F545AF /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B601CCFF93900F545AF /* Route.swift */; };
 		4A2E6B631CD1632E00F545AF /* stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E6B621CD1632E00F545AF /* stops.json */; };
 		4A2E6B651CD1643400F545AF /* latlong.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E6B641CD1643400F545AF /* latlong.json */; };
+		4A2E6B671CD2EAB200F545AF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B661CD2EAB200F545AF /* Location.swift */; };
+		4A2E6B691CD3084B00F545AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2E6B681CD3084B00F545AF /* MapKit.framework */; };
 		4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C221CCB05820096A8A7 /* AppDelegate.swift */; };
 		4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C241CCB05820096A8A7 /* ViewController.swift */; };
 		4A425C281CCB05820096A8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C261CCB05820096A8A7 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		4A2E6B601CCFF93900F545AF /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		4A2E6B621CD1632E00F545AF /* stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stops.json; sourceTree = "<group>"; };
 		4A2E6B641CD1643400F545AF /* latlong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = latlong.json; sourceTree = "<group>"; };
+		4A2E6B661CD2EAB200F545AF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4A2E6B681CD3084B00F545AF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4A425C1F1CCB05820096A8A7 /* BusStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A425C221CCB05820096A8A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A425C241CCB05820096A8A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2E6B691CD3084B00F545AF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,7 @@
 		4A425C161CCB05820096A8A7 = {
 			isa = PBXGroup;
 			children = (
+				4A2E6B681CD3084B00F545AF /* MapKit.framework */,
 				4A425C211CCB05820096A8A7 /* BusStop */,
 				4A425C201CCB05820096A8A7 /* Products */,
 			);
@@ -90,6 +96,7 @@
 				4A2E6B5C1CCF4F3E00F545AF /* Stop.swift */,
 				4A2E6B5E1CCFF28B00F545AF /* RouteCell.swift */,
 				4A2E6B601CCFF93900F545AF /* Route.swift */,
+				4A2E6B661CD2EAB200F545AF /* Location.swift */,
 			);
 			path = BusStop;
 			sourceTree = "<group>";
@@ -127,6 +134,11 @@
 					4A425C1E1CCB05820096A8A7 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 7PS6VF94Y3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -169,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A2E6B591CCF3A3900F545AF /* FinishedViewController.swift in Sources */,
+				4A2E6B671CD2EAB200F545AF /* Location.swift in Sources */,
 				4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */,
 				4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */,
 				4A2E6B611CCFF93900F545AF /* Route.swift in Sources */,

@@ -12,6 +12,21 @@ class RouteCell: UITableViewCell {
 
     @IBOutlet weak var RouteNumber: UILabel!
     @IBOutlet weak var RouteName: UILabel!
-    @IBOutlet weak var Time: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        initCircle()
+    }
+    
+    func initCircle() {
+        RouteNumber.layer.borderWidth = 3
+        RouteNumber.layer.cornerRadius = RouteNumber.frame.width / 2
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
 }

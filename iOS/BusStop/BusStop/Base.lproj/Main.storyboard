@@ -40,7 +40,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-2d-Wbr">
-                                            <rect key="frame" x="107" y="15" width="45" height="20"/>
+                                            <rect key="frame" x="107" y="15" width="428" height="20"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -95,30 +95,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugw-vQ-MQ1">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugw-vQ-MQ1">
                                             <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="45v-WW-gcE"/>
+                                                <constraint firstAttribute="height" constant="60" id="6hc-by-m0b"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4f-uf-np7">
-                                            <rect key="frame" x="76" y="8" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4f-uf-np7">
+                                            <rect key="frame" x="76" y="30" width="516" height="20"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG6-iz-tYa">
-                                            <rect key="frame" x="76" y="37" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="T4f-uf-np7" secondAttribute="trailing" constant="8" id="91M-kW-yf3"/>
+                                        <constraint firstItem="T4f-uf-np7" firstAttribute="leading" secondItem="ugw-vQ-MQ1" secondAttribute="trailing" constant="8" id="9zo-3R-a6E"/>
+                                        <constraint firstItem="ugw-vQ-MQ1" firstAttribute="leading" secondItem="DQV-Ku-K0z" secondAttribute="leading" constant="8" id="GkN-D8-fND"/>
+                                        <constraint firstItem="T4f-uf-np7" firstAttribute="centerY" secondItem="DQV-Ku-K0z" secondAttribute="centerY" id="js4-so-z5C"/>
+                                        <constraint firstItem="T4f-uf-np7" firstAttribute="leading" secondItem="ugw-vQ-MQ1" secondAttribute="trailing" constant="8" id="qWo-gh-8vN"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="RouteName" destination="T4f-uf-np7" id="3LM-rV-CKZ"/>
                                     <outlet property="RouteNumber" destination="ugw-vQ-MQ1" id="vZE-cr-77Y"/>
-                                    <outlet property="Time" destination="wG6-iz-tYa" id="UY6-TZ-s20"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -147,13 +151,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BLZ-hd-nna">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BLZ-hd-nna">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kRN-RW-DOE" id="xKk-vN-BQy"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BLZ-hd-nna" firstAttribute="leading" secondItem="BmW-Yh-tK4" secondAttribute="leading" id="0P9-EC-A7y"/>
+                            <constraint firstAttribute="trailing" secondItem="BLZ-hd-nna" secondAttribute="trailing" id="Boa-CK-bsU"/>
+                            <constraint firstItem="BLZ-hd-nna" firstAttribute="top" secondItem="cY7-Zc-tcm" secondAttribute="bottom" id="pVJ-NV-dWs"/>
+                            <constraint firstItem="2RP-Bb-o0X" firstAttribute="top" secondItem="BLZ-hd-nna" secondAttribute="bottom" id="zcf-Ue-cBE"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="BLZ-hd-nna" id="5Ts-EL-UT0"/>
                         <segue destination="72R-G9-wWE" kind="show" identifier="FinishSegue" id="JVc-pc-G8H"/>
                     </connections>
                 </viewController>

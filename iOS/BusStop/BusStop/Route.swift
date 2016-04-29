@@ -9,6 +9,19 @@
 struct Route {
     
     var Number: Int
-    var Name: Int
+    var Name: String
+    var Text: String
+    var Direction: String
+    var DirectionName: String
+    var Stops: [String]
+    
+    init(number: Int, name: String, text: String, direction: String, directionName: String, stops: [String]) {
+        Number = number
+        Name = name
+        Text = text
+        Direction = direction
+        DirectionName = directionName
+        Stops = stops
+    }
     
 }

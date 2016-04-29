@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
+    var stops: [Stop] = []
+    var annotations: [MKAnnotation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        initAnnotations()
+        addAnnotations()
+        mapView.showAnnotations(annotations, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +29,70 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func initJSON() -> [AnyObject] {
+        let url = NSBundle.mainBundle().URLForResource("latlong", withExtension: "json")
+        let data = NSData(contentsOfURL: url!)
+        
+        do {
+            let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+            if let dictionary = object as? [AnyObject] {
+                return dictionary
+            } else {
+                print("initJSON failed to parse JSON")
+            }
+        } catch {
+            print("Handle error")
+        }
+        
+        return []
+    }
+    
+    func initAnnotations() {
+        let data = initJSON()
+        for stop in stops {
+            let stopNumber = stop.Number
+            if let stopInfo = findStop(stopNumber, data: data) {
+                let coordinate = CLLocationCoordinate2D(latitude: stopInfo["lat"]!.doubleValue, longitude: stopInfo["long"]!.doubleValue)
+                let lc = Location(title: stop.Name, coordinate: coordinate, info: "", number: stop.Number)
+                annotations.append(lc)
+            }
+        }
+    }
+    
+    func addAnnotations() {
+        mapView.addAnnotations(annotations)
+    }
+    
+    func findStop(number: Int, data: [AnyObject]) -> [String: AnyObject]? {
+        var high = data.count-1
+        var low = 0
+        while high >= low {
+            let middle = (low + high) / 2
+            let element = data[middle] as! [String: AnyObject]
+            if number > element["stop"] as! Int {
+                low = middle + 1
+            }
+            else if number < element["stop"] as! Int {
+                high = middle - 1
+            }
+            else {
+                return data[middle] as? [String : AnyObject]
+            }
+        }
+        return nil
+    }
+    /*
+    func checkForOrdering(data: [AnyObject]) {
+        var num = 0
+        for element in data {
+            let stop = element["stop"] as! NSInteger
+            if num > stop {
+                print("\(num) is greater than \(stop)\n")
+            }
+            num = stop
+        }
+        print("GUCCI FAM")
+    }*/
 
     /*
     // MARK: - Navigation

@@ -1473,50 +1473,5 @@
         "RouteDirectionKey":"204~~West",
         "Text":"204 - Highland Victoria iXpress (to The Boardwalk)",
         "Stops":["1057 - Ottawa / Lackner","1030 - OTTAWA / OLDFIELD","2385 - LACKNER / OTTAWA","1933 - LACKNER / KEEWATIN","1678 - LACKNER / VICTORIA","1989 - VICTORIA / NATCHEZ","1935 - VICTORIA / FREDERICK","1937 - VICTORIA / RIVER","2352 - VICTORIA / INDIANA","1924 - VICTORIA / LANCASTER","1912 - VICTORIA / MARGARET","1921 - VICTORIA / WEBER","1901 - KING / VICTORIA","2558 - CHARLES STREET TERMINAL","2754 - QUEEN / COURTLAND","2755 - QUEEN / HOMEWOOD","3356 - HIGHLAND / BELMONT","3357 - HIGHLAND / LAWRENCE","3198 - HIGHLAND / WESTMOUNT","3199 - HIGHLAND / FIELDGATE","1716 - HIGHLAND / FISCHER","1654 - HIGHLAND / EASTFOREST","1314 - HIGHLAND / WESTFOREST","1203 - Ira Needles / Highland","1101 - IRA NEEDLES / VICTORIA","4000 - THE BOARDWALK TERMINAL"]
-    },
-    {
-        "RouteDirection":{
-            "PublicIdentifier":"888",
-            "Description":"Test Route - Places",
-            "Direction":"Clockwise",
-            "DirectionName":"Clockwise",
-            "ServiceMode":"Bus",
-            "Site":{
-                "Identifier":"*",
-                "Name":""
-            }
-        },
-        "RouteDirectionKey":"888~~Clockwise",
-        "Text":"888 - Test Route - Places (Clockwise)"
-    },
-    {
-        "RouteDirection":{
-            "PublicIdentifier":"999",
-            "Description":"INIT Test Route KWSA",
-            "Direction":"Inbound",
-            "DirectionName":"Inbound",
-            "ServiceMode":"Bus",
-            "Site":{
-                "Identifier":"*",
-                "Name":""
-            }
-        },
-        "RouteDirectionKey":"999~~Inbound",
-        "Text":"999 - INIT Test Route KWSA (Inbound)"
-    },
-    {
-        "RouteDirection":{
-            "PublicIdentifier":"999",
-            "Description":"INIT Test Route KWSA",
-            "Direction":"Outbound",
-            "DirectionName":"Outbound",
-            "ServiceMode":"Bus",
-            "Site":{
-                "Identifier":"*",
-                "Name":""
-            }
-        },
-        "RouteDirectionKey":"999~~Outbound",
-        "Text":"999 - INIT Test Route KWSA (Outbound)"
     }
 ]

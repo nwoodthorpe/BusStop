@@ -9,6 +9,9 @@
 import UIKit
 
 class RouteViewController: UITableViewController {
+    
+    var routes: [Route] = []
+    var currentRoute: Route? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,11 @@ class RouteViewController: UITableViewController {
     }
     
     func readJSONObject(object: [AnyObject]) {
-        print(object[0]["RouteDirection"]!!["PublicIdentifier"]!!)
+        for item in object {
+            let info = item["RouteDirection"] as! [String: AnyObject]
+            let route = Route(number: (info["PublicIdentifier"] as! NSString).integerValue, name: info["Description"] as! String, text: item["Text"] as! String, direction: info["Direction"] as! String, directionName: info["DirectionName"] as! String, stops: item["Stops"] as! [String])
+            routes.append(route)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,17 +63,24 @@ class RouteViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return routes.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell", forIndexPath: indexPath)
-
-        
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("RouteCell", forIndexPath: indexPath) as! RouteCell
+        let route = routes[indexPath.row]
+        cell.RouteName.text = "\(route.Name) - \(route.DirectionName)"
+        cell.RouteNumber.text = String(route.Number)
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        
+        currentRoute = routes[indexPath.row]
+        performSegueWithIdentifier("MapSegue", sender: self)
     }
 
     /*
@@ -104,14 +118,26 @@ class RouteViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "MapSegue" {
+            if let vc = segue.destinationViewController as? MapViewController {
+                let stoptext = currentRoute!.Stops
+                for text in stoptext {
+                    let num = Int(text.characters.split{$0 == " "}.map(String.init)[0])!
+                    let newstop = Stop(number: num, name: text, line: currentRoute!.Number, time: 0)
+                    vc.stops.append(newstop)
+                }
+            }
+        }
+        
     }
-    */
+    
 
 }
