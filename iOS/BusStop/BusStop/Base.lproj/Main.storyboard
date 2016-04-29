@@ -168,7 +168,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="BLZ-hd-nna" id="5Ts-EL-UT0"/>
-                        <segue destination="72R-G9-wWE" kind="show" identifier="FinishSegue" id="JVc-pc-G8H"/>
+                        <segue destination="PVa-sd-oYf" kind="show" identifier="FinishSegue" id="g3k-yX-y0R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBG-94-Fo6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,12 +189,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wy5-qF-kln">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="iaG-5S-91N"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="iaG-5S-91N">
+                            <connections>
+                                <segue destination="pRU-fd-bYd" kind="unwind" unwindAction="undwindToHome:" id="oyb-L5-lbu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIh-MG-DQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pRU-fd-bYd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4718" y="400"/>
+            <point key="canvasLocation" x="4012" y="400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ah7-ch-p7p">
@@ -213,24 +218,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x20-u0-spZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1193" y="400"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="uUF-LT-sPk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="72R-G9-wWE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdJ-2z-ZJU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="PVa-sd-oYf" kind="relationship" relationship="rootViewController" id="MmH-Ri-Yne"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Oj-Zw-GA3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4032" y="400"/>
         </scene>
     </scenes>
 </document>

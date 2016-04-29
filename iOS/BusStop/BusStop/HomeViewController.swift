@@ -11,6 +11,10 @@ import UIKit
 class HomeViewController: UITableViewController {
     
     var routes: [Stop] = [Stop(number: 99, name: "Test", line: 99, time: 60)]
+    
+    @IBAction func undwindToHome(segue: UIStoryboardSegue) {
+    
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

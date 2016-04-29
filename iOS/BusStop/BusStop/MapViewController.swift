@@ -14,6 +14,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var stops: [Stop] = []
     var annotations: [MKAnnotation] = []
+    var selectedStop: Stop?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +82,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         return nil
     }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "Location"
+
+        if annotation.isKindOfClass(Location.self) {
+            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+            
+            if annotationView == nil {
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView!.canShowCallout = true
+                let btn = UIButton(type: .ContactAdd)
+                annotationView!.rightCalloutAccessoryView = btn
+            } else {
+                annotationView!.annotation = annotation
+            }
+            return annotationView
+        }
+        return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        selectedStop = view.annotation as? Stop
+        performSegueWithIdentifier("FinishSegue", sender: self)
+    }
+    
     /*
     func checkForOrdering(data: [AnyObject]) {
         var num = 0
@@ -94,14 +120,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         print("GUCCI FAM")
     }*/
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if selectedStop != nil {
+            
+        }
     }
-    */
+    
 
 }
