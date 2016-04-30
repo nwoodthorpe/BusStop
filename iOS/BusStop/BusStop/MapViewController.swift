@@ -131,6 +131,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let vc = segue.destinationViewController as! FinishViewController
             vc.stop = selectedStop
         }
+        else {
+            print("didn't select a stop")
+        }
     }
     
 

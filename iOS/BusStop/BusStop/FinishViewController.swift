@@ -13,6 +13,8 @@ class FinishViewController: UITableViewController {
     @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var stopLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
+    @IBAction func doneButton(sender: AnyObject) {
+    }
     
     var stop: Stop?
     
@@ -36,6 +38,32 @@ class FinishViewController: UITableViewController {
     func initLabels() {
         routeLabel.text = "\(stop!.routeNumber) - \(stop!.routeName)"
         stopLabel.text = "\(stop!.stopNumber) - \(stop!.stopName)"
+    }
+    
+    func save() {
+        //print("running save")
+        stop!.nickname = nameField.text!
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if var array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] {
+            for (index, element) in array.enumerate() {
+                let item = Functions.dictToStop(element)
+                //print("\(item.stopNumber) and \(stop!.stopNumber)\n")
+                //print("\(item.routeNumber) and \(stop!.routeNumber)\n")
+                if item.stopNumber == stop!.stopNumber && item.routeNumber == stop!.stopNumber {
+                    array[index]["nickname"] = stop!.nickname
+                    defaults.setObject(array, forKey: "savedStops")
+                    return
+                }
+            }
+            array.append(Functions.stopToDict(stop!))
+            defaults.setObject(array, forKey: "savedStops")
+            return
+        }
+        var array = [[String: AnyObject]]()
+        array.append(Functions.stopToDict(stop!))
+        defaults.setObject(array, forKey: "savedStops")
     }
 
     // MARK: - Table view data source
@@ -95,14 +123,17 @@ class FinishViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ExitSegue" {
+            save()
+        }
     }
-    */
+    
 
 }

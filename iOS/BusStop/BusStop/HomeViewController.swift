@@ -10,20 +10,38 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     
-    var stops: [Stop] = [Stop(stopNumber: 0, stopName : "Test", routeNumber: 0, routeName: "Test", time: 0, nickname: "Test")]
+    var stops = [Stop]()
     
     @IBAction func undwindToHome(segue: UIStoryboardSegue) {
-    
+        stops = [Stop]()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        for item in array {
+            stops.append(Functions.dictToStop(item))
+        }
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initStops()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func initStops() {
+        stops = [Stop]()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        for item in array {
+            stops.append(Functions.dictToStop(item))
+        }
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +58,7 @@ class HomeViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return stops.count
     }
 
     

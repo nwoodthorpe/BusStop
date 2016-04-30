@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A125BDC1CD4386D008F2B3A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A125BDB1CD4386D008F2B3A /* Functions.swift */; };
 		4A2E6B531CCF39EF00F545AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */; };
 		4A2E6B551CCF39FC00F545AF /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */; };
 		4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A125BDB1CD4386D008F2B3A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				4A2E6B601CCFF93900F545AF /* Route.swift */,
 				4A2E6B661CD2EAB200F545AF /* Location.swift */,
 				4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */,
+				4A125BDB1CD4386D008F2B3A /* Functions.swift */,
 			);
 			path = BusStop;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */,
 				4A2E6B531CCF39EF00F545AF /* HomeViewController.swift in Sources */,
 				4A77BF041CD3FB2F00F073FF /* FinishViewController.swift in Sources */,
+				4A125BDC1CD4386D008F2B3A /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
