@@ -33,13 +33,7 @@ class HomeViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        //var timer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
-        
-        for element in stops {
-            print(element.stopNumber)
-            print(element.routeNumber)
-            print("\n")
-        }
+        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
         updateTime()
     }
     
@@ -60,12 +54,12 @@ class HomeViewController: UITableViewController {
                 if let contents = NSData(contentsOfURL: url) {
                     do {
                         let object = try NSJSONSerialization.JSONObjectWithData(contents, options: .AllowFragments)
-                        print(object)
+                        //print(object)
                         if let dictionary = object as? [String: [AnyObject]] {
                             for element in dictionary["data"]! {
                                 if currentStop.routeNumber == (element["routeId"] as! NSString).integerValue {
                                     stops[index].time = (element["departure"] as! NSNumber).integerValue - (element["time"] as! NSNumber).integerValue
-                                    print("new time \(stops[index].time)")
+                                    //print("new time \(stops[index].time)")
                                 }
                             }
                         } else {
@@ -78,6 +72,7 @@ class HomeViewController: UITableViewController {
                 }
             }
         }
+        tableView.reloadData()
     }
     /*
     func initJSON() {
