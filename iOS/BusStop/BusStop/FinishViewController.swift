@@ -17,6 +17,7 @@ class FinishViewController: UITableViewController {
     }
     
     var stop: Stop?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,29 +42,26 @@ class FinishViewController: UITableViewController {
     }
     
     func save() {
-        //print("running save")
-        stop!.nickname = nameField.text!
-        
-        let defaults = NSUserDefaults.standardUserDefaults()
-        
-        if var array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] {
-            for (index, element) in array.enumerate() {
-                let item = Functions.dictToStop(element)
-                //print("\(item.stopNumber) and \(stop!.stopNumber)\n")
-                //print("\(item.routeNumber) and \(stop!.routeNumber)\n")
-                if item.stopNumber == stop!.stopNumber && item.routeNumber == stop!.stopNumber {
-                    array[index]["nickname"] = stop!.nickname
-                    defaults.setObject(array, forKey: "savedStops")
-                    return
-                }
-            }
-            array.append(Functions.stopToDict(stop!))
-            defaults.setObject(array, forKey: "savedStops")
-            return
+        var newStop: savedStop
+        if nameField.text! == "" {
+            newStop = savedStop(stop: stop!, nickname: "\(stop!.stopNumber) - \(stop!.stopName)")
+        } else {
+            newStop = savedStop(stop: stop!, nickname: nameField.text!)
         }
-        var array = [[String: AnyObject]]()
-        array.append(Functions.stopToDict(stop!))
+
+        var array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        for (index, element) in array.enumerate() {
+            let item = Functions.dictToSavedStop(element)
+            
+            if item.stopNumber == newStop.stopNumber && item.routeNumber == newStop.stopNumber {
+                array[index]["nickname"] = newStop.nickname
+                defaults.setObject(array, forKey: "savedStops")
+                return
+            }
+        }
+        array.append(Functions.stopToDict(newStop))
         defaults.setObject(array, forKey: "savedStops")
+        return
     }
 
     // MARK: - Table view data source
@@ -128,8 +126,6 @@ class FinishViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "ExitSegue" {
             save()
         }

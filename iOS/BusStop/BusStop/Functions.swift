@@ -10,19 +10,44 @@ import UIKit
 
 class Functions {
     
-    static func stopToDict(stop: Stop) -> [String: AnyObject] {
+    static func stopToDict(s: Stop) -> [String: AnyObject] {
         var dict = [String: AnyObject]()
-        dict["stopNumber"] = stop.stopNumber
-        dict["stopName"] = stop.stopName
-        dict["routeNumber"] = stop.routeNumber
-        dict["routeName"] = stop.routeName
-        dict["nickname"] = stop.nickname
+        dict["stopNumber"] = s.stopNumber
+        dict["stopName"] = s.stopName
+        dict["routeNumber"] = s.routeNumber
+        dict["routeName"] = s.routeName
         
         return dict
     }
     
     static func dictToStop(dict: [String: AnyObject]) -> Stop {
-        let stop = Stop(stopNumber: dict["stopNumber"] as! Int, stopName: dict["stopName"] as! String, routeNumber: dict["routeNumber"] as! Int, routeName: dict["routeName"] as! String, time: 99, nickname: dict["nickname"] as! String)
+        let stopNumber = dict["stopNumber"] as! Int
+        let stopName = dict["stopName"] as! String
+        let routeNumber = dict["routeNumber"] as! Int
+        let routeName = dict["routeName"] as! String
+        let stop = Stop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName)
+        
+        return stop
+    }
+    
+    static func savedStopToDict(ss: savedStop) -> [String: AnyObject] {
+        var dict = [String: AnyObject]()
+        dict["stopNumber"] = ss.stopNumber
+        dict["stopName"] = ss.stopName
+        dict["routeNumber"] = ss.routeNumber
+        dict["routeName"] = ss.routeName
+        dict["nickname"] = ss.nickname
+        
+        return dict
+    }
+    
+    static func dictToSavedStop(dict: [String: AnyObject]) -> savedStop {
+        let stopNumber = dict["stopNumber"] as! Int
+        let stopName = dict["stopName"] as! String
+        let routeNumber = dict["routeNumber"] as! Int
+        let routeName = dict["routeName"] as! String
+        let nickname = dict["nickname"] as! String
+        let stop = savedStop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName, time: 0, nickname: nickname)
         
         return stop
     }

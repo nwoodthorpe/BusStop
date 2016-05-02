@@ -11,18 +11,12 @@ import UIKit
 class RouteViewController: UITableViewController {
     
     var routes: [Route] = []
-    var currentRoute: Route? = nil
+    var currentRoute: Route?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initJSON()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     func initJSON() {
@@ -44,7 +38,13 @@ class RouteViewController: UITableViewController {
     func readJSONObject(object: [AnyObject]) {
         for item in object {
             let info = item["RouteDirection"] as! [String: AnyObject]
-            let route = Route(number: (info["PublicIdentifier"] as! NSString).integerValue, name: info["Description"] as! String, text: item["Text"] as! String, direction: info["Direction"] as! String, directionName: info["DirectionName"] as! String, stops: item["Stops"] as! [String])
+            let number = (info["PublicIdentifier"] as! NSString).integerValue
+            let name = info["Description"] as! String
+            let text = item["Text"] as! String
+            let direction = info["Direction"] as! String
+            let directionName = info["DirectionName"] as! String
+            let stops = item["Stops"] as! [String]
+            let route = Route(number: number, name: name, text: text, direction: direction, directionName: directionName, stops: stops)
             routes.append(route)
         }
     }
@@ -123,15 +123,12 @@ class RouteViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         if segue.identifier == "MapSegue" {
             if let vc = segue.destinationViewController as? MapViewController {
                 let stoptext = currentRoute!.Stops
                 for text in stoptext {
                     let num = Int(text.characters.split{$0 == " "}.map(String.init)[0])!
-                    let newstop = Stop(stopNumber: num, stopName: text, routeNumber: currentRoute!.Number, routeName: currentRoute!.Name, time: 0, nickname: "uninitialized")
+                    let newstop = Stop(stopNumber: num, stopName: text, routeNumber: currentRoute!.Number, routeName: currentRoute!.Name)
                     vc.stops.append(newstop)
                 }
             }

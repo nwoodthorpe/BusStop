@@ -10,39 +10,31 @@ import UIKit
 
 class HomeViewController: UITableViewController {
     
-    var stops = [Stop]()
-    var timer: dispatch_source_t!
+    var stops = [savedStop]()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBAction func undwindToHome(segue: UIStoryboardSegue) {
-        stops = [Stop]()
-        let defaults = NSUserDefaults.standardUserDefaults()
+        stops = [savedStop]()
         let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
         for item in array {
-            stops.append(Functions.dictToStop(item))
+            stops.append(Functions.dictToSavedStop(item))
         }
         tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initStops()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(HomeViewController.updateTime), userInfo: nil, repeats: true)
         updateTime()
     }
     
     func initStops() {
-        stops = [Stop]()
-        let defaults = NSUserDefaults.standardUserDefaults()
+        stops = [savedStop]()
         let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
         for item in array {
-            stops.append(Functions.dictToStop(item))
+            stops.append(Functions.dictToSavedStop(item))
         }
         tableView.reloadData()
     }
@@ -74,39 +66,6 @@ class HomeViewController: UITableViewController {
         }
         tableView.reloadData()
     }
-    /*
-    func initJSON() {
-        let url = NSBundle.mainBundle().URLForResource("stops", withExtension: "json")
-        let data = NSData(contentsOfURL: url!)
-        
-        do {
-            let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-            if let dictionary = object as? [AnyObject] {
-                readJSONObject(dictionary)
-            } else {
-                print("initJSON failed to parse JSON")
-            }
-        } catch {
-            print("Handle error")
-        }
-    }
-    */
-    
-    /*
-    func startTimer() {
-        let queue = dispatch_queue_create("com.domain.app.timer", nil)
-        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
-        dispatch_source_set_event_handler(timer) {
-            // do whatever you want here
-        }
-        dispatch_resume(timer)
-    }
-    
-    func stopTimer() {
-        dispatch_source_cancel(timer)
-        timer = nil
-    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -129,8 +88,8 @@ class HomeViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SavedCell", forIndexPath: indexPath) as! SavedCell
         
-        let stop = stops[indexPath.row]
-        cell.initValues(number: stop.routeNumber, name: stop.nickname, time: stop.time)
+        let currentStop = stops[indexPath.row]
+        cell.initValues(number: currentStop.routeNumber, name: currentStop.nickname, time: currentStop.time)
 
         return cell
     }
@@ -146,32 +105,35 @@ class HomeViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            stops.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+        } /*else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }*/ 
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+        let itemToMove = stops[fromIndexPath.row]
+        stops.removeAtIndex(fromIndexPath.row)
+        stops.insert(itemToMove, atIndex: toIndexPath.row)
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
 
     /*
     // MARK: - Navigation
