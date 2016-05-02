@@ -32,7 +32,7 @@ class SavedCell: UITableViewCell {
     func initValues(number number: Int, name: String, time: Int) {
         RouteNumber.text = String(number)
         RouteName.text = name
-        Time.text = "\(time) minutes"
+        Time.text = "\(time / 60) minutes"
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
