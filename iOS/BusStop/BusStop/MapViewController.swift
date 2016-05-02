@@ -19,7 +19,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         initAnnotations()
         addAnnotations()
         mapView.showAnnotations(annotations, animated: true)
@@ -27,7 +26,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func initJSON() -> [AnyObject] {
@@ -52,7 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let data = initJSON()
         for stop in stops {
             let stopNumber = stop.stopNumber
-            if let stopInfo = findStop(stopNumber, data: data) {
+            if let stopInfo = findStop(Int(stopNumber)!, data: data) {
                 let coordinate = CLLocationCoordinate2D(latitude: stopInfo["lat"]!.doubleValue, longitude: stopInfo["long"]!.doubleValue)
                 let lc = Location(title: stop.stopName, coordinate: coordinate, info: "", number: stop.stopNumber, stop:stop)
                 annotations.append(lc)

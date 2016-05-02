@@ -24,10 +24,18 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initLayout()
         initStops()
 
         NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(HomeViewController.updateTime), userInfo: nil, repeats: true)
         updateTime()
+    }
+    
+    func initLayout() {
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 33.0/255.0, green: 150.0/255.0, blue: 243.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    
     }
     
     func initStops() {
@@ -40,31 +48,49 @@ class HomeViewController: UITableViewController {
     }
     
     func updateTime() {
-        print("timer working")
-        for (index,currentStop) in stops.enumerate() {
-            if let url = NSURL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)") {
-                if let contents = NSData(contentsOfURL: url) {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)) { [unowned self] in
+            for (index,currentStop) in self.stops.enumerate() {
+                if let url = NSURL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)"), contents = NSData(contentsOfURL: url) {
+
                     do {
                         let object = try NSJSONSerialization.JSONObjectWithData(contents, options: .AllowFragments)
-                        //print(object)
                         if let dictionary = object as? [String: [AnyObject]] {
                             for element in dictionary["data"]! {
-                                if currentStop.routeNumber == (element["routeId"] as! NSString).integerValue {
-                                    stops[index].time = (element["departure"] as! NSNumber).integerValue - (element["time"] as! NSNumber).integerValue
-                                    //print("new time \(stops[index].time)")
+                                if currentStop.routeNumber == element["routeId"] as? NSString {
+                                    self.stops[index].time = (element["departure"] as! NSNumber).integerValue - (element["time"] as! NSNumber).integerValue
                                 }
                             }
-                        } else {
+                        }
+                        else {
                             print("JSON failed to parse: Stop \(currentStop.nickname)")
                         }
-                    } catch {
+                    }
+                    catch {
                         print("handle error")
                     }
-
                 }
             }
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.tableView.reloadData()
+            }
         }
-        tableView.reloadData()
+    }
+    
+    func setSwitch(routeName: String, stop: String, on: Bool) {
+        for (index, currentStop) in stops.enumerate() {
+            if currentStop.routeName == routeName && currentStop.stopNumber == stop {
+                stops[index].on = on
+                return
+            }
+        }
+    }
+    
+    func save() {
+        var array = [[String: AnyObject]]()
+        for currentStop in stops {
+            array.append(Functions.savedStopToDict(currentStop))
+        }
+        defaults.setObject(array, forKey: "savedStops")
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,8 +115,8 @@ class HomeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("SavedCell", forIndexPath: indexPath) as! SavedCell
         
         let currentStop = stops[indexPath.row]
-        cell.initValues(number: currentStop.routeNumber, name: currentStop.nickname, time: currentStop.time)
-
+        cell.initValues(currentStop.routeNumber, nickname: currentStop.nickname, routeName: currentStop.routeName, stopNumber: currentStop.stopNumber, time: currentStop.time, on: currentStop.on)
+        cell.parent = self
         return cell
     }
     
@@ -112,6 +138,8 @@ class HomeViewController: UITableViewController {
             // Delete the row from the data source
             stops.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            save()
         } /*else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }*/ 
@@ -124,6 +152,8 @@ class HomeViewController: UITableViewController {
         let itemToMove = stops[fromIndexPath.row]
         stops.removeAtIndex(fromIndexPath.row)
         stops.insert(itemToMove, atIndex: toIndexPath.row)
+        
+        save()
     }
     
 

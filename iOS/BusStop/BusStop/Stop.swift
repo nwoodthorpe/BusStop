@@ -8,12 +8,12 @@
 
 class Stop {
     
-    var stopNumber: Int
+    var stopNumber: String
     var stopName: String
-    var routeNumber: Int
+    var routeNumber: String
     var routeName: String
     
-    init(stopNumber: Int, stopName : String, routeNumber: Int, routeName: String) {
+    init(stopNumber: String, stopName : String, routeNumber: String, routeName: String) {
         self.stopNumber = stopNumber
         self.stopName = stopName
         self.routeNumber = routeNumber

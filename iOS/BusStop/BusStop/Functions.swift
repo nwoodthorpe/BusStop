@@ -21,9 +21,9 @@ class Functions {
     }
     
     static func dictToStop(dict: [String: AnyObject]) -> Stop {
-        let stopNumber = dict["stopNumber"] as! Int
+        let stopNumber = dict["stopNumber"] as! String
         let stopName = dict["stopName"] as! String
-        let routeNumber = dict["routeNumber"] as! Int
+        let routeNumber = dict["routeNumber"] as! String
         let routeName = dict["routeName"] as! String
         let stop = Stop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName)
         
@@ -37,17 +37,19 @@ class Functions {
         dict["routeNumber"] = ss.routeNumber
         dict["routeName"] = ss.routeName
         dict["nickname"] = ss.nickname
+        dict["on"] = ss.on
         
         return dict
     }
     
     static func dictToSavedStop(dict: [String: AnyObject]) -> savedStop {
-        let stopNumber = dict["stopNumber"] as! Int
+        let stopNumber = dict["stopNumber"] as! String
         let stopName = dict["stopName"] as! String
-        let routeNumber = dict["routeNumber"] as! Int
+        let routeNumber = dict["routeNumber"] as! String
         let routeName = dict["routeName"] as! String
         let nickname = dict["nickname"] as! String
-        let stop = savedStop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName, time: 0, nickname: nickname)
+        let on = dict["on"] as! Bool
+        let stop = savedStop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName, time: 0, nickname: nickname, on: on)
         
         return stop
     }

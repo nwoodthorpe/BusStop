@@ -44,7 +44,7 @@ class FinishViewController: UITableViewController {
     func save() {
         var newStop: savedStop
         if nameField.text! == "" {
-            newStop = savedStop(stop: stop!, nickname: "\(stop!.stopNumber) - \(stop!.stopName)")
+            newStop = savedStop(stop: stop!, nickname:stop!.stopName)
         } else {
             newStop = savedStop(stop: stop!, nickname: nameField.text!)
         }
@@ -53,13 +53,14 @@ class FinishViewController: UITableViewController {
         for (index, element) in array.enumerate() {
             let item = Functions.dictToSavedStop(element)
             
-            if item.stopNumber == newStop.stopNumber && item.routeNumber == newStop.stopNumber {
+            if item.stopNumber == newStop.stopNumber && item.routeNumber == newStop.routeNumber {
                 array[index]["nickname"] = newStop.nickname
+                array[index]["on"] = true
                 defaults.setObject(array, forKey: "savedStops")
                 return
             }
         }
-        array.append(Functions.stopToDict(newStop))
+        array.append(Functions.savedStopToDict(newStop))
         defaults.setObject(array, forKey: "savedStops")
         return
     }

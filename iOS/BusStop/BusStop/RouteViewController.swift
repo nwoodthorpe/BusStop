@@ -38,12 +38,15 @@ class RouteViewController: UITableViewController {
     func readJSONObject(object: [AnyObject]) {
         for item in object {
             let info = item["RouteDirection"] as! [String: AnyObject]
-            let number = (info["PublicIdentifier"] as! NSString).integerValue
+            var number = info["PublicIdentifier"] as! String
             let name = info["Description"] as! String
             let text = item["Text"] as! String
             let direction = info["Direction"] as! String
             let directionName = info["DirectionName"] as! String
             let stops = item["Stops"] as! [String]
+            if number == "7" {
+                number = text.characters.split{$0 == " "}.map(String.init)[0]
+            }
             let route = Route(number: number, name: name, text: text, direction: direction, directionName: directionName, stops: stops)
             routes.append(route)
         }
@@ -127,7 +130,7 @@ class RouteViewController: UITableViewController {
             if let vc = segue.destinationViewController as? MapViewController {
                 let stoptext = currentRoute!.Stops
                 for text in stoptext {
-                    let num = Int(text.characters.split{$0 == " "}.map(String.init)[0])!
+                    let num = text.characters.split{$0 == " "}.map(String.init)[0]
                     let newstop = Stop(stopNumber: num, stopName: text, routeNumber: currentRoute!.Number, routeName: currentRoute!.Name)
                     vc.stops.append(newstop)
                 }
