@@ -17,6 +17,7 @@ class RouteViewController: UITableViewController {
         super.viewDidLoad()
         
         initJSON()
+        title = "Routes"
     }
     
     func initJSON() {

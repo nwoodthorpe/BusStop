@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Active Routes-->
+        <!--Home-->
         <scene sceneID="1Wj-ue-Br0">
             <objects>
                 <tableViewController id="VcU-kc-0Fm" customClass="HomeViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="VcU-kc-0Fm" id="S1P-At-9lj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Active Routes" id="WqW-DH-JVT">
+                    <navigationItem key="navigationItem" title="Home" id="WqW-DH-JVT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cZc-zO-YPJ">
                             <connections>
                                 <segue destination="ONj-P4-61H" kind="show" id="5Bn-bb-vom"/>

@@ -22,6 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         initAnnotations()
         addAnnotations()
         mapView.showAnnotations(annotations, animated: true)
+        title = "Stops"
     }
 
     override func didReceiveMemoryWarning() {
