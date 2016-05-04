@@ -20,7 +20,7 @@ class savedStop: Stop {
     }
     
     init(stop: Stop, nickname: String) {
-        self.time = 0
+        self.time = -1
         self.nickname = nickname
         self.on = true
         super.init(stopNumber: stop.stopNumber, stopName: stop.stopName, routeNumber: stop.routeNumber, routeName: stop.routeName)

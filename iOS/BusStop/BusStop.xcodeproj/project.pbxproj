@@ -21,7 +21,6 @@
 		4A2E6B671CD2EAB200F545AF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B661CD2EAB200F545AF /* Location.swift */; };
 		4A2E6B691CD3084B00F545AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2E6B681CD3084B00F545AF /* MapKit.framework */; };
 		4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C221CCB05820096A8A7 /* AppDelegate.swift */; };
-		4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C241CCB05820096A8A7 /* ViewController.swift */; };
 		4A425C281CCB05820096A8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C261CCB05820096A8A7 /* Main.storyboard */; };
 		4A425C2A1CCB05830096A8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C291CCB05830096A8A7 /* Assets.xcassets */; };
 		4A425C2D1CCB05830096A8A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C2B1CCB05830096A8A7 /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 		4A2E6B681CD3084B00F545AF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4A425C1F1CCB05820096A8A7 /* BusStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A425C221CCB05820096A8A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A425C241CCB05820096A8A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A425C271CCB05820096A8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A425C291CCB05830096A8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A425C2C1CCB05830096A8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				4A2E6B641CD1643400F545AF /* latlong.json */,
 				4A2E6B621CD1632E00F545AF /* stops.json */,
 				4A425C221CCB05820096A8A7 /* AppDelegate.swift */,
-				4A425C241CCB05820096A8A7 /* ViewController.swift */,
 				4A425C261CCB05820096A8A7 /* Main.storyboard */,
 				4A425C291CCB05830096A8A7 /* Assets.xcassets */,
 				4A425C2B1CCB05830096A8A7 /* LaunchScreen.storyboard */,
@@ -139,7 +136,7 @@
 				TargetAttributes = {
 					4A425C1E1CCB05820096A8A7 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 7PS6VF94Y3;
+						DevelopmentTeam = QG27LDFVQ2;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -188,7 +185,6 @@
 			files = (
 				4A2E6B671CD2EAB200F545AF /* Location.swift in Sources */,
 				4A125BDE1CD7001A008F2B3A /* savedStop.swift in Sources */,
-				4A425C251CCB05820096A8A7 /* ViewController.swift in Sources */,
 				4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */,
 				4A2E6B611CCFF93900F545AF /* Route.swift in Sources */,
 				4A2E6B5B1CCF45EE00F545AF /* SavedCell.swift in Sources */,
@@ -311,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BusStop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -323,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BusStop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

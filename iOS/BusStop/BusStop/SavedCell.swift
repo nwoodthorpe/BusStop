@@ -15,8 +15,15 @@ class SavedCell: UITableViewCell {
     @IBOutlet weak var Time: UILabel!
     @IBOutlet weak var Switch: UISwitch!
     @IBAction func SwitchChanged(sender: AnyObject) {
+        if !self.Switch.on {
+            self.Time.text = "Off"
+        }
         parent.setSwitch(routeName!, stop: stopNumber!, on: Switch.on)
         parent.save()
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) { [unowned self] in
+            self.parent.tableView.reloadData()
+        }
     }
     @IBOutlet weak var parent: HomeViewController!
     
@@ -38,8 +45,16 @@ class SavedCell: UITableViewCell {
         selectionStyle = UITableViewCellSelectionStyle.None
         RouteNumber.text = String(number)
         Nickname.text = nickname
-        Time.text = "\(time / 60) minutes"
-        Switch.setOn(on, animated: true)
+        Switch.setOn(on, animated: false)
+        if !Switch.on {
+            Time.text = "Off"
+        }
+        else if time < 0 {
+            Time.text = "Loading time"
+        }
+        else {
+            Time.text = "\(time / 60) minutes"
+        }
         self.routeName = routeName
         self.stopNumber = stopNumber
     }

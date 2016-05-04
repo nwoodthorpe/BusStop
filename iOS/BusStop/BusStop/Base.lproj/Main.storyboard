@@ -25,12 +25,13 @@
                                             <rect key="frame" x="543" y="24" width="51" height="31"/>
                                             <connections>
                                                 <action selector="SwitchChanged:" destination="g2b-C3-CVf" eventType="valueChanged" id="mDh-Pf-sJB"/>
+                                                <action selector="SwitchFinished:" destination="g2b-C3-CVf" eventType="editingDidEnd" id="TvC-rH-f5P"/>
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEO-1g-BjX">
-                                            <rect key="frame" x="107" y="47" width="428" height="17"/>
+                                            <rect key="frame" x="76" y="47" width="459" height="17"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="428" id="J20-jd-sTM"/>
+                                                <constraint firstAttribute="width" constant="459" id="J20-jd-sTM"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +44,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP4-2d-Wbr">
-                                            <rect key="frame" x="107" y="19" width="428" height="20"/>
+                                            <rect key="frame" x="76" y="19" width="459" height="20"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -51,10 +52,10 @@
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="5AR-ac-QYb" secondAttribute="trailing" id="1wA-kz-9ql"/>
                                         <constraint firstItem="fP4-2d-Wbr" firstAttribute="top" secondItem="Z4q-Le-9B8" secondAttribute="topMargin" constant="11" id="3sb-R3-MUO"/>
-                                        <constraint firstItem="IEO-1g-BjX" firstAttribute="leading" secondItem="Z4q-Le-9B8" secondAttribute="leadingMargin" constant="99" id="Eii-UO-WdO"/>
+                                        <constraint firstItem="IEO-1g-BjX" firstAttribute="leading" secondItem="Z4q-Le-9B8" secondAttribute="leadingMargin" constant="68" id="Eii-UO-WdO"/>
                                         <constraint firstItem="5AR-ac-QYb" firstAttribute="centerY" secondItem="Z4q-Le-9B8" secondAttribute="centerY" id="FYR-Q2-jOO"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="IEO-1g-BjX" secondAttribute="bottom" constant="7" id="hbO-EW-Wls"/>
-                                        <constraint firstItem="fP4-2d-Wbr" firstAttribute="leading" secondItem="Z4q-Le-9B8" secondAttribute="leadingMargin" constant="99" id="mWm-pP-Azn"/>
+                                        <constraint firstItem="fP4-2d-Wbr" firstAttribute="leading" secondItem="Z4q-Le-9B8" secondAttribute="leadingMargin" constant="68" id="mWm-pP-Azn"/>
                                         <constraint firstItem="5AR-ac-QYb" firstAttribute="leading" secondItem="fP4-2d-Wbr" secondAttribute="trailing" constant="8" id="oNg-mq-NqF"/>
                                         <constraint firstItem="IEO-1g-BjX" firstAttribute="top" secondItem="fP4-2d-Wbr" secondAttribute="bottom" constant="8" id="zZN-CM-zhq"/>
                                     </constraints>

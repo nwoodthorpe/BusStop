@@ -38,6 +38,7 @@ class Functions {
         dict["routeName"] = ss.routeName
         dict["nickname"] = ss.nickname
         dict["on"] = ss.on
+        dict["absolutetime"] = CFAbsoluteTimeGetCurrent() + Double(ss.time)
         
         return dict
     }
@@ -49,7 +50,8 @@ class Functions {
         let routeName = dict["routeName"] as! String
         let nickname = dict["nickname"] as! String
         let on = dict["on"] as! Bool
-        let stop = savedStop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName, time: 0, nickname: nickname, on: on)
+        let time = Int(dict["absolutetime"] as! Double - CFAbsoluteTimeGetCurrent())
+        let stop = savedStop(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName, time: time, nickname: nickname, on: on)
         
         return stop
     }

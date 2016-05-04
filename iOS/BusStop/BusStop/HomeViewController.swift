@@ -19,6 +19,7 @@ class HomeViewController: UITableViewController {
         for item in array {
             stops.append(Functions.dictToSavedStop(item))
         }
+        tableView.reloadData()
         updateTime()
     }
 
@@ -29,13 +30,13 @@ class HomeViewController: UITableViewController {
 
         NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(HomeViewController.updateTime), userInfo: nil, repeats: true)
         updateTime()
-        initGestures()
+        //initGestures()
     }
-    
+    /*
     func initGestures() {
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
-    }
+    }*/
     
     func initLayout() {
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -55,6 +56,9 @@ class HomeViewController: UITableViewController {
     func updateTime() {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
             for (index,currentStop) in self.stops.enumerate() {
+                if !currentStop.on {
+                    continue
+                }
                 if let url = NSURL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)"), contents = NSData(contentsOfURL: url) {
 
                     do {
@@ -77,9 +81,9 @@ class HomeViewController: UITableViewController {
             }
             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                 self.tableView.reloadData()
+                self.save()
             }
             
-            self.save()
         }
     }
     
@@ -91,7 +95,7 @@ class HomeViewController: UITableViewController {
             }
         }
     }
-    
+    /*
     func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
         let longPress = gestureRecognizer as! UILongPressGestureRecognizer
         let state = longPress.state
@@ -193,7 +197,7 @@ class HomeViewController: UITableViewController {
         cellSnapshot.layer.shadowRadius = 5.0
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
-    }
+    }*/
     
     func save() {
         var array = [[String: AnyObject]]()
@@ -268,12 +272,12 @@ class HomeViewController: UITableViewController {
     }*/
     
 
-    
+    /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
+    }*/
     
 
     /*
