@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		4A125BDC1CD4386D008F2B3A /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A125BDB1CD4386D008F2B3A /* Functions.swift */; };
 		4A125BDE1CD7001A008F2B3A /* savedStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A125BDD1CD7001A008F2B3A /* savedStop.swift */; };
+		4A1956681CDEF78500373DD5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1956671CDEF78500373DD5 /* TodayViewController.swift */; };
+		4A19566A1CDEF8B800373DD5 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1956691CDEF8B800373DD5 /* TodayCell.swift */; };
+		4A19568D1CE015C000373DD5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2E6B681CD3084B00F545AF /* MapKit.framework */; };
+		4A1956C91CE02A5F00373DD5 /* BusKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A1956C81CE02A5F00373DD5 /* BusKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1956CD1CE02A5F00373DD5 /* BusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; };
+		4A1956CE1CE02A5F00373DD5 /* BusKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4A1956D31CE02A8500373DD5 /* BusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; };
 		4A2E6B531CCF39EF00F545AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */; };
 		4A2E6B551CCF39FC00F545AF /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */; };
 		4A2E6B571CCF3A0C00F545AF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */; };
@@ -19,17 +26,66 @@
 		4A2E6B631CD1632E00F545AF /* stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E6B621CD1632E00F545AF /* stops.json */; };
 		4A2E6B651CD1643400F545AF /* latlong.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2E6B641CD1643400F545AF /* latlong.json */; };
 		4A2E6B671CD2EAB200F545AF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B661CD2EAB200F545AF /* Location.swift */; };
-		4A2E6B691CD3084B00F545AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2E6B681CD3084B00F545AF /* MapKit.framework */; };
 		4A425C231CCB05820096A8A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A425C221CCB05820096A8A7 /* AppDelegate.swift */; };
 		4A425C281CCB05820096A8A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C261CCB05820096A8A7 /* Main.storyboard */; };
 		4A425C2A1CCB05830096A8A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C291CCB05830096A8A7 /* Assets.xcassets */; };
 		4A425C2D1CCB05830096A8A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A425C2B1CCB05830096A8A7 /* LaunchScreen.storyboard */; };
+		4A50B9371CDBCEE000D83979 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A50B9361CDBCEE000D83979 /* NotificationCenter.framework */; };
+		4A50B93D1CDBCEE000D83979 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A50B93B1CDBCEE000D83979 /* MainInterface.storyboard */; };
+		4A50B9411CDBCEE000D83979 /* BusStop Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4A50B9341CDBCEE000D83979 /* BusStop Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A77BF041CD3FB2F00F073FF /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A1956CB1CE02A5F00373DD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A425C171CCB05820096A8A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A1956C51CE02A5F00373DD5;
+			remoteInfo = BusKit;
+		};
+		4A50B93F1CDBCEE000D83979 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A425C171CCB05820096A8A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A50B9331CDBCEE000D83979;
+			remoteInfo = "BusStop Widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4A1956D21CE02A5F00373DD5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4A1956CE1CE02A5F00373DD5 /* BusKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A50B9451CDBCEE000D83979 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4A50B9411CDBCEE000D83979 /* BusStop Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4A125BDB1CD4386D008F2B3A /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		4A125BDD1CD7001A008F2B3A /* savedStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savedStop.swift; sourceTree = "<group>"; };
+		4A1956671CDEF78500373DD5 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		4A1956691CDEF8B800373DD5 /* TodayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
+		4A1956C61CE02A5F00373DD5 /* BusKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BusKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1956C81CE02A5F00373DD5 /* BusKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusKit.h; sourceTree = "<group>"; };
+		4A1956CA1CE02A5F00373DD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A2E6B521CCF39EF00F545AF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A2E6B541CCF39FC00F545AF /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		4A2E6B561CCF3A0C00F545AF /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -47,26 +103,59 @@
 		4A425C291CCB05830096A8A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A425C2C1CCB05830096A8A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A425C2E1CCB05830096A8A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A50B9341CDBCEE000D83979 /* BusStop Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BusStop Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A50B9361CDBCEE000D83979 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		4A50B93C1CDBCEE000D83979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4A50B93E1CDBCEE000D83979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A1956C21CE02A5F00373DD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A425C1C1CCB05820096A8A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A2E6B691CD3084B00F545AF /* MapKit.framework in Frameworks */,
+				4A1956CD1CE02A5F00373DD5 /* BusKit.framework in Frameworks */,
+				4A19568D1CE015C000373DD5 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A50B9311CDBCEE000D83979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1956D31CE02A8500373DD5 /* BusKit.framework in Frameworks */,
+				4A50B9371CDBCEE000D83979 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1956C71CE02A5F00373DD5 /* BusKit */ = {
+			isa = PBXGroup;
+			children = (
+				4A1956C81CE02A5F00373DD5 /* BusKit.h */,
+				4A1956CA1CE02A5F00373DD5 /* Info.plist */,
+			);
+			path = BusKit;
+			sourceTree = "<group>";
+		};
 		4A425C161CCB05820096A8A7 = {
 			isa = PBXGroup;
 			children = (
 				4A2E6B681CD3084B00F545AF /* MapKit.framework */,
 				4A425C211CCB05820096A8A7 /* BusStop */,
+				4A50B9381CDBCEE000D83979 /* BusStop Widget */,
+				4A1956C71CE02A5F00373DD5 /* BusKit */,
+				4A50B9351CDBCEE000D83979 /* Frameworks */,
 				4A425C201CCB05820096A8A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				4A425C1F1CCB05820096A8A7 /* BusStop.app */,
+				4A50B9341CDBCEE000D83979 /* BusStop Widget.appex */,
+				4A1956C61CE02A5F00373DD5 /* BusKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,9 +195,57 @@
 			path = BusStop;
 			sourceTree = "<group>";
 		};
+		4A50B9351CDBCEE000D83979 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A50B9361CDBCEE000D83979 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A50B9381CDBCEE000D83979 /* BusStop Widget */ = {
+			isa = PBXGroup;
+			children = (
+				4A50B93B1CDBCEE000D83979 /* MainInterface.storyboard */,
+				4A50B93E1CDBCEE000D83979 /* Info.plist */,
+				4A1956671CDEF78500373DD5 /* TodayViewController.swift */,
+				4A1956691CDEF8B800373DD5 /* TodayCell.swift */,
+			);
+			path = "BusStop Widget";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4A1956C31CE02A5F00373DD5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1956C91CE02A5F00373DD5 /* BusKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4A1956C51CE02A5F00373DD5 /* BusKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A1956CF1CE02A5F00373DD5 /* Build configuration list for PBXNativeTarget "BusKit" */;
+			buildPhases = (
+				4A1956C11CE02A5F00373DD5 /* Sources */,
+				4A1956C21CE02A5F00373DD5 /* Frameworks */,
+				4A1956C31CE02A5F00373DD5 /* Headers */,
+				4A1956C41CE02A5F00373DD5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BusKit;
+			productName = BusKit;
+			productReference = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		4A425C1E1CCB05820096A8A7 /* BusStop */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A425C311CCB05830096A8A7 /* Build configuration list for PBXNativeTarget "BusStop" */;
@@ -114,15 +253,36 @@
 				4A425C1B1CCB05820096A8A7 /* Sources */,
 				4A425C1C1CCB05820096A8A7 /* Frameworks */,
 				4A425C1D1CCB05820096A8A7 /* Resources */,
+				4A50B9451CDBCEE000D83979 /* Embed App Extensions */,
+				4A1956D21CE02A5F00373DD5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4A50B9401CDBCEE000D83979 /* PBXTargetDependency */,
+				4A1956CC1CE02A5F00373DD5 /* PBXTargetDependency */,
 			);
 			name = BusStop;
 			productName = BusStop;
 			productReference = 4A425C1F1CCB05820096A8A7 /* BusStop.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4A50B9331CDBCEE000D83979 /* BusStop Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A50B9441CDBCEE000D83979 /* Build configuration list for PBXNativeTarget "BusStop Widget" */;
+			buildPhases = (
+				4A50B9301CDBCEE000D83979 /* Sources */,
+				4A50B9311CDBCEE000D83979 /* Frameworks */,
+				4A50B9321CDBCEE000D83979 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BusStop Widget";
+			productName = "BusStop Widget";
+			productReference = 4A50B9341CDBCEE000D83979 /* BusStop Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -134,6 +294,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = HarryLiu;
 				TargetAttributes = {
+					4A1956C51CE02A5F00373DD5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = QG27LDFVQ2;
+					};
 					4A425C1E1CCB05820096A8A7 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QG27LDFVQ2;
@@ -142,6 +306,10 @@
 								enabled = 1;
 							};
 						};
+					};
+					4A50B9331CDBCEE000D83979 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = QG27LDFVQ2;
 					};
 				};
 			};
@@ -159,11 +327,20 @@
 			projectRoot = "";
 			targets = (
 				4A425C1E1CCB05820096A8A7 /* BusStop */,
+				4A50B9331CDBCEE000D83979 /* BusStop Widget */,
+				4A1956C51CE02A5F00373DD5 /* BusKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A1956C41CE02A5F00373DD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A425C1D1CCB05820096A8A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,9 +353,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4A50B9321CDBCEE000D83979 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A50B93D1CDBCEE000D83979 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A1956C11CE02A5F00373DD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A425C1B1CCB05820096A8A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,7 +390,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4A50B9301CDBCEE000D83979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1956681CDEF78500373DD5 /* TodayViewController.swift in Sources */,
+				4A19566A1CDEF8B800373DD5 /* TodayCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A1956CC1CE02A5F00373DD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A1956C51CE02A5F00373DD5 /* BusKit */;
+			targetProxy = 4A1956CB1CE02A5F00373DD5 /* PBXContainerItemProxy */;
+		};
+		4A50B9401CDBCEE000D83979 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A50B9331CDBCEE000D83979 /* BusStop Widget */;
+			targetProxy = 4A50B93F1CDBCEE000D83979 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4A425C261CCB05820096A8A7 /* Main.storyboard */ = {
@@ -217,9 +431,61 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		4A50B93B1CDBCEE000D83979 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A50B93C1CDBCEE000D83979 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A1956D01CE02A5F00373DD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BusKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.harryliu.BusKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A1956D11CE02A5F00373DD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BusKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.harryliu.BusKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		4A425C2F1CCB05830096A8A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -243,6 +509,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/BusKit/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -288,6 +555,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/BusKit/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -308,6 +576,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BusStop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -321,6 +594,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BusStop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -329,9 +607,52 @@
 			};
 			name = Release;
 		};
+		4A50B9421CDBCEE000D83979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "BusStop Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.harryliu.BusStop.BusStop-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A50B9431CDBCEE000D83979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "BusStop Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.harryliu.BusStop.BusStop-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A1956CF1CE02A5F00373DD5 /* Build configuration list for PBXNativeTarget "BusKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A1956D01CE02A5F00373DD5 /* Debug */,
+				4A1956D11CE02A5F00373DD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4A425C1A1CCB05820096A8A7 /* Build configuration list for PBXProject "BusStop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -346,6 +667,15 @@
 			buildConfigurations = (
 				4A425C321CCB05830096A8A7 /* Debug */,
 				4A425C331CCB05830096A8A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A50B9441CDBCEE000D83979 /* Build configuration list for PBXNativeTarget "BusStop Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A50B9421CDBCEE000D83979 /* Debug */,
+				4A50B9431CDBCEE000D83979 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

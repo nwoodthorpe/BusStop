@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Bus.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>BusKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>BusStop Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>BusStop.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,7 +27,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4A1956A11CE01C2800373DD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A1956AA1CE01C2800373DD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A1956C51CE02A5F00373DD5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4A425C1E1CCB05820096A8A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A50B9331CDBCEE000D83979</key>
 		<dict>
 			<key>primary</key>
 			<true/>

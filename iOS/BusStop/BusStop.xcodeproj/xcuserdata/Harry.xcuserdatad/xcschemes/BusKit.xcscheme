@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A425C1E1CCB05820096A8A7"
-               BuildableName = "BusStop.app"
-               BlueprintName = "BusStop"
+               BlueprintIdentifier = "4A1956C51CE02A5F00373DD5"
+               BuildableName = "BusKit.framework"
+               BlueprintName = "BusKit"
                ReferencedContainer = "container:BusStop.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4A1956AA1CE01C2800373DD5"
-               BuildableName = "BusTests.xctest"
-               BlueprintName = "BusTests"
-               ReferencedContainer = "container:BusStop.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A425C1E1CCB05820096A8A7"
-            BuildableName = "BusStop.app"
-            BlueprintName = "BusStop"
-            ReferencedContainer = "container:BusStop.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -61,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A425C1E1CCB05820096A8A7"
-            BuildableName = "BusStop.app"
-            BlueprintName = "BusStop"
+            BlueprintIdentifier = "4A1956C51CE02A5F00373DD5"
+            BuildableName = "BusKit.framework"
+            BlueprintName = "BusKit"
             ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4A425C1E1CCB05820096A8A7"
-            BuildableName = "BusStop.app"
-            BlueprintName = "BusStop"
+            BlueprintIdentifier = "4A1956C51CE02A5F00373DD5"
+            BuildableName = "BusKit.framework"
+            BlueprintName = "BusKit"
             ReferencedContainer = "container:BusStop.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
