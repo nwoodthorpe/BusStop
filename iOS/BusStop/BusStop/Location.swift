@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import BusKit
 
 class Location: NSObject, MKAnnotation {
 

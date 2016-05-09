@@ -6,16 +6,16 @@
 //  Copyright © 2016 HarryLiu. All rights reserved.
 //
 
-struct Route {
+public class Route {
     
-    var Number: String
-    var Name: String
-    var Text: String
-    var Direction: String
-    var DirectionName: String
-    var Stops: [String]
+    public var Number: String
+    public var Name: String
+    public var Text: String
+    public var Direction: String
+    public var DirectionName: String
+    public var Stops: [String]
     
-    init(number: String, name: String, text: String, direction: String, directionName: String, stops: [String]) {
+    public init(number: String, name: String, text: String, direction: String, directionName: String, stops: [String]) {
         Number = number
         Name = name
         Text = text

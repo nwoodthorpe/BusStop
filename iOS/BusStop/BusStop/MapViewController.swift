@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import BusKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     

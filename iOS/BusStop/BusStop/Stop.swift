@@ -6,14 +6,14 @@
 //  Copyright © 2016 HarryLiu. All rights reserved.
 //
 
-class Stop {
+public class Stop {
     
-    var stopNumber: String
-    var stopName: String
-    var routeNumber: String
-    var routeName: String
+    public var stopNumber: String
+    public var stopName: String
+    public var routeNumber: String
+    public var routeName: String
     
-    init(stopNumber: String, stopName : String, routeNumber: String, routeName: String) {
+    public init(stopNumber: String, stopName : String, routeNumber: String, routeName: String) {
         self.stopNumber = stopNumber
         self.stopName = stopName
         self.routeNumber = routeNumber

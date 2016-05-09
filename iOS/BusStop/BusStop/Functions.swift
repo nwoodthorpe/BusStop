@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Functions {
+public class Functions {
     
-    static func stopToDict(s: Stop) -> [String: AnyObject] {
+    public static func stopToDict(s: Stop) -> [String: AnyObject] {
         var dict = [String: AnyObject]()
         dict["stopNumber"] = s.stopNumber
         dict["stopName"] = s.stopName
@@ -20,7 +20,7 @@ class Functions {
         return dict
     }
     
-    static func dictToStop(dict: [String: AnyObject]) -> Stop {
+    public static func dictToStop(dict: [String: AnyObject]) -> Stop {
         let stopNumber = dict["stopNumber"] as! String
         let stopName = dict["stopName"] as! String
         let routeNumber = dict["routeNumber"] as! String
@@ -30,7 +30,7 @@ class Functions {
         return stop
     }
     
-    static func savedStopToDict(ss: savedStop) -> [String: AnyObject] {
+    public static func savedStopToDict(ss: savedStop) -> [String: AnyObject] {
         var dict = [String: AnyObject]()
         dict["stopNumber"] = ss.stopNumber
         dict["stopName"] = ss.stopName
@@ -43,7 +43,7 @@ class Functions {
         return dict
     }
     
-    static func dictToSavedStop(dict: [String: AnyObject]) -> savedStop {
+    public static func dictToSavedStop(dict: [String: AnyObject]) -> savedStop {
         let stopNumber = dict["stopNumber"] as! String
         let stopName = dict["stopName"] as! String
         let routeNumber = dict["routeNumber"] as! String

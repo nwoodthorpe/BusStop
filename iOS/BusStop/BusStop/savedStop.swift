@@ -6,20 +6,20 @@
 //  Copyright © 2016 HarryLiu. All rights reserved.
 //
 
-class savedStop: Stop {
+public class savedStop: Stop {
     
-    var time: Int
-    var nickname: String
-    var on: Bool
+    public var time: Int
+    public var nickname: String
+    public var on: Bool
     
-    init(stopNumber: String, stopName : String, routeNumber: String, routeName: String, time: Int, nickname: String, on: Bool) {
+    public init(stopNumber: String, stopName : String, routeNumber: String, routeName: String, time: Int, nickname: String, on: Bool) {
         self.time = time
         self.nickname = nickname
         self.on = on
         super.init(stopNumber: stopNumber, stopName: stopName, routeNumber: routeNumber, routeName: routeName)
     }
     
-    init(stop: Stop, nickname: String) {
+    public init(stop: Stop, nickname: String) {
         self.time = -1
         self.nickname = nickname
         self.on = true
