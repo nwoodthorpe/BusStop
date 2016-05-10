@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Today View Controller-->
@@ -17,34 +19,46 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodayCell" id="jTz-xT-YuG" customClass="TodayCell" customModule="BusStop_Widget" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jTz-xT-YuG" id="ChV-RB-dc0">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jTz-xT-YuG" id="ChV-RB-dc0">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-DV-35J">
-                                            <rect key="frame" x="8" y="0.0" width="43" height="31"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-DV-35J">
+                                            <rect key="frame" x="28" y="1" width="37" height="37"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="BQI-DV-35J" secondAttribute="height" multiplier="1:1" id="a0A-op-fIk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7V-fb-0Hs">
-                                            <rect key="frame" x="67" y="8" width="48" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vql-Qn-4i1">
+                                            <rect key="frame" x="73" y="10" width="125" height="20"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8h-aR-hyc">
-                                            <rect key="frame" x="123" y="9" width="189" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnd-Vp-Ais">
+                                            <rect key="frame" x="230" y="11" width="62" height="17"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Vql-Qn-4i1" firstAttribute="centerY" secondItem="ChV-RB-dc0" secondAttribute="centerY" id="00r-YZ-Gcv"/>
+                                        <constraint firstItem="BQI-DV-35J" firstAttribute="leading" secondItem="ChV-RB-dc0" secondAttribute="leadingMargin" constant="20" id="PfX-5T-CKy"/>
+                                        <constraint firstItem="xnd-Vp-Ais" firstAttribute="centerY" secondItem="ChV-RB-dc0" secondAttribute="centerY" id="Uha-eP-bKt"/>
+                                        <constraint firstItem="BQI-DV-35J" firstAttribute="top" secondItem="ChV-RB-dc0" secondAttribute="topMargin" constant="-7" id="UpL-8G-mPb"/>
+                                        <constraint firstItem="xnd-Vp-Ais" firstAttribute="trailing" secondItem="ChV-RB-dc0" secondAttribute="trailingMargin" constant="-20" id="eFi-Mk-kJD"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BQI-DV-35J" secondAttribute="bottom" constant="-7" id="nST-Md-XAK"/>
+                                        <constraint firstItem="Vql-Qn-4i1" firstAttribute="leading" secondItem="BQI-DV-35J" secondAttribute="trailing" constant="8" id="tTK-04-rQC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Nickname" destination="A7V-fb-0Hs" id="pwi-L8-vZU"/>
+                                    <outlet property="Nickname" destination="Vql-Qn-4i1" id="cSz-cK-XHq"/>
                                     <outlet property="RouteNumber" destination="BQI-DV-35J" id="pR4-Cq-UTB"/>
-                                    <outlet property="Time" destination="r8h-aR-hyc" id="Edt-QP-K9l"/>
+                                    <outlet property="Time" destination="xnd-Vp-Ais" id="6Ix-2e-Hen"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -55,4 +55,40 @@ public class Functions {
         
         return stop
     }
+    
+    public static func createSavable(stops: [savedStop]) -> [[String: AnyObject]] {
+        var array = [[String: AnyObject]]()
+        for currentStop in stops {
+            array.append(Functions.savedStopToDict(currentStop))
+        }
+        return array
+    }
+    
+    public static func update(stops: [savedStop]) -> [savedStop] {
+        for (index,currentStop) in stops.enumerate() {
+            if !currentStop.on {
+                continue
+            }
+            if let url = NSURL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)"), contents = NSData(contentsOfURL: url) {
+                
+                do {
+                    let object = try NSJSONSerialization.JSONObjectWithData(contents, options: .AllowFragments)
+                    if let dictionary = object as? [String: [AnyObject]] {
+                        for element in dictionary["data"]! {
+                            if currentStop.routeNumber == element["routeId"] as? NSString {
+                                stops[index].time = (element["departure"] as! NSNumber).integerValue - (element["time"] as! NSNumber).integerValue
+                            }
+                        }
+                    }
+                    else {
+                        print("JSON failed to parse: Stop \(currentStop.nickname)")
+                    }
+                }
+                catch {
+                    print("handle error")
+                }
+            }
+        }
+        return stops
+    }
 }

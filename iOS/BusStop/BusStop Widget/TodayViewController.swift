@@ -8,18 +8,29 @@
 
 import UIKit
 import NotificationCenter
+import BusKit
 
 class TodayViewController: UITableViewController, NCWidgetProviding {
+    
+    let defaults = NSUserDefaults(suiteName: "group.me.harryliu.BusStop")!
+    var stops = [savedStop]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        initStops()
+        tableView.allowsSelection = false
         updatePreferredContentSize()
+        tableView.reloadData()
+        print("will update")
+        update()
+    }
+    
+    func initStops() {
+        stops = [savedStop]()
+        let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        for item in array {
+            stops.append(Functions.dictToSavedStop(item))
+        }
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
@@ -40,12 +51,12 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     func updatePreferredContentSize() {
         preferredContentSize = CGSizeMake(CGFloat(0), CGFloat(tableView(tableView, numberOfRowsInSection: 0)) * CGFloat(tableView.rowHeight) + tableView.sectionFooterHeight)
     }
-    
+    /*
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animateAlongsideTransition({ context in
             self.tableView.frame = CGRectMake(0, 0, size.width, size.height)
             }, completion: nil)
-    }
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,20 +72,35 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return stops.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TodayCell", forIndexPath: indexPath) as! TodayCell
-        
-        cell.Nickname.text = "Test"
-        cell.Time.text = "99 minutes"
-        cell.RouteNumber.text = "7A"
+        let stop = stops[indexPath.row]
+        cell.Nickname.text = stop.nickname
+        if stop.time < 0 {
+            cell.Time.text = "Loading time"
+        }
+        else {
+            cell.Time.text = "\(stop.time / 60) minutes"
+        }
+        cell.RouteNumber.text = stop.routeNumber
         // Configure the cell...
         
 
         return cell
+    }
+    
+    func update() {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
+            self.stops = Functions.update(self.stops)
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.tableView.reloadData()
+                print("did update")
+            }
+        }
     }
     
 

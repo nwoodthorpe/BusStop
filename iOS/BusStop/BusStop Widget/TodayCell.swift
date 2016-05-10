@@ -17,12 +17,19 @@ class TodayCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        initCircle()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func initCircle() {
+        RouteNumber.layer.borderColor = UIColor.whiteColor().CGColor
+        RouteNumber.layer.borderWidth = 2
+        RouteNumber.layer.cornerRadius = RouteNumber.frame.width / 2
     }
 
 }

@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A1956681CDEF78500373DD5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1956671CDEF78500373DD5 /* TodayViewController.swift */; };
 		4A19566A1CDEF8B800373DD5 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1956691CDEF8B800373DD5 /* TodayCell.swift */; };
 		4A19568D1CE015C000373DD5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2E6B681CD3084B00F545AF /* MapKit.framework */; };
 		4A1956C91CE02A5F00373DD5 /* BusKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A1956C81CE02A5F00373DD5 /* BusKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A1956CD1CE02A5F00373DD5 /* BusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; };
 		4A1956CE1CE02A5F00373DD5 /* BusKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4A1956D31CE02A8500373DD5 /* BusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; };
+		4A1956D31CE02A8500373DD5 /* BusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1956C61CE02A5F00373DD5 /* BusKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		4A1956D41CE032FF00373DD5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A125BDB1CD4386D008F2B3A /* Functions.swift */; };
 		4A1956D51CE0344100373DD5 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2E6B5C1CCF4F3E00F545AF /* Stop.swift */; };
 		4A1956D61CE0346400373DD5 /* savedStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A125BDD1CD7001A008F2B3A /* savedStop.swift */; };
@@ -34,6 +33,7 @@
 		4A50B93D1CDBCEE000D83979 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A50B93B1CDBCEE000D83979 /* MainInterface.storyboard */; };
 		4A50B9411CDBCEE000D83979 /* BusStop Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4A50B9341CDBCEE000D83979 /* BusStop Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A77BF041CD3FB2F00F073FF /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */; };
+		4AF828871CE1787A00DA48C4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1956671CDEF78500373DD5 /* TodayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +108,8 @@
 		4A50B93C1CDBCEE000D83979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4A50B93E1CDBCEE000D83979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A77BF031CD3FB2F00F073FF /* FinishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		4AF828841CE1690500DA48C4 /* BusStop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BusStop.entitlements; sourceTree = "<group>"; };
+		4AF828851CE169F700DA48C4 /* BusStop Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "BusStop Widget.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		4A425C211CCB05820096A8A7 /* BusStop */ = {
 			isa = PBXGroup;
 			children = (
+				4AF828841CE1690500DA48C4 /* BusStop.entitlements */,
 				4A2E6B641CD1643400F545AF /* latlong.json */,
 				4A2E6B621CD1632E00F545AF /* stops.json */,
 				4A425C221CCB05820096A8A7 /* AppDelegate.swift */,
@@ -206,6 +209,7 @@
 		4A50B9381CDBCEE000D83979 /* BusStop Widget */ = {
 			isa = PBXGroup;
 			children = (
+				4AF828851CE169F700DA48C4 /* BusStop Widget.entitlements */,
 				4A50B93B1CDBCEE000D83979 /* MainInterface.storyboard */,
 				4A50B93E1CDBCEE000D83979 /* Info.plist */,
 				4A1956671CDEF78500373DD5 /* TodayViewController.swift */,
@@ -302,6 +306,9 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QG27LDFVQ2;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -310,6 +317,11 @@
 					4A50B9331CDBCEE000D83979 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QG27LDFVQ2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -394,7 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1956681CDEF78500373DD5 /* TodayViewController.swift in Sources */,
+				4AF828871CE1787A00DA48C4 /* TodayViewController.swift in Sources */,
 				4A19566A1CDEF8B800373DD5 /* TodayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +521,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/BusKit/**";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -555,7 +567,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/BusKit/**";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -575,11 +587,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BusStop/BusStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = BusStop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -593,11 +606,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BusStop/BusStop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = BusStop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -611,6 +625,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "BusStop Widget/BusStop Widget.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "BusStop Widget/BusStop Widget.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

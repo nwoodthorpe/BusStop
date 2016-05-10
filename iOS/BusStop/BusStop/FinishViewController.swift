@@ -18,7 +18,7 @@ class FinishViewController: UITableViewController {
     }
     
     var stop: Stop?
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults(suiteName: "group.me.harryliu.BusStop")!
     
     override func viewDidLoad() {
         super.viewDidLoad()

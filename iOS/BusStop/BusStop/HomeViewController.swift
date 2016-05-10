@@ -12,7 +12,7 @@ import BusKit
 class HomeViewController: UITableViewController {
     
     var stops = [savedStop]()
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = NSUserDefaults(suiteName: "group.me.harryliu.BusStop")!
     
     @IBAction func undwindToHome(segue: UIStoryboardSegue) {
         stops = [savedStop]()
@@ -56,6 +56,7 @@ class HomeViewController: UITableViewController {
     
     func updateTime() {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
+            /*
             for (index,currentStop) in self.stops.enumerate() {
                 if !currentStop.on {
                     continue
@@ -79,7 +80,8 @@ class HomeViewController: UITableViewController {
                         print("handle error")
                     }
                 }
-            }
+            }*/
+            self.stops = Functions.update(self.stops)
             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                 self.tableView.reloadData()
                 self.save()
@@ -201,11 +203,7 @@ class HomeViewController: UITableViewController {
     }*/
     
     func save() {
-        var array = [[String: AnyObject]]()
-        for currentStop in stops {
-            array.append(Functions.savedStopToDict(currentStop))
-        }
-        defaults.setObject(array, forKey: "savedStops")
+        defaults.setObject(Functions.createSavable(stops), forKey: "savedStops")
     }
 
     override func didReceiveMemoryWarning() {
