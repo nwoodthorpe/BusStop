@@ -24,35 +24,39 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-DV-35J">
-                                            <rect key="frame" x="28" y="1" width="37" height="37"/>
+                                            <rect key="frame" x="24" y="4" width="31" height="31"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="BQI-DV-35J" secondAttribute="height" multiplier="1:1" id="a0A-op-fIk"/>
+                                                <constraint firstAttribute="width" secondItem="BQI-DV-35J" secondAttribute="height" multiplier="1:1" id="Hcc-LU-Lb1"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vql-Qn-4i1">
-                                            <rect key="frame" x="73" y="10" width="125" height="20"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 minutes" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnd-Vp-Ais">
+                                            <rect key="frame" x="222" y="11" width="74" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="74" id="cPi-rW-bmm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnd-Vp-Ais">
-                                            <rect key="frame" x="230" y="11" width="62" height="17"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vql-Qn-4i1">
+                                            <rect key="frame" x="67" y="11" width="147" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Vql-Qn-4i1" firstAttribute="centerY" secondItem="ChV-RB-dc0" secondAttribute="centerY" id="00r-YZ-Gcv"/>
-                                        <constraint firstItem="BQI-DV-35J" firstAttribute="leading" secondItem="ChV-RB-dc0" secondAttribute="leadingMargin" constant="20" id="PfX-5T-CKy"/>
-                                        <constraint firstItem="xnd-Vp-Ais" firstAttribute="centerY" secondItem="ChV-RB-dc0" secondAttribute="centerY" id="Uha-eP-bKt"/>
-                                        <constraint firstItem="BQI-DV-35J" firstAttribute="top" secondItem="ChV-RB-dc0" secondAttribute="topMargin" constant="-7" id="UpL-8G-mPb"/>
-                                        <constraint firstItem="xnd-Vp-Ais" firstAttribute="trailing" secondItem="ChV-RB-dc0" secondAttribute="trailingMargin" constant="-20" id="eFi-Mk-kJD"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="BQI-DV-35J" secondAttribute="bottom" constant="-7" id="nST-Md-XAK"/>
-                                        <constraint firstItem="Vql-Qn-4i1" firstAttribute="leading" secondItem="BQI-DV-35J" secondAttribute="trailing" constant="8" id="tTK-04-rQC"/>
+                                        <constraint firstItem="BQI-DV-35J" firstAttribute="leading" secondItem="ChV-RB-dc0" secondAttribute="leadingMargin" constant="16" id="4e7-nT-lLQ"/>
+                                        <constraint firstItem="Vql-Qn-4i1" firstAttribute="centerY" secondItem="ChV-RB-dc0" secondAttribute="centerY" id="4vF-O8-OVG"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xnd-Vp-Ais" secondAttribute="trailing" constant="16" id="A2U-uw-JlM"/>
+                                        <constraint firstItem="BQI-DV-35J" firstAttribute="top" secondItem="ChV-RB-dc0" secondAttribute="topMargin" constant="-4" id="NqY-lZ-unH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BQI-DV-35J" secondAttribute="bottom" constant="-4" id="Z6I-Rl-Rbg"/>
+                                        <constraint firstItem="Vql-Qn-4i1" firstAttribute="leading" secondItem="BQI-DV-35J" secondAttribute="trailing" constant="12" id="rek-Z6-GoW"/>
+                                        <constraint firstItem="xnd-Vp-Ais" firstAttribute="leading" secondItem="Vql-Qn-4i1" secondAttribute="trailing" constant="8" id="sKY-oI-aNS"/>
+                                        <constraint firstItem="xnd-Vp-Ais" firstAttribute="centerY" secondItem="ChV-RB-dc0" secondAttribute="centerY" id="wKQ-Sp-o8S"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

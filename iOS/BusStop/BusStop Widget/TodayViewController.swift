@@ -16,12 +16,12 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     var stops = [savedStop]()
 
     override func viewDidLoad() {
+        print("view did load")
         super.viewDidLoad()
         initStops()
         tableView.allowsSelection = false
         updatePreferredContentSize()
         tableView.reloadData()
-        print("will update")
         update()
     }
     
@@ -29,7 +29,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         stops = [savedStop]()
         let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
         for item in array {
-            stops.append(Functions.dictToSavedStop(item))
+            if (item["on"] as! Bool) {
+                stops.append(Functions.dictToSavedStop(item))
+            }
         }
     }
     
@@ -81,7 +83,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         let stop = stops[indexPath.row]
         cell.Nickname.text = stop.nickname
         if stop.time < 0 {
-            cell.Time.text = "Loading time"
+            cell.Time.text = "Loading"
         }
         else {
             cell.Time.text = "\(stop.time / 60) minutes"
@@ -98,46 +100,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
             self.stops = Functions.update(self.stops)
             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                 self.tableView.reloadData()
-                print("did update")
             }
         }
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

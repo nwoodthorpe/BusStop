@@ -56,31 +56,6 @@ class HomeViewController: UITableViewController {
     
     func updateTime() {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
-            /*
-            for (index,currentStop) in self.stops.enumerate() {
-                if !currentStop.on {
-                    continue
-                }
-                if let url = NSURL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)"), contents = NSData(contentsOfURL: url) {
-
-                    do {
-                        let object = try NSJSONSerialization.JSONObjectWithData(contents, options: .AllowFragments)
-                        if let dictionary = object as? [String: [AnyObject]] {
-                            for element in dictionary["data"]! {
-                                if currentStop.routeNumber == element["routeId"] as? NSString {
-                                    self.stops[index].time = (element["departure"] as! NSNumber).integerValue - (element["time"] as! NSNumber).integerValue
-                                }
-                            }
-                        }
-                        else {
-                            print("JSON failed to parse: Stop \(currentStop.nickname)")
-                        }
-                    }
-                    catch {
-                        print("handle error")
-                    }
-                }
-            }*/
             self.stops = Functions.update(self.stops)
             dispatch_async(dispatch_get_main_queue()) { [unowned self] in
                 self.tableView.reloadData()
@@ -233,18 +208,6 @@ class HomeViewController: UITableViewController {
         return cell
     }
     
-    
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -258,8 +221,6 @@ class HomeViewController: UITableViewController {
         }*/ 
     }
     
-
-    
     // Override to support rearranging the table view.
     /*
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
@@ -269,15 +230,6 @@ class HomeViewController: UITableViewController {
         
         save()
     }*/
-    
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }*/
-    
 
     /*
     // MARK: - Navigation
