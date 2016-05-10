@@ -88,8 +88,6 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
             cell.Time.text = "\(stop.time / 60) minutes"
         }
         cell.RouteNumber.text = stop.routeNumber
-        // Configure the cell...
-        
 
         return cell
     }
