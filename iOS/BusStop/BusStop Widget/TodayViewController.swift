@@ -16,7 +16,6 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     var stops = [savedStop]()
 
     override func viewDidLoad() {
-        print("view did load")
         super.viewDidLoad()
         initStops()
         tableView.allowsSelection = false
