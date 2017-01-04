@@ -31,11 +31,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func initJSON() -> [AnyObject] {
-        let url = NSBundle.mainBundle().URLForResource("latlong", withExtension: "json")
-        let data = NSData(contentsOfURL: url!)
+        let url = Bundle.main.url(forResource: "latlong", withExtension: "json")
+        let data = try? Data(contentsOf: url!)
         
         do {
-            let object = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+            let object = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
             if let dictionary = object as? [AnyObject] {
                 return dictionary
             } else {
@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotations(annotations)
     }
     
-    func findStop(number: Int, data: [AnyObject]) -> [String: AnyObject]? {
+    func findStop(_ number: Int, data: [AnyObject]) -> [String: AnyObject]? {
         var high = data.count-1
         var low = 0
         while high >= low {
@@ -83,16 +83,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return nil
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "Location"
 
-        if annotation.isKindOfClass(Location.self) {
-            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        if annotation.isKind(of: Location.self) {
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             
             if annotationView == nil {
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView!.canShowCallout = true
-                let btn = UIButton(type: .ContactAdd)
+                let btn = UIButton(type: .contactAdd)
                 annotationView!.rightCalloutAccessoryView = btn
             } else {
                 annotationView!.annotation = annotation
@@ -102,9 +102,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         return nil
     }
     
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         selectedStop = (view.annotation as! Location).stop
-        performSegueWithIdentifier("FinishSegue", sender: self)
+        performSegue(withIdentifier: "FinishSegue", sender: self)
     }
     
     /*
@@ -124,9 +124,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if selectedStop != nil {
-            let vc = segue.destinationViewController as! FinishViewController
+            let vc = segue.destination as! FinishViewController
             vc.stop = selectedStop
         }
         else {

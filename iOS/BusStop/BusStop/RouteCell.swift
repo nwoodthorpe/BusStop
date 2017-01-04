@@ -24,7 +24,7 @@ class RouteCell: UITableViewCell {
         RouteNumber.layer.cornerRadius = RouteNumber.frame.width / 2
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

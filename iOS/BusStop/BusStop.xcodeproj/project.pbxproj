@@ -301,10 +301,12 @@
 					4A1956C51CE02A5F00373DD5 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QG27LDFVQ2;
+						LastSwiftMigration = 0820;
 					};
 					4A425C1E1CCB05820096A8A7 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QG27LDFVQ2;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -317,6 +319,7 @@
 					4A50B9331CDBCEE000D83979 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = QG27LDFVQ2;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -470,6 +473,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.harryliu.BusKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -492,6 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.harryliu.BusKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -599,6 +604,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.harryliu.BusStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -618,6 +624,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.harryliu.BusStop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -637,6 +644,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -655,6 +663,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.harryliu.BusStop.BusStop-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

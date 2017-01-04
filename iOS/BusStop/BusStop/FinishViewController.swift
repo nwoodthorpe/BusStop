@@ -14,11 +14,11 @@ class FinishViewController: UITableViewController {
     @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var stopLabel: UILabel!
     @IBOutlet weak var nameField: UITextField!
-    @IBAction func doneButton(sender: AnyObject) {
+    @IBAction func doneButton(_ sender: AnyObject) {
     }
     
     var stop: Stop?
-    let defaults = NSUserDefaults(suiteName: "group.me.harryliu.BusStop")!
+    let defaults = UserDefaults(suiteName: "group.me.harryliu.BusStop")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class FinishViewController: UITableViewController {
     }
     
     func initLabels() {
-        routeLabel.text = "\(stop!.routeNumber) - \(stop!.routeName)"
+        routeLabel.text = "\(stop.routeNumber) - \(stop.routeName)"
         stopLabel.text = stop!.stopName
     }
     
@@ -52,19 +52,19 @@ class FinishViewController: UITableViewController {
             newStop = savedStop(stop: stop!, nickname: nameField.text!)
         }
 
-        var array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
-        for (index, element) in array.enumerate() {
+        var array = defaults.object(forKey: "savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        for (index, element) in array.enumerated() {
             let item = Functions.dictToSavedStop(element)
             
             if item.stopNumber == newStop.stopNumber && item.routeNumber == newStop.routeNumber {
-                array[index]["nickname"] = newStop.nickname
-                array[index]["on"] = true
-                defaults.setObject(array, forKey: "savedStops")
+                array[index]["nickname"] = newStop.nickname as AnyObject?
+                array[index]["on"] = true as AnyObject?
+                defaults.set(array, forKey: "savedStops")
                 return
             }
         }
         array.append(Functions.savedStopToDict(newStop))
-        defaults.setObject(array, forKey: "savedStops")
+        defaults.set(array, forKey: "savedStops")
         return
     }
 
@@ -129,7 +129,7 @@ class FinishViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ExitSegue" {
             save()
         }

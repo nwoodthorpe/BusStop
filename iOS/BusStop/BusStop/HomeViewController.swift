@@ -12,11 +12,11 @@ import BusKit
 class HomeViewController: UITableViewController {
     
     var stops = [savedStop]()
-    let defaults = NSUserDefaults(suiteName: "group.me.harryliu.BusStop")!
+    let defaults = UserDefaults(suiteName: "group.me.harryliu.BusStop")!
     
-    @IBAction func undwindToHome(segue: UIStoryboardSegue) {
+    @IBAction func undwindToHome(_ segue: UIStoryboardSegue) {
         stops = [savedStop]()
-        let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        let array = defaults.object(forKey: "savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
         for item in array {
             stops.append(Functions.dictToSavedStop(item))
         }
@@ -29,7 +29,7 @@ class HomeViewController: UITableViewController {
         initLayout()
         initStops()
 
-        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(HomeViewController.updateTime), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(HomeViewController.updateTime), userInfo: nil, repeats: true)
         updateTime()
         //initGestures()
     }
@@ -40,14 +40,14 @@ class HomeViewController: UITableViewController {
     }*/
     
     func initLayout() {
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor(red: 33.0/255.0, green: 150.0/255.0, blue: 243.0/255.0, alpha: 1.0)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     func initStops() {
         stops = [savedStop]()
-        let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        let array = defaults.object(forKey: "savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
         for item in array {
             stops.append(Functions.dictToSavedStop(item))
         }
@@ -55,9 +55,9 @@ class HomeViewController: UITableViewController {
     }
     
     func updateTime() {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async { [unowned self] in
             self.stops = Functions.update(self.stops)
-            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+            DispatchQueue.main.async { [unowned self] in
                 self.tableView.reloadData()
                 self.save()
             }
@@ -65,8 +65,8 @@ class HomeViewController: UITableViewController {
         }
     }
     
-    func setSwitch(routeName: String, stop: String, on: Bool) {
-        for (index, currentStop) in stops.enumerate() {
+    func setSwitch(_ routeName: String, stop: String, on: Bool) {
+        for (index, currentStop) in stops.enumerated() {
             if currentStop.routeName == routeName && currentStop.stopNumber == stop {
                 stops[index].on = on
                 return
@@ -178,7 +178,7 @@ class HomeViewController: UITableViewController {
     }*/
     
     func save() {
-        defaults.setObject(Functions.createSavable(stops), forKey: "savedStops")
+        defaults.set(Functions.createSavable(stops), forKey: "savedStops")
     }
 
     override func didReceiveMemoryWarning() {
@@ -188,19 +188,19 @@ class HomeViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return stops.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SavedCell", forIndexPath: indexPath) as! SavedCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath) as! SavedCell
         
         let currentStop = stops[indexPath.row]
         cell.initValues(currentStop.routeNumber, nickname: currentStop.nickname, routeName: currentStop.routeName, stopNumber: currentStop.stopNumber, time: currentStop.time, on: currentStop.on)
@@ -209,11 +209,11 @@ class HomeViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
-            stops.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            stops.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             
             save()
         } /*else if editingStyle == .Insert {

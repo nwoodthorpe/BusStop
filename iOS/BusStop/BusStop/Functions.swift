@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class Functions {
+open class Functions {
     
-    public static func stopToDict(s: Stop) -> [String: AnyObject] {
+    open static func stopToDict(_ s: Stop) -> [String: AnyObject] {
         var dict = [String: AnyObject]()
-        dict["stopNumber"] = s.stopNumber
-        dict["stopName"] = s.stopName
-        dict["routeNumber"] = s.routeNumber
-        dict["routeName"] = s.routeName
+        dict["stopNumber"] = s.stopNumber as AnyObject?
+        dict["stopName"] = s.stopName as AnyObject?
+        dict["routeNumber"] = s.routeNumber as AnyObject?
+        dict["routeName"] = s.routeName as AnyObject?
         
         return dict
     }
     
-    public static func dictToStop(dict: [String: AnyObject]) -> Stop {
+    open static func dictToStop(_ dict: [String: AnyObject]) -> Stop {
         let stopNumber = dict["stopNumber"] as! String
         let stopName = dict["stopName"] as! String
         let routeNumber = dict["routeNumber"] as! String
@@ -30,20 +30,20 @@ public class Functions {
         return stop
     }
     
-    public static func savedStopToDict(ss: savedStop) -> [String: AnyObject] {
+    open static func savedStopToDict(_ ss: savedStop) -> [String: AnyObject] {
         var dict = [String: AnyObject]()
-        dict["stopNumber"] = ss.stopNumber
-        dict["stopName"] = ss.stopName
-        dict["routeNumber"] = ss.routeNumber
-        dict["routeName"] = ss.routeName
-        dict["nickname"] = ss.nickname
-        dict["on"] = ss.on
-        dict["absolutetime"] = CFAbsoluteTimeGetCurrent() + Double(ss.time)
+        dict["stopNumber"] = ss.stopNumber as AnyObject?
+        dict["stopName"] = ss.stopName as AnyObject?
+        dict["routeNumber"] = ss.routeNumber as AnyObject?
+        dict["routeName"] = ss.routeName as AnyObject?
+        dict["nickname"] = ss.nickname as AnyObject?
+        dict["on"] = ss.on as AnyObject?
+        dict["absolutetime"] = CFAbsoluteTimeGetCurrent() + Double(ss.time) as AnyObject?
         
         return dict
     }
     
-    public static func dictToSavedStop(dict: [String: AnyObject]) -> savedStop {
+    open static func dictToSavedStop(_ dict: [String: AnyObject]) -> savedStop {
         let stopNumber = dict["stopNumber"] as! String
         let stopName = dict["stopName"] as! String
         let routeNumber = dict["routeNumber"] as! String
@@ -56,7 +56,7 @@ public class Functions {
         return stop
     }
     
-    public static func createSavable(stops: [savedStop]) -> [[String: AnyObject]] {
+    open static func createSavable(_ stops: [savedStop]) -> [[String: AnyObject]] {
         var array = [[String: AnyObject]]()
         for currentStop in stops {
             array.append(Functions.savedStopToDict(currentStop))
@@ -64,19 +64,19 @@ public class Functions {
         return array
     }
     
-    public static func update(stops: [savedStop]) -> [savedStop] {
-        for (index,currentStop) in stops.enumerate() {
+    open static func update(_ stops: [savedStop]) -> [savedStop] {
+        for (index,currentStop) in stops.enumerated() {
             if !currentStop.on {
                 continue
             }
-            if let url = NSURL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)"), contents = NSData(contentsOfURL: url) {
+            if let url = URL(string: "http://nwoodthorpe.com/grt/V2/livetime.php?stop=\(currentStop.stopNumber)"), let contents = try? Data(contentsOf: url) {
                 
                 do {
-                    let object = try NSJSONSerialization.JSONObjectWithData(contents, options: .AllowFragments)
+                    let object = try JSONSerialization.jsonObject(with: contents, options: .allowFragments)
                     if let dictionary = object as? [String: [AnyObject]] {
                         for element in dictionary["data"]! {
-                            if currentStop.routeNumber == element["routeId"] as? NSString {
-                                stops[index].time = (element["departure"] as! NSNumber).integerValue - (element["time"] as! NSNumber).integerValue
+                            if currentStop.routeNumber == element["routeId"] as? String {
+                                stops[index].time = (element["departure"] as! NSNumber).intValue - (element["time"] as! NSNumber).intValue
                             }
                         }
                     }

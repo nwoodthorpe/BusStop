@@ -14,14 +14,14 @@ class SavedCell: UITableViewCell {
     @IBOutlet weak var Nickname: UILabel!
     @IBOutlet weak var Time: UILabel!
     @IBOutlet weak var Switch: UISwitch!
-    @IBAction func SwitchChanged(sender: AnyObject) {
-        if !self.Switch.on {
+    @IBAction func SwitchChanged(_ sender: AnyObject) {
+        if !self.Switch.isOn {
             self.Time.text = "Off"
         }
-        parent.setSwitch(routeName!, stop: stopNumber!, on: Switch.on)
+        parent.setSwitch(routeName!, stop: stopNumber!, on: Switch.isOn)
         parent.save()
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) { [unowned self] in
+        let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) { [unowned self] in
             self.parent.tableView.reloadData()
         }
     }
@@ -41,12 +41,12 @@ class SavedCell: UITableViewCell {
         RouteNumber.layer.cornerRadius = RouteNumber.frame.width / 2
     }
     
-    func initValues(number: String, nickname: String, routeName: String, stopNumber: String, time: Int, on: Bool) {
-        selectionStyle = UITableViewCellSelectionStyle.None
+    func initValues(_ number: String, nickname: String, routeName: String, stopNumber: String, time: Int, on: Bool) {
+        selectionStyle = UITableViewCellSelectionStyle.none
         RouteNumber.text = String(number)
         Nickname.text = nickname
         Switch.setOn(on, animated: false)
-        if !Switch.on {
+        if !Switch.isOn {
             Time.text = "Off"
         }
         else if time < 0 {
@@ -59,7 +59,7 @@ class SavedCell: UITableViewCell {
         self.stopNumber = stopNumber
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

@@ -6,14 +6,14 @@
 //  Copyright © 2016 HarryLiu. All rights reserved.
 //
 
-public class Route {
+open class Route {
     
-    public var Number: String
-    public var Name: String
-    public var Text: String
-    public var Direction: String
-    public var DirectionName: String
-    public var Stops: [String]
+    open var Number: String
+    open var Name: String
+    open var Text: String
+    open var Direction: String
+    open var DirectionName: String
+    open var Stops: [String]
     
     public init(number: String, name: String, text: String, direction: String, directionName: String, stops: [String]) {
         Number = number

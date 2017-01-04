@@ -12,7 +12,7 @@ import BusKit
 
 class TodayViewController: UITableViewController, NCWidgetProviding {
     
-    let defaults = NSUserDefaults(suiteName: "group.me.harryliu.BusStop")!
+    let defaults = UserDefaults(suiteName: "group.me.harryliu.BusStop")!
     var stops = [savedStop]()
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     func initStops() {
         stops = [savedStop]()
-        let array = defaults.objectForKey("savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
+        let array = defaults.object(forKey: "savedStops") as? [[String: AnyObject]] ?? [[String: AnyObject]]()
         for item in array {
             if (item["on"] as! Bool) {
                 stops.append(Functions.dictToSavedStop(item))
@@ -34,23 +34,23 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         }
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
         
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
     
-    func widgetMarginInsetsForProposedMarginInsets
-        (defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
-        return UIEdgeInsetsZero
+    func widgetMarginInsets
+        (forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
+        return UIEdgeInsets.zero
     }
     
     func updatePreferredContentSize() {
-        preferredContentSize = CGSizeMake(CGFloat(0), CGFloat(tableView(tableView, numberOfRowsInSection: 0)) * CGFloat(tableView.rowHeight) + tableView.sectionFooterHeight)
+        preferredContentSize = CGSize(width: CGFloat(0), height: CGFloat(tableView(tableView, numberOfRowsInSection: 0)) * CGFloat(tableView.rowHeight) + tableView.sectionFooterHeight)
     }
     /*
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -66,19 +66,19 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return stops.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TodayCell", forIndexPath: indexPath) as! TodayCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodayCell", for: indexPath) as! TodayCell
         let stop = stops[indexPath.row]
         cell.Nickname.text = stop.nickname
         if stop.time < 0 {
@@ -93,9 +93,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     }
     
     func update() {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async { [unowned self] in
             self.stops = Functions.update(self.stops)
-            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+            DispatchQueue.main.async { [unowned self] in
                 self.tableView.reloadData()
             }
         }
