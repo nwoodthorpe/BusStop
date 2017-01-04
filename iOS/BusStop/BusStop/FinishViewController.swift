@@ -40,8 +40,9 @@ class FinishViewController: UITableViewController {
     }
     
     func initLabels() {
+        guard let stop = stop else { return }
         routeLabel.text = "\(stop.routeNumber) - \(stop.routeName)"
-        stopLabel.text = stop!.stopName
+        stopLabel.text = stop.stopName
     }
     
     func save() {
